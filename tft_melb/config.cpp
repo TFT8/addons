@@ -74,7 +74,11 @@ class CfgVehicles {
 
     class MELB_base : Helicopter_Base_H {
         ace_fastroping_enabled = 1;
-        ace_fastroping_ropeOrigins[] = {{1.17, 0.06, 0.98}, {-1.17, 0.06, 0.98}};
+        ace_fastroping_ropeOrigins[] = {{1.17, 0.8, -0.1}, {-1.17, 0.8, -0.1}};
+        LockDetectionSystem = 15;
+		incomingMissileDetectionSystem = 16;
+        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 0.1, 10};
+		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 0.1, 10};
         class Turrets : Turrets {
 			class CopilotTurret : CopilotTurret {
                 class OpticsIn {

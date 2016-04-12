@@ -22,7 +22,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.6;
-		requiredAddons[] = {"ace_medical"};
+		requiredAddons[] = {"ace_medical", "ace_tagging"};
 		version = 2.0.0;
 		versionStr = 2.0.0;
 		versionAr[] = {2, 0, 0};
@@ -39,6 +39,8 @@ class CfgFunctions {
             class fixLegs;
             class canGetIn;
             class getIn;
+            class canRetag;
+            class retag;
 		};
 	};
 };
@@ -58,8 +60,20 @@ class CfgVehicles {
                         showDisabled = 0;
                         priority = 2;
                         hotkey = "";
-                        icon = "\tft_ace\bone.paa";
+                        icon = "\tft_ace\UI\icons\bone.paa";
                     };
+                };
+            };
+        };
+        class ACE_SelfActions {
+            class ACE_Equipment {
+                class ACE_tagWallArtistic {
+                    displayName = "Go artistic";
+                    condition = "[ACE_player] call tft_ace_fnc_canRetag";
+                    statement = "[ACE_player, 5] call tft_ace_fnc_retag";
+                    showDisabled = 0;
+                    priority = 3;
+                    icon = "\tft_ace\UI\icons\retag.paa";
                 };
             };
         };
