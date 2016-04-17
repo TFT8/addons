@@ -3,7 +3,7 @@
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.6;
-		requiredAddons[] = {"ace_aircraft"}; //ACE is changing locking system for some choppers
+		requiredAddons[] = {"A3_Air_F", "A3_Air_F_Beta", "A3_Air_F_Beta", "ace_aircraft"}; //ACE is changing locking system for some choppers
 		version = 2.0.0;
 		versionStr = 2.0.0;
 		versionAr[] = {2, 0, 0};
@@ -27,70 +27,70 @@ class CfgVehicles {
 	class Heli_Light_01_base_F : Helicopter_Base_H {
 		lockDetectionSystem = 15;
 		incomingMissileDetectionSystem = 16;
-        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 0.1, 10};
-		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 0.1, 10};
+        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 1, 1};
+		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 1, 1};
 	};
 
 	class Heli_Light_01_armed_base_F : Heli_Light_01_base_F {
 		lockDetectionSystem = 15;
 		incomingMissileDetectionSystem = 16;
-        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 0.1, 10};
-		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 0.1, 10};
+        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 1, 1};
+		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 1, 1};
 	};
 
 	class Heli_Light_02_base_F : Helicopter_Base_H {
 		lockDetectionSystem = 15;
 		incomingMissileDetectionSystem = 16;
-        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 0.1, 10};
-		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 0.1, 10};
+        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 1, 1};
+		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 1, 1};
 	};
 
 	class Heli_Attack_01_base_F : Helicopter_Base_F {
 		lockDetectionSystem = 15;
 		incomingMissileDetectionSystem = 16;
-        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 0.1, 10};
-		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 0.1, 10};
+        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 1, 1};
+		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 1, 1};
 	};
 
 	class Heli_Attack_02_base_F : Helicopter_Base_F {
 		lockDetectionSystem = 15;
 		incomingMissileDetectionSystem = 16;
-        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 0.1, 10};
-		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 0.1, 10};
+        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 1, 1};
+		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 1, 1};
 	};
 
 	class Heli_Transport_01_base_F : Helicopter_Base_H {
 		lockDetectionSystem = 15;
 		incomingMissileDetectionSystem = 16;
-        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 0.1, 10};
-		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 0.1, 10};
+        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 1, 1};
+		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 1, 1};
 	};
 
 	class Heli_Transport_02_base_F : Helicopter_Base_H {
 		lockDetectionSystem = 15;
 		incomingMissileDetectionSystem = 16;
-        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 0.1, 10};
-		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 0.1, 10};
+        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 1, 1};
+		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 1, 1};
 	};
 
 	class I_Heli_light_03_base_F : Helicopter_Base_F {
 		lockDetectionSystem = 15;
 		incomingMissileDetectionSystem = 16;
-        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 0.1, 10};
-		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 0.1, 10};
+        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 1, 1};
+		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 1, 1};
 	};
 
 	class B_Heli_Transport_03_base_F : Helicopter_Base_H {
 		lockDetectionSystem = 15;
 		incomingMissileDetectionSystem = 16;
-        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 0.1, 10};
-		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 0.1, 10};
+        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 1, 1};
+		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 1, 1};
 	};
 
 	class Heli_Transport_04_base_F : Helicopter_Base_H {
 		lockDetectionSystem = 15;
 		incomingMissileDetectionSystem = 16;
-        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 0.1, 10};
-		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 0.1, 10};
+        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 1, 1};
+		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 1, 1};
 	};
 };

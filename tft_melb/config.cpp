@@ -77,8 +77,8 @@ class CfgVehicles {
         ace_fastroping_ropeOrigins[] = {{1.17, 0.8, -0.1}, {-1.17, 0.8, -0.1}};
         LockDetectionSystem = 15;
 		incomingMissileDetectionSystem = 16;
-        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 0.1, 10};
-		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 0.1, 10};
+        soundLocked[] = {"\A3\Sounds_F\air\Heli_Light_01\warning", 1, 1};
+		soundIncommingMissile[] = {"\A3\Sounds_F\weapons\Rockets\locked_3", 1, 1};
         class Turrets : Turrets {
 			class CopilotTurret : CopilotTurret {
                 class OpticsIn {
