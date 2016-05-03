@@ -13,14 +13,14 @@
 };
 
 class CfgAISkill {
-	aimingAccuracy[] = {0, 0, 1, 0.3};
-	aimingShake[] = {0, 0, 1, 0.5};
-	aimingSpeed[] = {0, 0, 1, 0.9};
-	spotDistance[] = {0, 0, 1, 0.4};
+	aimingAccuracy[] = {0, 0, 1, 0.2};
+	aimingShake[] = {0, 0, 1, 0.3};
+	aimingSpeed[] = {0, 0, 1, 0.4};
+	spotDistance[] = {0, 0, 1, 0.5};
 	spotTime[] = {0, 0, 1, 0.3};
-	courage[] = {0, 0, 1, 0.7};
-	//reloadSpeed[] = {0, 0, 1, 1};
+	courage[] = {0, 0, 1, 1};
+	reloadSpeed[] = {0, 0, 1, 1};
 	commanding[] = {0, 0, 1, 1};
-	general[] = {0, 0, 1, 0.8};
+	general[] = {0, 0, 1, 1};
 	endurance[] = {0, 0, 1, 0.9};
 };
