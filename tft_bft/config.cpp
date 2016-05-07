@@ -20,7 +20,6 @@ class CfgFunctions {
 			file = "tft_bft\functions";
 			class initClient;
             class addMapEH;
-            class getSettings;
             class drawGroupIcon;
             class drawUnitIcon;
             class onDialogOpen;
