@@ -7,7 +7,7 @@ class CfgPatches
 		weapons[] =  {};
 		requiredVersion = 1.0;
 		requiredAddons[] = { "CBA_Main", "task_force_radio_items", "task_force_radio"};
-		author[] = {"YoursTruly"};
+		author = "YoursTruly";
 		version = 2.0.0;
 		versionStr = "2.0.0";
 		versionAr[] = {2,0,0};

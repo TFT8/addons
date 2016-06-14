@@ -4,7 +4,7 @@ class CfgPatches {
 		weapons[] = {};
 		requiredVersion = 1.0;
 		requiredAddons[] = {"A3_Characters_F_BLUFOR"};
-        author[] = {"tft8"};
+        author = "tft8";
 	};
 };
 

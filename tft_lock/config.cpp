@@ -7,13 +7,13 @@
 		version = 2.0.0;
 		versionStr = 2.0.0;
 		versionAr[] = {2, 0, 0};
-		author[] = {"YoursTruly"};
+		author = "YoursTruly";
 	};
 };
 
 class CfgVehicles {
 	class All {};
-	
+
 	class AllVehicles : All {};
 
 	class Air : AllVehicles {};

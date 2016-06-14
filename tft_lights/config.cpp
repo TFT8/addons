@@ -8,7 +8,7 @@ class CfgPatches {
 		version = 1.0;
 		versionStr = 1.0;
 		versionAr[] = {1, 0};
-		author[] = {"YoursTruly"};
+		author = "YoursTruly";
 	};
 };
 

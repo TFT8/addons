@@ -1,10 +1,14 @@
 class CfgPatches {
 	class tft_tban {
-		units[] = {};
+		units[] = { "O_Tban_ZU23", "O_Tban_DSHKM", "O_Tban_DSHKM_Mini", "O_Tban_KORD", "O_Tban_KORD_High", "O_Tban_AGS", "O_Tban_Metis",
+                    "O_Tban_SPG9", "O_Tban_Igla", "O_Tban_82mm", "O_Tban_D30", "O_TBan_Ural", "O_TBan_Ural_Open", "O_TBan_Ural_Ammo",
+                    "O_TBan_Ural_Repair", "O_TBan_Ural_Fuel", "O_TBan_Ural_BM21", "O_TBan_Ural_ZU23", "O_TBan_Hilux", "O_TBan_Hilux_MG",
+                    "O_TBan_Hilux_AGS30", "O_TBan_Hilux_SPG", "O_TBan_BRDM2", "O_TBan_BTR60", "O_TBan_BMP1", "O_TBan_BMP2", "O_TBan_BMP2_HQ",
+                    "O_TBan_BMP2_Ambul", "O_TBan_ZSU", "O_TBan_T34", "O_TBan_T55", "O_TBan_T72", "O_TBan_T72BM", "O_TBan_MI8", "O_TBan_MI8MTV", "O_TBan_MI24V"
+                  };
 		weapons[] = {};
-		requiredVersion = 1.5;
-		requiredAddons[] = {"Taliban_fighters", "hlcweapons_aks", "a2_rpg7"};
-        author[]= {"yourstruly"};
+		requiredVersion = 0.1;
+		requiredAddons[] = {"Taliban_fighters", "hlcweapons_aks", "a2_rpg7", "mas_vehicleweapons_Core"};
 	};
 };
 
@@ -82,11 +86,7 @@ class CfgVehicles {
         class TransportMagazines {
             class _xx_RPG7_PG7V {
                 magazine = "RPG7_PG7V";
-                count = 3;
-            };
-            class _xx_RPG7_PG7VM {
-                magazine = "RPG7_PG7VM";
-                count = 2;
+                count = 5;
             };
         };
     };
@@ -256,6 +256,316 @@ class CfgVehicles {
         scope = 0;
         scopeCurator = 0;
     };
+
+    // --------------------------------------------
+
+    class O_mas_ZU23_AAF;           // External class reference
+    class O_mas_DSHKM_AAF;          // External class reference
+    class O_mas_DSHkM_Mini_TriPod;  // External class reference
+    class O_mas_KORD_AAF;           // External class reference
+    class O_mas_KORD_high_AAF;      // External class reference
+    class O_mas_AGS_AAF;            // External class reference
+    class O_mas_Metis_AAF;          // External class reference
+    class O_mas_SPG9_AAF;           // External class reference
+    class O_mas_Igla_AA_pod_AAF;    // External class reference
+    class O_mas_2b14_82mm_AAF;      // External class reference
+    class O_mas_D30_AT_AAF;         // External class reference
+
+    class O_Tban_ZU23 : O_mas_ZU23_AAF {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter4";
+        typicalCargo[] = {"TBan_Fighter4"};
+    };
+
+    class O_Tban_DSHKM : O_mas_DSHKM_AAF {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter4";
+        typicalCargo[] = {"TBan_Fighter4"};
+    };
+
+    class O_Tban_DSHKM_Mini : O_mas_DSHkM_Mini_TriPod {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter1";
+        typicalCargo[] = {"TBan_Fighter1"};
+    };
+
+    class O_Tban_KORD : O_mas_KORD_AAF {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter2";
+        typicalCargo[] = {"TBan_Fighter2"};
+    };
+
+    class O_Tban_KORD_High : O_mas_KORD_high_AAF {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter3";
+        typicalCargo[] = {"TBan_Fighter3"};
+    };
+
+    class O_Tban_AGS : O_mas_AGS_AAF {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter2";
+        typicalCargo[] = {"TBan_Fighter2"};
+    };
+
+    class O_Tban_Metis : O_mas_Metis_AAF {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter3";
+        typicalCargo[] = {"TBan_Fighter3"};
+    };
+
+    class O_Tban_SPG9 : O_mas_SPG9_AAF {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter1";
+        typicalCargo[] = {"TBan_Fighter1"};
+    };
+
+    class O_Tban_Igla : O_mas_Igla_AA_pod_AAF {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter1NH";
+        typicalCargo[] = {"TBan_Fighter1NH"};
+    };
+
+    class O_Tban_82mm : O_mas_2b14_82mm_AAF {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter4";
+        typicalCargo[] = {"TBan_Fighter4"};
+    };
+
+    class O_Tban_D30 : O_mas_D30_AT_AAF {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter1NH";
+        typicalCargo[] = {"TBan_Fighter1NH"};
+    };
+
+    // --------------------------------------------
+
+    class O_mas_cars_Ural;          // External class reference
+    class O_mas_cars_Ural_open;     // External class reference
+    class O_mas_cars_Ural_ammo;     // External class reference
+    class O_mas_cars_Ural_repair;   // External class reference
+    class O_mas_cars_Ural_fuel;     // External class reference
+    class O_mas_cars_Ural_BM21;     // External class reference
+    class O_mas_cars_Ural_ZU23;     // External class reference
+    class B_mas_cars_Hilux_Unarmed; // External class reference
+    class B_mas_cars_Hilux_MG;      // External class reference
+    class B_mas_cars_Hilux_AGS30;   // External class reference
+    class B_mas_cars_Hilux_SPG9;    // External class reference
+
+    class O_TBan_Ural : O_mas_cars_Ural {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter4";
+        typicalCargo[] = {"TBan_Fighter4"};
+    };
+
+    class O_TBan_Ural_Open : O_mas_cars_Ural_open {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter1NH";
+        typicalCargo[] = {"TBan_Fighter1NH"};
+    };
+
+    class O_TBan_Ural_Ammo : O_mas_cars_Ural_ammo {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter1";
+        typicalCargo[] = {"TBan_Fighter1"};
+    };
+
+    class O_TBan_Ural_Repair : O_mas_cars_Ural_repair {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter1";
+        typicalCargo[] = {"TBan_Fighter1"};
+    };
+
+    class O_TBan_Ural_Fuel : O_mas_cars_Ural_fuel {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter4";
+        typicalCargo[] = {"TBan_Fighter4"};
+    };
+
+    class O_TBan_Ural_BM21 : O_mas_cars_Ural_BM21 {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter2";
+        typicalCargo[] = {"TBan_Fighter2"};
+    };
+
+    class O_TBan_Ural_ZU23 : O_mas_cars_Ural_ZU23 {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter4";
+        typicalCargo[] = {"TBan_Fighter4"};
+    };
+
+    class O_TBan_Hilux : B_mas_cars_Hilux_Unarmed {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter1NH";
+        typicalCargo[] = {"TBan_Fighter1NH"};
+        side = 0;
+    };
+
+    class O_TBan_Hilux_MG : B_mas_cars_Hilux_MG {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter4";
+        typicalCargo[] = {"TBan_Fighter4"};
+        side = 0;
+    };
+
+    class O_TBan_Hilux_AGS30 : B_mas_cars_Hilux_AGS30 {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter2";
+        typicalCargo[] = {"TBan_Fighter2"};
+        side = 0;
+    };
+
+    class O_TBan_Hilux_SPG : B_mas_cars_Hilux_SPG9 {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter1NH";
+        typicalCargo[] = {"TBan_Fighter1NH"};
+        side = 0;
+    };
+
+    // --------------------------------------------
+
+    class O_mas_BRDM2;          // External class reference
+    class O_mas_BTR60;          // External class reference
+    class O_mas_BMP1_OPF_01;    // External class reference
+    class O_mas_BMP2_OPF_01;    // External class reference
+    class O_mas_BMP2_HQ_OPF_01; // External class reference
+    class O_mas_BMP2_Ambul_01;  // External class reference
+
+    class O_TBan_BRDM2 : O_mas_BRDM2 {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter1NH";
+        typicalCargo[] = {"TBan_Fighter1NH"};
+    };
+
+    class O_TBan_BTR60 : O_mas_BTR60 {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter4";
+        typicalCargo[] = {"TBan_Fighter4"};
+        supplyRadius = 5;
+    };
+
+    class O_TBan_BMP1 : O_mas_BMP1_OPF_01 {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter4";
+        typicalCargo[] = {"TBan_Fighter4"};
+    };
+
+    class O_TBan_BMP2 : O_mas_BMP2_OPF_01 {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter1NH";
+        typicalCargo[] = {"TBan_Fighter1NH"};
+    };
+
+    class O_TBan_BMP2_HQ : O_mas_BMP2_HQ_OPF_01 {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter2";
+        typicalCargo[] = {"TBan_Fighter2"};
+    };
+
+    class O_TBan_BMP2_Ambul : O_mas_BMP2_Ambul_01 {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter1";
+        typicalCargo[] = {"TBan_Fighter1"};
+    };
+
+    // --------------------------------------------
+
+    class O_mas_ZSU_OPF_01;     // External class reference
+    class I_mas_T34_AAF_01;     // External class reference
+    class O_mas_T55_OPF_01;     // External class reference
+    class O_mas_T72_OPF_01;     // External class reference
+    class O_mas_T72BM_OPF_01;   // External class reference
+
+    class O_TBan_ZSU : O_mas_ZSU_OPF_01 {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter4";
+        typicalCargo[] = {"TBan_Fighter4"};
+    };
+
+    class O_TBan_T34 : I_mas_T34_AAF_01 {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter4";
+        typicalCargo[] = {"TBan_Fighter4"};
+        side = 0;
+    };
+
+    class O_TBan_T55 : O_mas_T55_OPF_01 {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter2";
+        typicalCargo[] = {"TBan_Fighter2"};
+    };
+
+    class O_TBan_T72 : O_mas_T72_OPF_01 {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter2";
+        typicalCargo[] = {"TBan_Fighter2"};
+    };
+
+    class O_TBan_T72BM : O_mas_T72BM_OPF_01 {
+		faction = TBan;
+        scopeCurator = 2;
+		crew = "TBan_Fighter1";
+		typicalCargo[] = {"TBan_Fighter1"};
+	};
+
+    // --------------------------------------------
+
+    class O_mas_MI8;        // External class reference
+    class O_mas_MI8MTV;     // External class reference
+    class O_mas_MI24V;      // External class reference
+
+	class O_TBan_MI8 : O_mas_MI8 {
+		faction = TBan;
+        scopeCurator = 2;
+		crew = "TBan_Fighter4";
+		typicalCargo[] = {"TBan_Fighter4"};
+	};
+
+    class O_TBan_MI8MTV : O_mas_MI8MTV {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter2";
+        typicalCargo[] = {"TBan_Fighter2"};
+    };
+
+    class O_TBan_MI24V : O_mas_MI24V {
+        faction = TBan;
+        scopeCurator = 2;
+        crew = "TBan_Fighter1NH";
+        typicalCargo[] = {"TBan_Fighter1NH"};
+    };
+
 };
 
 class CfgGroups {
