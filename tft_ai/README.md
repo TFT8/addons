@@ -1,3 +1,3 @@
-# TFT_AI
+# TFT AI
 
 Custom AI skill settings.
