@@ -1,6 +1,6 @@
-# TFT_BFT
+# TFT BluForce Tracking
 
-Very customizable BluForce Tracking system (or I should actually say: Side Tracking system - as it works for all sides).<br/>
+Very customizable BluForce Tracking system, or I should actually say: Side Tracking system - as it works for all sides.<br/>
 System shows group and/or unit icons on the in-game map.
 
 Configuration allows to:
