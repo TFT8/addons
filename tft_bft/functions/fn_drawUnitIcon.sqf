@@ -16,7 +16,7 @@ private ["_veh", "_icon", "_color", "_name"];
 
 _veh = vehicle _unit;
 _icon = getText (configFile >> "CfgVehicles" >> typeOf _veh >> "icon");
-if(_icon == "") then { _icon == "iconThing"; };
+if(_icon isEqualTo "") then { _icon == "iconThing"; };
 _color = (side group _unit) call BIS_fnc_sideColor;
 _name = if(tft_bft_unitsNames) then {
     if(_veh == _unit) then {
@@ -26,4 +26,4 @@ _name = if(tft_bft_unitsNames) then {
     }
 } else { "" };
 
-_map drawIcon [_icon, _color, getPosWorld _veh, tft_bft_unitsSize, tft_bft_unitsSize, getDir _veh, _name, false, 0.01+0.0015*tft_bft_unitsSize, 'TahomaB', 'right'];
+_map drawIcon [_icon, _color, getPosWorld _veh, tft_bft_unitsSize*20, tft_bft_unitsSize*20, getDir _veh, _name, false, 0.01+0.03*tft_bft_unitsSize, 'TahomaB', 'right'];

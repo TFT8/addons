@@ -18,4 +18,4 @@ _icon = getText (configFile >> "CfgGroupIcons" >> ([group _unit] call ace_common
 _color = (side group _unit) call BIS_fnc_sideColor;
 _name = if(tft_bft_groupsNames) then { groupId group _unit } else { "" };
 
-_map drawIcon [_icon, _color, getPosWorld _unit, tft_bft_groupsSize, tft_bft_groupsSize, 0, _name, false, 0.01+0.0015*tft_bft_groupsSize, 'TahomaB', 'right'];
+_map drawIcon [_icon, _color, getPosWorld _unit, tft_bft_groupsSize*20, tft_bft_groupsSize*20, 0, _name, false, 0.01+0.03*tft_bft_groupsSize, 'TahomaB', 'right'];
