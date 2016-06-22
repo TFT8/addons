@@ -9,6 +9,7 @@ Configuration allows to:
 - Enable/disable names for both types of icons
 - Change size of each icon type individually
 - Show unit/group icons for whole side or own group only
+- ...and more
 
 Changes can be made through in-game dialog control by calling `createDialog "tft_bft_settings"`, or via _ACE Settings_:<br/>
 ```cpp
@@ -41,6 +42,16 @@ class tft_bft_unitsNames {
     value = 0;  //0 - disabled, 1 - enabled
     typeName = "BOOL";
     force = 0;
+};
+class tft_bft_drawDistance {
+	value = 500;
+    typeName = "SCALAR";
+    force = 1;
+};
+class tft_bft_items {
+	value = {"B_UavTerminal", "B_UavTerminal", "B_UavTerminal", "ItemGPS", "TFT_Terminal"};
+    typeName = "STRING";
+    force = 1;
 };
 ```
 Mission makers can adjust BFT by setting proper variables with values. This functionality works also on the fly.<br/>
