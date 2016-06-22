@@ -12,6 +12,12 @@ class CfgPatches {
 	};
 };
 
+class Extended_PostInit_EventHandlers {
+	class tft_lights {
+		init = "call compile preprocessFileLineNumbers '\tft_lights\brightNights.sqf'";
+	};
+};
+
 class CfgVehicles
 {
     class Heli_light_03_base_F; // External class reference
