@@ -4,7 +4,7 @@
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.6;
-		requiredAddons[] = {"ace_ai"};
+		requiredAddons[] = {};
 		version = 2.0;
 		versionStr = 2.0;
 		versionAr[] = {2, 0};
@@ -13,7 +13,7 @@
 };
 
 class CfgAISkill {
-	aimingAccuracy[] = {0, 0, 1, 0.2};
+	aimingAccuracy[] = {0, 0, 1, 0.19};
 	aimingShake[] = {0, 0, 1, 0.3};
 	aimingSpeed[] = {0, 0, 1, 1};
 	spotDistance[] = {0, 0, 1, 0.9};

@@ -35,12 +35,10 @@ class CfgFunctions {
 		class tft_ace {
 			file = "tft_ace\functions";
 			class scream;
-            class canFixLegs;
-            class fixLegs;
             class canGetIn;
             class getIn;
-            class canRetag;
-            class retag;
+            class canTag;
+            class tag;
 		};
 	};
 };
@@ -48,29 +46,12 @@ class CfgFunctions {
 class CfgVehicles {
     class Man;
     class CAManBase: Man {
-        class ACE_Actions {
-            class ACE_MainActions {
-                class Medical {
-                    class FixLegs {
-                        displayName = "Fix legs";
-                        distance = 5.0;
-                        condition = QUOTE([ARR_2(_player, _target)] call tft_ace_fnc_canFixLegs);
-                        statement = QUOTE([ARR_2(_player, _target)] call tft_ace_fnc_fixLegs);
-                        exceptions[] = {};
-                        showDisabled = 0;
-                        priority = 2;
-                        hotkey = "";
-                        icon = "\tft_ace\UI\icons\bone.paa";
-                    };
-                };
-            };
-        };
         class ACE_SelfActions {
             class ACE_Equipment {
                 class ACE_tagWallArtistic {
                     displayName = "Go artistic";
-                    condition = "[ACE_player] call tft_ace_fnc_canRetag";
-                    statement = "[ACE_player, 5] call tft_ace_fnc_retag";
+                    condition = "[ACE_player] call tft_ace_fnc_canTag";
+                    statement = "[ACE_player, 5] call tft_ace_fnc_tag";
                     showDisabled = 0;
                     priority = 3;
                     icon = "\tft_ace\UI\icons\retag.paa";

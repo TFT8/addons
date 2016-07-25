@@ -57,12 +57,7 @@ _screams = [
 _position = _unit modelToWorld (_unit selectionPosition "Head");
 _position set [2, (_position select 2) + ((getPosASLW _unit select 2) - (getPosATL _unit select 2) max 0)];
 
-_scream = if(ceil random 100 == 8) then
-{
-  "ACE3_Scream\goat.wav"
-} else {
-  _screams select (floor random (count _screams))  
-};
+_scream = _screams select (floor random (count _screams));
 
 playSound3D [
   _scream,

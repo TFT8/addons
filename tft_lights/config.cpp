@@ -12,39 +12,33 @@ class CfgPatches {
 	};
 };
 
-class Extended_PostInit_EventHandlers {
-	class tft_lights {
-		init = "call compile preprocessFileLineNumbers '\tft_lights\brightNights.sqf'";
-	};
-};
-
 class CfgVehicles
 {
-    class Heli_light_03_base_F; // External class reference
-    class Heli_light_03_unarmed_base_F : Heli_light_03_base_F
-    {
-        class Turrets;
+    class Helicopter_Base_F; // External class reference
+    class Heli_light_03_base_F : Helicopter_Base_F {
+        class Turrets {
+			class MainTurret;	// External class reference
+		};
+    }
+    class Heli_light_03_unarmed_base_F : Heli_light_03_base_F {
+        class Turrets : Turrets {
+            class MainTurret;   // External class reference
+        };
     };
-    class I_Heli_light_03_unarmed_F : Heli_light_03_unarmed_base_F
-    {
-        class Turrets : Turrets
-        {
-            class CopilotTurret;
-            class MainTurret;
+    class I_Heli_light_03_unarmed_F : Heli_light_03_unarmed_base_F {
+        class Turrets : Turrets {
+            class MainTurret : MainTurret {
+                class Reflectors; // External class reference
+            };
         };
     };
 
-	class TFT_I_Heli_light_03_unarmed_F : I_Heli_light_03_unarmed_F
-	{
-        displayName="WY-55 Hellcat (TFT)";
-        class Turrets : Turrets
-        {
-            class MainTurret : MainTurret
-            {
-                class Reflectors
-                {
-                    class Right
-                    {
+	class TFT_I_Heli_light_03_unarmed_F : I_Heli_light_03_unarmed_F {
+        displayName="WY-55 Hellcat (Searchlight)";
+        class Turrets : Turrets {
+            class MainTurret : MainTurret {
+                class Reflectors : Reflectors {
+                    class Right {
                         ambient[]={100,100,100,0};
                         color[]={7000,7500,10000};
                         coneFadeCoef=10;
@@ -62,8 +56,8 @@ class CfgVehicles
                         class Attenuation
                         {
                             constant=0;
-                            hardLimitEnd = 500;
-                            hardLimitStart = 350;
+                            hardLimitEnd = 600;
+                            hardLimitStart = 400;
                             linear=1;
                             quadratic=0;
                             start=0;
