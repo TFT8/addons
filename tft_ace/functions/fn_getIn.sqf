@@ -2,4 +2,4 @@
 
 _player moveInAny _target;
 
-true;
+true
