@@ -20,7 +20,7 @@ if(isNull _dialog) exitWith {};
 (_dialog displayCtrl 2010) lbSetCurSel tft_bft_groupsShow;
 (_dialog displayCtrl 2010) ctrlEnable (!tft_bft_groupsShowForce);
 
-(_dialog displayCtrl 2011) sliderSetRange [14, 36];
+(_dialog displayCtrl 2011) sliderSetRange [0.25, 2];
 (_dialog displayCtrl 2011) sliderSetSpeed [2, 4];
 (_dialog displayCtrl 2011) sliderSetPosition tft_bft_groupsSize;
 (_dialog displayCtrl 2011) ctrlEnable (!tft_bft_groupsSizeForce);
@@ -33,7 +33,7 @@ if(isNull _dialog) exitWith {};
 (_dialog displayCtrl 3010) lbSetCurSel tft_bft_unitsShow;
 (_dialog displayCtrl 3010) ctrlEnable (!tft_bft_unitsShowForce);
 
-(_dialog displayCtrl 3011) sliderSetRange [14, 36];
+(_dialog displayCtrl 3011) sliderSetRange [0.25, 2];
 (_dialog displayCtrl 3011) sliderSetSpeed [2, 4];
 (_dialog displayCtrl 3011) sliderSetPosition tft_bft_unitsSize;
 (_dialog displayCtrl 3011) ctrlEnable (!tft_bft_unitsSizeForce);

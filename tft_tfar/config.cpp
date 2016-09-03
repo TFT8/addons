@@ -1,37 +1,39 @@
-#include "BIS_AddonInfo.hpp"
-class CfgPatches
-{
-	class tft_tfar
-	{
-		units[] =  {};
-		weapons[] =  {};
-		requiredVersion = 1.0;
-		requiredAddons[] = { "CBA_Main", "task_force_radio_items", "task_force_radio"};
-		author = "YoursTruly";
-		version = 2.0.0;
-		versionStr = "2.0.0";
-		versionAr[] = {2,0,0};
-	};
+class CfgPatches {
+    class tft_tfar {
+        units[] =  {};
+        weapons[] =  {};
+        requiredVersion = 1.0;
+        requiredAddons[] = { "CBA_Main", "task_force_radio_items", "task_force_radio"};
+        author = "YoursTruly";
+        version = 2.0.0;
+        versionStr = "2.0.0";
+        versionAr[] = {2,0,0};
+    };
 };
 
-class CfgFunctions
-{
-	class TFAR
-	{
-		class Radio
-		{
-			class ServerInit {file = "tft_tfar\fn_ServerInit.sqf";};
-			class ClientInit {file = "tft_tfar\fn_ClientInit.sqf";};
-		};
-	};
+class task_force_radio_settings {
+    tf_no_auto_long_range_radio = 1;
+    tf_same_sw_frequencies_for_side = 1;
+    tf_same_lr_frequencies_for_side = 1;
+    tf_same_dd_frequencies_for_side = 1;
+    TF_give_microdagr_to_soldier = 0;
+};
+
+class CfgFunctions {
+    class tft_tfar {
+        class TFAR {
+            file = "tft_tfar";
+            class settings { preInit = 1; };
+        };
+    };
 };
 
 //Massi's Vehicles compatibility
 class CfgVehicles {
-    class Car_F;	            // External class reference
-    class Tank_F;	            // External class reference
-    class Helicopter_Base_H;	// External class reference
-    class Plane_Base_F;	        // External class reference
+    class Car_F;                // External class reference
+    class Tank_F;                // External class reference
+    class Helicopter_Base_H;    // External class reference
+    class Plane_Base_F;            // External class reference
 
     class B_mas_cars_Hilux_Base : Car_F {
         tf_isolatedAmount = 0.2;
