@@ -52,15 +52,17 @@ if((lbSize _ctrlGearList) > 0) then {
     _ctrlGearList lbSetCurSel 0;
 };
 
-[{
-    if(uiNamespace getVariable ["BIS_RscRespawnControlsMap_shown", false] || {!alive player}) exitWith {};
+with missionNamespace do {
+    [{
+        if(uiNamespace getVariable ["BIS_RscRespawnControlsMap_shown", false] || {!alive player}) exitWith {};
 
-    (_this select 0) params ["_button", "_list"];
-    [_this select 1] call CBA_fnc_removePerFrameHandler;
+        (_this select 0) params ["_button", "_list"];
+        [_this select 1] call CBA_fnc_removePerFrameHandler;
 
-    _gear = _list lbText (lbCurSel _list);
-    [player, [profileNamespace, _gear]] call BIS_fnc_loadInventory;
+        _gear = _list lbText (lbCurSel _list);
+        [player, [profileNamespace, _gear]] call BIS_fnc_loadInventory;
 
-}, 0, [_ctrlVimButton, _ctrlGearList]] call CBA_fnc_addPerFrameHandler;
+    }, 0, [_ctrlVimButton, _ctrlGearList]] call CBA_fnc_addPerFrameHandler;
+};
 
 false
