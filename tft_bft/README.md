@@ -61,3 +61,10 @@ e.g. `tft_bft_groupsShow = 0` or `tft_bft_unitsSize = 1.5`
 Last, but not least functionality is a dialog for changing group callsign. You can open it through command:<br/>
 `createDialog "tft_callsign_settings"`
 
+As a standard, bft assignes following callsigns:
+```sqf
+tft_bft_callsign_hq    = "PLT";
+tft_bft_callsign_1_1   = "1-1";
+tft_bft_callsign_1_2   = "1-2";
+tft_bft_callsign_razor = "RAZOR";
+```
