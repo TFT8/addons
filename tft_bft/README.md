@@ -19,7 +19,7 @@ class tft_bft_groupsShow {
     force = 1;
 };
 class tft_bft_groupsSize {
-    value = 28; //reasonable values are between 14 and 36
+    value = 28; //reasonable values are between 0.1 and 2
     typeName = "SCALAR";
     force = 0;
 };
@@ -34,7 +34,7 @@ class tft_bft_unitsShow {
     force = 1;
 };
 class tft_bft_unitsSize {
-    value = 20; //reasonable values are between 14 and 36
+    value = 20; //reasonable values are between 0.1 and 2
     typeName = "SCALAR";
     force = 0;
 };
@@ -55,7 +55,7 @@ class tft_bft_items {
 };
 ```
 Mission makers can adjust BFT by setting proper variables with values. This functionality works also on the fly.<br/>
-e.g. `tft_bft_groupsShow = 0` or `tft_bft_unitsSize = 15`
+e.g. `tft_bft_groupsShow = 0` or `tft_bft_unitsSize = 1.5`
 
 
 Last, but not least functionality is a dialog for changing group callsign. You can open it through command:<br/>
