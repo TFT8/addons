@@ -21,6 +21,8 @@ class CfgFunctions {
             class displayText;
             class prepPhaseInit;
             class prepPhase;
+            class simulationMgmt;
+            class simulationToggle;
         };
         class spectator {
             file = "spectator";
