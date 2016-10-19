@@ -15,7 +15,7 @@ class CfgFunctions {
     class tft_misc {
         tag = "TFT";
         class functions {
-            file = "functions";
+            file = "tft_misc\functions";
             class moveMarker;
             class moveRespawn;
             class displayText;
@@ -25,7 +25,7 @@ class CfgFunctions {
             class simulationToggle;
         };
         class spectator {
-            file = "spectator";
+            file = "tft_misc\spectator";
             class spectate;
             class spectateEnd;
             class draw2D;
