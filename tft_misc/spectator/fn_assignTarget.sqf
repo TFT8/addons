@@ -22,8 +22,8 @@ if((uiNamespace getVariable [VAR_INTERFACE_VISIBLE, false]) &&
         };
     };
 
-    _camera	= missionNamespace getVariable [VAR_CAMERA, objNull];
-    if(!isNull _target && {alive _target} && {!isNull _camera}) then {
+    _camera = missionNamespace getVariable [VAR_CAMERA, objNull];
+    if(!isNull _target && {alive _target} && {!isNull _camera} && {_target distance _camera < 40}) then {
         ["SetFocus", [_target]] call DISPLAY;
         playsound "ReadoutClick";
         setMousePosition [0.5, 0.5];

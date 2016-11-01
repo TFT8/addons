@@ -7,6 +7,7 @@ private ["_display", "_eh"];
 [_spectator, true]  remoteExec ["hideObjectGlobal", 2];
 _spectator allowDamage false;
 _spectator setCaptive true;
+[_spectator, false]  remoteExec ["enableSimulationGlobal", 2];
 
 // --- hide player from STHUD
 _spectator setVariable ["tft_spec_group", group _spectator];
@@ -22,6 +23,21 @@ while {_display isEqualTo displayNull} do {
     _display = findDisplay IDD_RSCDISPLAYEGSPECTATOR;
 };
 
+// --- make player unit fly with the camera
+_spectator setVariable ["tft_spec_pos", getPos _spectator];
+missionNamespace setVariable ["tft_spec_spectator", _spectator]; //it's the only way to pass params to mission EH
+_eh = addMissionEventHandler ["EachFrame",{
+    _camera = missionNamespace getVariable ["BIS_EGSpectatorCamera_camera", objNull];
+    _spectator = missionNamespace getVariable ["tft_spec_spectator", objNull];
+    if((!isNull _camera) && {!isNull _spectator}) then {
+        _spectator setPosWorld (getPosWorld _camera);
+    };
+}];
+
+_spectator setVariable ["tft_spec_teleport", _eh];
+tft_spec_voiceVolume = TF_speak_volume_meters;
+0 call TFAR_fnc_setVoiceVolume;
+_spectator setVariable ["tf_unable_to_use_radio", true];
 
 if(!_exitable) exitWith {};
 

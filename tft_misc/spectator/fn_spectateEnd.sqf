@@ -19,8 +19,15 @@ _spectator setVariable ["tft_spec_mouse", nil];
 [_spectator] joinSilent (_spectator getVariable ["tft_spec_group", grpNull]);
 _spectator setVariable ["tft_spec_group", nil];
 
+_spectator setVariable ["tf_unable_to_use_radio", false];
+tft_spec_voiceVolume call TFAR_fnc_setVoiceVolume;
+
+removeMissionEventHandler ["EachFrame", _spectator getVariable ["tft_spec_teleport", 0]];
+_spectator setPos (_spectator getVariable ["tft_spec_pos", [0,0,0]]);
+
 [_spectator, false]  remoteExec ["hideObjectGlobal", 2];
 _spectator allowDamage true;
 _spectator setCaptive false;
+[_spectator, true]  remoteExec ["enableSimulationGlobal", 2];
 
 true

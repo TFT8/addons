@@ -3,7 +3,7 @@
 private ["_uiVisible", "_mapVisible", "_camera"];
 _uiVisible = uiNamespace getVariable [VAR_INTERFACE_VISIBLE, false];
 _mapVisible = uiNamespace getVariable [VAR_MAP_VISIBLE, false];
-_camera	= missionNamespace getVariable [VAR_CAMERA, objNull];
+_camera = missionNamespace getVariable [VAR_CAMERA, objNull];
 
 if (_uiVisible && !_mapVisible) then
 {
