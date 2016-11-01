@@ -89,4 +89,20 @@ class CfgVehicles {
             };
         };
     };
+
+    class MELB_H6M : MELB_base {
+        editorPreview = "tft_melb\UI\MELB_H6M.jpg";
+    };
+    class MELB_AH6M_M : MELB_base {
+        editorPreview = "tft_melb\UI\MELB_AH6M_M.jpg";
+    };
+    class MELB_AH6M_L : MELB_base {
+        editorPreview = "tft_melb\UI\MELB_AH6M_L.jpg";
+    };
+    class MELB_AH6M_H : MELB_base {
+        editorPreview = "tft_melb\UI\MELB_AH6M_H.jpg";
+    };
+    class MELB_MH6M : MELB_base {
+        editorPreview = "tft_melb\UI\MELB_MH6M.jpg";
+    };
 };
