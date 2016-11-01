@@ -11,6 +11,17 @@ class CfgPatches {
     };
 };
 
+class IGUIBack;             // External class reference
+class RscFrame;             // External class reference
+class RscEdit;              // External class reference
+class RscText;              // External class reference
+class RscCheckbox;          // External class reference
+class RscCombo;             // External class reference
+class RscXSliderH;          // External class reference
+class RscXListBox;          // External class reference
+class RscButtonMenuCancel;  // External class reference
+class RscButtonMenuOK;      // External class reference
+
 #include "UI\dialog.hpp"
 #include "UI\changeCallsignDialog.hpp"
 

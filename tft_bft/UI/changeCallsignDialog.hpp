@@ -1,9 +1,3 @@
-class IGUIBack;             // External class reference
-class RscText;              // External class reference
-class RscEdit;              // External class reference
-class RscButtonMenuCancel;  // External class reference
-class RscButtonMenuOK;      // External class reference
-
 class tft_callsign_settings {
     idd = -1;
     name= "tft_callsign_settings";
