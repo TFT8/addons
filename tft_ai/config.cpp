@@ -12,7 +12,7 @@
 };
 
 class CfgAISkill {
-    aimingAccuracy[] = {0, 0, 1, 0.21};
+    aimingAccuracy[] = {0, 0, 1, 0.1};
     aimingShake[] = {0, 0, 1, 0.3};
     aimingSpeed[] = {0, 0, 1, 1};
     spotDistance[] = {0, 0, 1, 0.9};
@@ -29,7 +29,7 @@ class Extended_Init_EventHandlers {
         class tft_ai {
             init = "private _unit = _this select 0; \
                     if(!isPlayer _unit) then { \
-                    _unit setSkill ['aimingAccuracy', 0.21]; \
+                    _unit setSkill ['aimingAccuracy', 0.1]; \
                     _unit setSkill ['aimingShake', 0.3]; \
                     _unit setSkill ['aimingSpeed', 1]; \
                     _unit setSkill ['spotDistance', 0.9]; \
