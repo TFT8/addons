@@ -22,7 +22,7 @@ class CfgFunctions {
 
 class CfgVehicles {
 
-class tf_rt1523g;
+    class tf_rt1523g;
 
     class rt1523g_tft_ucp: tf_rt1523g {
         author = "S4 @ TFT8 / Fitzgerald, Truly";
