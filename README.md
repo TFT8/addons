@@ -4,7 +4,7 @@
 
 # TFT8 Addons
 
-This repository containes all TFT8-made addons.<br/>
+This repository containes all TFT8 made addons.<br/>
 Each folder contains it's own Readme file with detailed description of an addon.
 
 
