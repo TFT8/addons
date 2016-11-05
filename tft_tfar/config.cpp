@@ -24,44 +24,50 @@ class CfgVehicles {
 
     class tf_rt1523g;
 
-    class rt1523g_tft_ucp: tf_rt1523g {
+    class tf_rt1523g_ucp: tf_rt1523g {
         author = "S4 @ TFT8 / Fitzgerald, Truly";
         displayName = "UCP RT-1523G (ASIP)";
         descriptionShort = "RT-1523G (ASIP) UCP long range radio 20km";
         hiddenSelections[] = {"camo"};
-        hiddenSelectionsTextures[] = {"\tft_tfar\data\rt1523g_tft_ucp_co.paa"};
+        hiddenSelectionsTextures[] = {"\tft_tfar\data\ucp.paa"};
     };
-    class rt1523g_tft_ocp: rt1523g_tft_ucp {
+    class tf_rt1523g_ocp: tf_rt1523g_ucp {
         displayName = "OCP RT-1523G (ASIP)";
         descriptionShort = "RT-1523G (ASIP) OCP long range radio 20km";
         hiddenSelections[] = {"camo"};
-        hiddenSelectionsTextures[] = {"\tft_tfar\data\rt1523g_tft_ocp_co.paa"};
+        hiddenSelectionsTextures[] = {"\tft_tfar\data\ocp.paa"};
     };
-    class rt1523g_tft_ucp_big: rt1523g_tft_ucp {
+    class tf_rt1523g_wnt: tf_rt1523g_ucp {
+        displayName = "WNT RT-1523G (ASIP)";
+        descriptionShort = "RT-1523G (ASIP) WNT long range radio 20km";
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"\tft_tfar\data\wnt.paa"};
+    };
+    class tf_rt1523g_ucp_big: tf_rt1523g_ucp {
         displayName = "UCP RT-1523G (ASIP) Big";
         descriptionShort = "RT-1523G (ASIP) UCP (Big) long range radio 20km";
         maximumLoad = 160;
         mass = 160;
         hiddenSelections[] = {"camo"};
-        hiddenSelectionsTextures[] = {"\tft_tfar\data\rt1523g_tft_ucp_big_co.paa"};
+        hiddenSelectionsTextures[] = {"\tft_tfar\data\ucp_big.paa"};
         model="\task_force_radio_items\models\clf_nicecomm2";
     };
-    class rt1523g_tft_ocp_big: rt1523g_tft_ucp {
+    class tf_rt1523g_ocp_big: tf_rt1523g_ucp {
         displayName = "OCP RT-1523G (ASIP) Big";
         descriptionShort = "RT-1523G (ASIP) OCP (Big) long range radio 20km";
         maximumLoad = 160;
         mass = 160;
         hiddenSelections[] = {"camo"};
-        hiddenSelectionsTextures[] = {"\tft_tfar\data\rt1523g_tft_ocp_big_co.paa"};
+        hiddenSelectionsTextures[] = {"\tft_tfar\data\ocp_big.paa"};
         model="\task_force_radio_items\models\clf_nicecomm2";
     };
-    class rt1523g_tft_wnt_big_tft: rt1523g_tft_ucp {
+    class tf_rt1523g_wnt_big: tf_rt1523g_ucp {
         displayName = "WNT RT-1523G (ASIP) Big";
-        descriptionShort = "RT-1523G (ASIP) Winter (Big) long range radio 20km";
+        descriptionShort = "RT-1523G (ASIP) WNT (Big) long range radio 20km";
         maximumLoad = 160;
         mass = 160;
         hiddenSelections[] = {"camo"};
-        hiddenSelectionsTextures[] = {"\tft_tfar\data\rt1523g_tft_wnt_big_co.paa"};
+        hiddenSelectionsTextures[] = {"\tft_tfar\data\wnt_big.paa"};
         model="\task_force_radio_items\models\clf_nicecomm2";
     };
 };
