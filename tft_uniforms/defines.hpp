@@ -91,7 +91,7 @@
     class PATTERN##_Helmet : H_HelmetSpecB { \
         scope = 2; \
         weaponPoolAvailable = 1; \
-        displayName = QUOTE(PATTERN Helmet); \
+        displayName = QUOTE(PATTERN Enhanced Combat Helmet); \
         author = "TFT8"; \
         picture = QUOTE(tft_uniforms\PATTERN\UI\helmet.paa); \
         model = "\A3\Characters_F\BLUFOR\headgear_b_helmet_ballistic"; \
