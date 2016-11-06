@@ -55,14 +55,14 @@ class cfgWeapons {
     };
     
     class Beret_160th : H_Beret_02 {
-        displayName = "160th Beret";
-        author = "tft8";
+        displayName = "160th SOAR Beret";
+        author = "TFT8";
         hiddenSelectionsTextures[] = {"\tft_uniforms\Misc\beret160th.paa"};
     };
 
     class Beret_75th : H_Beret_02 {
         displayName = "75th Ranger Beret";
-        author = "tft8";
+        author = "TFT8";
         hiddenSelectionsTextures[] = {"\tft_uniforms\Misc\beret75th.paa"};
     };
 
