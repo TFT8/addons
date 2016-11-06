@@ -24,13 +24,12 @@
         respawnLinkedItems[] = {QUOTE(MERGE(PATTERN,_Helmet)), QUOTE(MERGE(PATTERN,_Vest)), "NVGoggles", "ItemMap", "ItemCompass", "ItemWatch", "ItemRadio"}; \
     };
 
-//TODO: picture
 #define UNIFORM(PATTERN) \
     class PATTERN##_Uniform : U_B_CombatUniform_mcam { \
         scope = 2; \
         displayName = QUOTE(PATTERN Uniform); \
         author = "TFT8"; \
-        picture = QUOTE(tft_uniforms\PATTERN\UI\uniform.paa); \
+        picture = QUOTE(\tft_uniforms\PATTERN\UI\uniform.paa); \
         model = "\A3\Characters_F\Common\Suitpacks\suitpack_blufor_diver"; \
         class ItemInfo : UniformItem { \
             uniformModel = "-"; \
@@ -43,7 +42,7 @@
         scope = 2; \
         displayName = QUOTE(PATTERN Uniform (RS)); \
         author = "TFT8"; \
-        picture = QUOTE(tft_uniforms\PATTERN\UI\uniformRS.paa); \
+        picture = QUOTE(\tft_uniforms\PATTERN\UI\uniformRS.paa); \
         model = "\A3\Characters_F\Common\Suitpacks\suitpack_blufor_diver"; \
         class ItemInfo : UniformItem { \
             uniformModel = "-"; \
@@ -53,13 +52,12 @@
         }; \
     };
 
-//TODO: picture
 #define VEST(PATTERN) \
     class PATTERN##_Vest : V_PlateCarrier1_rgr { \
         scope = 2; \
         displayName = QUOTE(PATTERN Carrier Rig); \
         author = "TFT8"; \
-        picture = QUOTE(tft_uniforms\PATTERN\UI\vest.paa); \
+        picture = QUOTE(\tft_uniforms\PATTERN\UI\vest.paa); \
         model = "\A3\Characters_F\BLUFOR\equip_b_vest02"; \
         hiddenSelections[] = {"Camo", "insignia"}; \
         hiddenSelectionsTextures[] = {QUOTE(tft_uniforms\PATTERN\vest.paa)}; \
@@ -74,7 +72,7 @@
         scope = 2; \
         displayName = QUOTE(PATTERN Carrier Rig (Heavy)); \
         author = "TFT8"; \
-        picture = QUOTE(tft_uniforms\PATTERN\UI\vestH.paa); \
+        picture = QUOTE(\tft_uniforms\PATTERN\UI\vestH.paa); \
         model = "\A3\Characters_F\BLUFOR\equip_b_vest01"; \
         hiddenSelections[] = {"Camo", "insignia"}; \
         hiddenSelectionsTextures[] = {QUOTE(tft_uniforms\PATTERN\vest.paa)}; \
@@ -86,14 +84,13 @@
         }; \
     };
 
-//TODO: picture
 #define HELMET(PATTERN) \
     class PATTERN##_Helmet : H_HelmetSpecB { \
         scope = 2; \
         weaponPoolAvailable = 1; \
         displayName = QUOTE(PATTERN Enhanced Combat Helmet); \
         author = "TFT8"; \
-        picture = QUOTE(tft_uniforms\PATTERN\UI\helmet.paa); \
+        picture = QUOTE(\tft_uniforms\PATTERN\UI\helmet.paa); \
         model = "\A3\Characters_F\BLUFOR\headgear_b_helmet_ballistic"; \
         hiddenSelections[] = {"Camo"}; \
         hiddenSelectionsTextures[] = {QUOTE(tft_uniforms\PATTERN\helmet.paa)}; \
@@ -108,7 +105,7 @@
         weaponPoolAvailable = 1; \
         displayName = QUOTE(PATTERN MICH); \
         author = "TFT8"; \
-        picture = QUOTE(tft_uniforms\PATTERN\UI\MICH.paa); \
+        picture = QUOTE(\tft_uniforms\PATTERN\UI\MICH.paa); \
         model = "\A3\Characters_F_Beta\INDEP\headgear_helmet_canvas"; \
         hiddenSelections[] = {"Camo"}; \
         hiddenSelectionsTextures[] = {QUOTE(tft_uniforms\PATTERN\MICH.paa)}; \
@@ -122,7 +119,7 @@
         scope = 2; \
         weaponPoolAvailable = 1; \
         displayName = QUOTE(PATTERN Patrol Cap); \
-        picture = QUOTE(tft_uniforms\PATTERN\UI\patrol.paa); \
+        picture = QUOTE(\tft_uniforms\PATTERN\UI\patrol.paa); \
         Model = "\A3\Characters_F\Common\cappatrol.p3d"; \
         hiddenSelections[] = {"Camo"}; \
         hiddenSelectionsTextures[] = {QUOTE(tft_uniforms\PATTERN\patrol.paa)}; \
@@ -133,7 +130,7 @@
         }; \
     }; \
     class PATTERN##_Boonie : H_Booniehat_khk { \
-        picture = QUOTE(tft_uniforms\PATTERN\UI\boonie.paa); \
+        picture = QUOTE(\tft_uniforms\PATTERN\UI\boonie.paa); \
         displayName = QUOTE(PATTERN Boonie Hat); \
         author = "TFT8"; \
         hiddenSelectionsTextures[] = {QUOTE(tft_uniforms\PATTERN\boonie.paa)}; \
@@ -145,7 +142,7 @@
         weaponPoolAvailable = 1; \
         displayName = QUOTE(PATTERN ProTec); \
         author = "TFT8"; \
-        picture = QUOTE(tft_uniforms\Misc\Protec\UI\PATTERN.paa); \
+        picture = QUOTE(\tft_uniforms\Misc\Protec\UI\PATTERN.paa); \
         model = "\tft_uniforms\Misc\Protec\ProtecHelmet"; \
         hiddenSelections[] = {"Camo"}; \
         hiddenSelectionsTextures[] = {QUOTE(MERGE(tft_uniforms\Misc\Protec\protec_,PATTERN.paa))}; \
@@ -159,14 +156,14 @@
 #define BACKPACK(PATTERN) \
     class PATTERN##_Assault: B_AssaultPack_blk { \
         author = "TFT8"; \
-        picture = QUOTE(tft_uniforms\PATTERN\UI\assault.paa); \
+        picture = QUOTE(\tft_uniforms\PATTERN\UI\assault.paa); \
         displayName = QUOTE(PATTERN Assault Pack); \
         hiddenSelections[] = {"camo"}; \
         hiddenSelectionsTextures[] = {QUOTE(tft_uniforms\PATTERN\assault.paa)}; \
     }; \
     class PATTERN##_Kitbag: B_Kitbag_cbr { \
         author = "TFT8"; \
-        picture = QUOTE(tft_uniforms\PATTERN\UI\kitbag.paa); \
+        picture = QUOTE(\tft_uniforms\PATTERN\UI\kitbag.paa); \
         displayName = QUOTE(PATTERN Kitbag); \
         hiddenSelections[] = {"camo"}; \
         hiddenSelectionsTextures[] = {QUOTE(tft_uniforms\PATTERN\kitbag.paa)}; \
