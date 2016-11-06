@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://lh5.googleusercontent.com/7ZFoiPwAlUBoJ1mXo9vcR8QkvfGVsAv-zDrm_IJmWtDjbekkpS9FbUsEboDByNnkH1TD3TR9cJz53-o=w1920-h939" height="250">
+<img src="https://avatars2.githubusercontent.com/u/9541243?v=3&s=200" height="250">
 </p>
 # TFT8 Addons  
 This repository containes all TFT8 made addons.  
