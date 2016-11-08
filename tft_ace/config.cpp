@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = 0.6;
-        requiredAddons[] = {"ace_medical", "ace_tagging"};
+        requiredAddons[] = {"ace_medical", "ace_tagging", "ace_trenches"};
         version = 2.0.0;
         versionStr = 2.0.0;
         versionAr[] = {2, 0, 0};
@@ -41,6 +41,16 @@ class CfgVehicles {
                 };
             };
         };
+    };
+
+    class BagFence_base_F;
+    class ACE_envelope_small: BagFence_base_F {
+        ace_trenches_diggingDuration = 90;
+        ace_trenches_removalDuration = 50;
+    };
+    class ACE_envelope_big: BagFence_base_F {
+        ace_trenches_diggingDuration = 110;
+        ace_trenches_removalDuration = 65;
     };
 };
 
