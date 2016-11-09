@@ -81,3 +81,10 @@ class cfgWeapons {
     PROTEC(Black)
     PROTEC(Tan)
 };
+
+
+class CfgGlasses {
+	class G_Bandanna_beast; // External class reference
+    
+    #include "Misc\Bandana\cfgGlasses.hpp"
+};
