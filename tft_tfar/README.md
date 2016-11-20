@@ -20,9 +20,9 @@ File|Mod|Link
 
 CLASSNAMES:|Item Name|
 ---|---|
-rt1523g_tft_ucp |RT-1523g (ASIP) UCP
-rt1523g_tft_ocp |RT-1523g (ASIP) OCP
-tf1523g_tft_wnt |RT-1523g (ASIP) WNT
-rt1523g_tft_ucp_big |RT-1523g (ASIP) Big UCP
-rt1523g_tft_ocp_big |RT-1523g (ASIP) Big OCP
-rt1523g_tft_wnt_big |RT-1523g (ASIP) Big WNT
+rt1523g_tft_ucp |RT-1523g (ASIP) TFT8 [UCP]
+rt1523g_tft_ocp |RT-1523g (ASIP) TFT8 [OCP]
+tf1523g_tft_wnt |RT-1523g (ASIP) TFT8 [WNT]
+rt1523g_tft_ucp_big |RT-1523g (ASIP) Big TFT8 [UCP]
+rt1523g_tft_ocp_big |RT-1523g (ASIP) Big TFT8 [OCP]
+rt1523g_tft_wnt_big |RT-1523g (ASIP) Big TFT8 [WNT]
