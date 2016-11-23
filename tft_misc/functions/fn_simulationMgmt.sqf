@@ -20,3 +20,5 @@ if(isNil "TFT_simulation_state") then {
 
 _unit addAction ["<t color='#f0a4ff'>Toggle simulation</t>", {remoteExec ["TFT_fnc_simulationToggle", 2]}, nil, -10, false, true, "", "_this == _target && !TFT_simulation_state"];
 _unit addAction ["<t color='#c0c0c0'>Toggle simulation</t>", {remoteExec ["TFT_fnc_simulationToggle", 2]}, nil, -10, false, true, "", "_this == _target && TFT_simulation_state"];
+
+hint parseText "<t size='1.1' color='#f1c40f'>You can now toggle simulation ON/OFF using your addAction (scroll menu).</t>";
