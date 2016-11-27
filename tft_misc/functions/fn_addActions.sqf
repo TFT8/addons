@@ -33,8 +33,3 @@ if(_all || {"BFT" in _actions}) then {
 if(_all || {"Spectator" in _actions}) then {
     _this addAction ["<t color='#83ffc6'>Spectate</t>", {[_this select 1, true] call TFT_fnc_spectate}, nil, -40, false, true, "", "_this distance _target < 10"];
 };
-if(_all || {"AAR" in _actions}) then {
-    _this addAction ["<t color='#f0a4ff'>Start recording AAR</t>", {[1] remoteExec ["tft_aar_fnc_startRecording", HC]}, nil, -20, false, true, "", "(_this distance _target < 8) && {(missionNamespace getVariable ['HC', objNull]) in allPlayers} && {(isNil 'tft_aar_recording') || {tft_aar_recording == -1}}"];
-    _this addAction ["<t color='#f0a4ff'>Stop recording AAR</t>", {remoteExec ["tft_aar_fnc_stopRecording", HC]}, nil, -20, false, true, "", "(_this distance _target < 8) && {!isNil 'tft_aar_recording'} && {tft_aar_recording != -1}"];
-    _this addAction ["<t color='#f0a4ff'>Load AAR</t>", {createDialog "tft_aar_load"}, nil, -22, false, true, "", "(_this distance _target < 8) && {(isNil 'tft_aar_recording') || {tft_aar_recording == -1}}"];
-};

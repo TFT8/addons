@@ -11,3 +11,10 @@ Available functions:
   Adds possibility to freeze all units and vehicles in place. You can give someone powers to manage simulation by calling `[_unit] call TFT_fnc_simulationMgmt` and/or you can switch simulation ON and OFF with `call TFT_fnc_simulationToggle`.
 - **Spectator**
   Obviously it allows you to spectate. Call `[_unit, _exitable] call TFT_fnc_spectate` to get into spectator mode. Your unit will disappear and if `_exitable` is set to false, you won't be able to go back (useful for 1-life-only missions).
+- **Add Actions**
+  Adds certain addactions to the object. Call `[_object, _actions] call TFT_fnc_addActions;`, where _actions_ is a list with action names to add. If left empty, all actions will be added. Available options are:
+    + **"Arsenal"** - adds Arsenal and VAS menu
+    + **"Preparation"** - adds option to end preparation phase (NOTE:it still needs to be initialized in the _init.sqf_)
+    + **"Respawns"** - adds _move respawn points_ action
+    + **"BFT"** - adds BLUFOR Tracker management options
+    + **"Spectator"** - adds option for moving into spectator view

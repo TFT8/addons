@@ -11,22 +11,6 @@ class CfgPatches {
     };
 };
 
-class RscText;
-class ctrlStatic;
-class RscPicture;
-class RscListbox;
-class RscProgress;
-class RscButtonMenuOK;
-class RscStructuredText;
-class RscButtonMenuCancel;
-
-#include "\tft_misc\aar\UI\loadDialog.hpp"
-
-class RscTitles
-{
-    #include "\tft_misc\aar\UI\controlsDialog.hpp"
-};
-
 class CfgFunctions {
     class tft_misc {
         tag = "tft";
@@ -48,23 +32,6 @@ class CfgFunctions {
             class draw2D;
             class draw3D;
             class assignTarget;
-        };
-    };
-    class tft_aar {
-        tag = "tft_aar";
-        class aar {
-            file = "tft_misc\aar";
-            class deleteRecording;
-            class getIcons;
-            class initControlsDialog;
-            class initLoadDialog;
-            class loadRecording;
-            class startRecording;
-            class stopRecording;
-            class saveBuffer;
-            class terminate;
-            class getRecordingFromDB;
-            class deleteRecordingFromDB;
         };
     };
 };
