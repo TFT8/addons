@@ -1,6 +1,7 @@
 class CfgPatches {
     class tft_tban {
-        units[] = { "O_Tban_ZU23", "O_Tban_DSHKM", "O_Tban_DSHKM_Mini", "O_Tban_KORD", "O_Tban_KORD_High", "O_Tban_AGS", "O_Tban_Metis",
+        units[] = { "TBan_TL", "TBan_CLS", "TBan_AR", "TBan_Rifleman", "TBan_AT", "TBan_Rifleman2", "TBan_DMR",
+                    "O_Tban_ZU23", "O_Tban_DSHKM", "O_Tban_DSHKM_Mini", "O_Tban_KORD", "O_Tban_KORD_High", "O_Tban_AGS", "O_Tban_Metis",
                     "O_Tban_SPG9", "O_Tban_Igla", "O_Tban_82mm", "O_Tban_D30", "O_TBan_Ural", "O_TBan_Ural_Open", "O_TBan_Ural_Ammo",
                     "O_TBan_Ural_Repair", "O_TBan_Ural_Fuel", "O_TBan_Ural_BM21", "O_TBan_Ural_ZU23", "O_TBan_Hilux", "O_TBan_Hilux_MG",
                     "O_TBan_Hilux_AGS30", "O_TBan_Hilux_SPG", "O_TBan_BRDM2", "O_TBan_BTR60", "O_TBan_BMP1", "O_TBan_BMP2", "O_TBan_BMP2_HQ",
@@ -186,9 +187,13 @@ class CfgVehicles {
     };
 
     class Afghan_civilian1 : TBan_Fighter1 {
+        scope = 2;
+        scopeCurator = 2;
         editorPreview = "tft_tban\UI\Afghan_civilian1.jpg";
     };
     class Afghan_civilian1NH : TBan_Fighter1 {
+        scope = 2;
+        scopeCurator = 2;
         editorPreview = "tft_tban\UI\Afghan_civilian1NH.jpg";
     };
     class Afghan_Civilian2 : Afghan_civilian1 {
@@ -343,7 +348,7 @@ class CfgVehicles {
 
     class O_Tban_ZU23 : O_mas_ZU23_AAF {
         editorPreview = "tft_tban\UI\O_Tban_ZU23.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman";
@@ -352,7 +357,7 @@ class CfgVehicles {
 
     class O_Tban_DSHKM : O_mas_DSHKM_AAF {
         editorPreview = "tft_tban\UI\O_Tban_DSHKM.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman";
@@ -361,7 +366,7 @@ class CfgVehicles {
 
     class O_Tban_DSHKM_Mini : O_mas_DSHkM_Mini_TriPod {
         editorPreview = "tft_tban\UI\O_Tban_DSHKM_Mini.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_TL";
@@ -370,7 +375,7 @@ class CfgVehicles {
 
     class O_Tban_KORD : O_mas_KORD_AAF {
         editorPreview = "tft_tban\UI\O_Tban_KORD.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_CLS";
@@ -379,7 +384,7 @@ class CfgVehicles {
 
     class O_Tban_KORD_High : O_mas_KORD_high_AAF {
         editorPreview = "tft_tban\UI\O_Tban_KORD_High.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_AR";
@@ -388,7 +393,7 @@ class CfgVehicles {
 
     class O_Tban_AGS : O_mas_AGS_AAF {
         editorPreview = "tft_tban\UI\O_Tban_AGS.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_CLS";
@@ -397,7 +402,7 @@ class CfgVehicles {
 
     class O_Tban_Metis : O_mas_Metis_AAF {
         editorPreview = "tft_tban\UI\O_Tban_Metis.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_AR";
@@ -406,7 +411,7 @@ class CfgVehicles {
 
     class O_Tban_SPG9 : O_mas_SPG9_AAF {
         editorPreview = "tft_tban\UI\O_Tban_SPG9.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_TL";
@@ -415,7 +420,7 @@ class CfgVehicles {
 
     class O_Tban_Igla : O_mas_Igla_AA_pod_AAF {
         editorPreview = "tft_tban\UI\O_Tban_Igla.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman2";
@@ -424,7 +429,7 @@ class CfgVehicles {
 
     class O_Tban_82mm : O_mas_2b14_82mm_AAF {
         editorPreview = "tft_tban\UI\O_Tban_82mm.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman";
@@ -433,7 +438,7 @@ class CfgVehicles {
 
     class O_Tban_D30 : O_mas_D30_AT_AAF {
         editorPreview = "tft_tban\UI\O_Tban_D30.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman2";
@@ -456,7 +461,7 @@ class CfgVehicles {
 
     class O_TBan_Ural : O_mas_cars_Ural {
         editorPreview = "tft_tban\UI\O_TBan_Ural.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman";
@@ -465,7 +470,7 @@ class CfgVehicles {
 
     class O_TBan_Ural_Open : O_mas_cars_Ural_open {
         editorPreview = "tft_tban\UI\O_TBan_Ural_Open.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman2";
@@ -474,7 +479,7 @@ class CfgVehicles {
 
     class O_TBan_Ural_Ammo : O_mas_cars_Ural_ammo {
         editorPreview = "tft_tban\UI\O_TBan_Ural_Ammo.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_TL";
@@ -483,7 +488,7 @@ class CfgVehicles {
 
     class O_TBan_Ural_Repair : O_mas_cars_Ural_repair {
         editorPreview = "tft_tban\UI\O_TBan_Ural_Repair.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_TL";
@@ -492,7 +497,7 @@ class CfgVehicles {
 
     class O_TBan_Ural_Fuel : O_mas_cars_Ural_fuel {
         editorPreview = "tft_tban\UI\O_TBan_Ural_Fuel.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman";
@@ -501,7 +506,7 @@ class CfgVehicles {
 
     class O_TBan_Ural_BM21 : O_mas_cars_Ural_BM21 {
         editorPreview = "tft_tban\UI\O_TBan_Ural_BM21.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_CLS";
@@ -510,7 +515,7 @@ class CfgVehicles {
 
     class O_TBan_Ural_ZU23 : O_mas_cars_Ural_ZU23 {
         editorPreview = "tft_tban\UI\O_TBan_Ural_ZU23.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman";
@@ -519,7 +524,7 @@ class CfgVehicles {
 
     class O_TBan_Hilux : B_mas_cars_Hilux_Unarmed {
         editorPreview = "tft_tban\UI\O_TBan_Hilux.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman2";
@@ -529,7 +534,7 @@ class CfgVehicles {
 
     class O_TBan_Hilux_MG : B_mas_cars_Hilux_MG {
         editorPreview = "tft_tban\UI\O_TBan_Hilux_MG.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman";
@@ -539,7 +544,7 @@ class CfgVehicles {
 
     class O_TBan_Hilux_AGS30 : B_mas_cars_Hilux_AGS30 {
         editorPreview = "tft_tban\UI\O_TBan_Hilux_AGS30.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_CLS";
@@ -549,7 +554,7 @@ class CfgVehicles {
 
     class O_TBan_Hilux_SPG : B_mas_cars_Hilux_SPG9 {
         editorPreview = "tft_tban\UI\O_TBan_Hilux_SPG.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman2";
@@ -568,7 +573,7 @@ class CfgVehicles {
 
     class O_TBan_BRDM2 : O_mas_BRDM2 {
         editorPreview = "tft_tban\UI\O_TBan_BRDM2.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman2";
@@ -577,7 +582,7 @@ class CfgVehicles {
 
     class O_TBan_BTR60 : O_mas_BTR60 {
         editorPreview = "tft_tban\UI\O_TBan_BTR60.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman";
@@ -587,7 +592,7 @@ class CfgVehicles {
 
     class O_TBan_BMP1 : O_mas_BMP1_OPF_01 {
         editorPreview = "tft_tban\UI\O_TBan_BMP1.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman";
@@ -596,7 +601,7 @@ class CfgVehicles {
 
     class O_TBan_BMP2 : O_mas_BMP2_OPF_01 {
         editorPreview = "tft_tban\UI\O_TBan_BMP2.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman2";
@@ -605,7 +610,7 @@ class CfgVehicles {
 
     class O_TBan_BMP2_HQ : O_mas_BMP2_HQ_OPF_01 {
         editorPreview = "tft_tban\UI\O_TBan_BMP2_HQ.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_CLS";
@@ -614,7 +619,7 @@ class CfgVehicles {
 
     class O_TBan_BMP2_Ambul : O_mas_BMP2_Ambul_01 {
         editorPreview = "tft_tban\UI\O_TBan_BMP2_Ambul.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_TL";
@@ -631,7 +636,7 @@ class CfgVehicles {
 
     class O_TBan_ZSU : O_mas_ZSU_OPF_01 {
         editorPreview = "tft_tban\UI\O_TBan_ZSU.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman";
@@ -640,7 +645,7 @@ class CfgVehicles {
 
     class O_TBan_T34 : I_mas_T34_AAF_01 {
         editorPreview = "tft_tban\UI\O_TBan_T34.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman";
@@ -650,7 +655,7 @@ class CfgVehicles {
 
     class O_TBan_T55 : O_mas_T55_OPF_01 {
         editorPreview = "tft_tban\UI\O_TBan_T55.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_CLS";
@@ -659,7 +664,7 @@ class CfgVehicles {
 
     class O_TBan_T72 : O_mas_T72_OPF_01 {
         editorPreview = "tft_tban\UI\O_TBan_T72.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_CLS";
@@ -668,7 +673,7 @@ class CfgVehicles {
 
     class O_TBan_T72BM : O_mas_T72BM_OPF_01 {
         editorPreview = "tft_tban\UI\O_TBan_T72BM.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_TL";
@@ -683,7 +688,7 @@ class CfgVehicles {
 
     class O_TBan_MI8 : O_mas_MI8 {
         editorPreview = "tft_tban\UI\O_TBan_MI8.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman";
@@ -692,7 +697,7 @@ class CfgVehicles {
 
     class O_TBan_MI8MTV : O_mas_MI8MTV {
         editorPreview = "tft_tban\UI\O_TBan_MI8MTV.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_CLS";
@@ -701,7 +706,7 @@ class CfgVehicles {
 
     class O_TBan_MI24V : O_mas_MI24V {
         editorPreview = "tft_tban\UI\O_TBan_MI24V.jpg";
-        faction = TBan;
+        faction = "TBan";
         scopeCurator = 2;
         scope = 2;
         crew = "TBan_Rifleman2";
