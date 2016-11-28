@@ -3,8 +3,6 @@
 Adds Taliban faction using
 [_EricJ's Taliban Fighters_](http://www.armaholic.com/page.php?id=29542),
 [_Massi's Vehicles_](http://www.armaholic.com/page.php?id=27652),
-[_HLC AKs_](http://www.armaholic.com/page.php?id=25099) and
-[_A2 RPG7_](http://www.armaholic.com/page.php?id=25705).
 
 Faction consists of:
 * **Infantry**
