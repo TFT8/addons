@@ -16,7 +16,6 @@ File|Mod|Link
 ---|---|---|
 @task_force_radio | Task Force Arrowhead Radio |[Task Force Arrowhead Radio Github](https://github.com/michail-nikolaev/task-force-arma-3-radio "TFAR Github")
 @cba_main | CBA | [CBA_A3](https://github.com/CBATeam/CBA_A3)
-@tft_uniforms | TFT8 Uniforms | [Task Force Tempor 8](https://www.tft8.com)
 
 CLASSNAMES:|Item Name|
 ---|---|
