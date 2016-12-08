@@ -16,27 +16,24 @@ class CfgAmmo {
 
     class F_40mm_White : FlareBase {
         lightColor[] = {0.75, 0.75, 0.75, 0.5};
-        intensity = 80000;
-        brightness = 50;
-        timeToLive = 40;
+        intensity = 95000;
+        brightness = 500;
+        timeToLive = 50;
         size = 0.8;
     };
 
     class F_40mm_Green : F_40mm_White {
-        lightColor[] = {0.5, 0.75, 0.5, 0.25};
-        intensity = 70000;
+        lightColor[] = {0.25, 0.75, 0.25, 0.25};
         size = 1.2;
     };
 
     class F_40mm_Yellow : F_40mm_White {
         lightColor[] = {0.75, 0.75, 0.5, 0.25};
-        intensity = 70000;
         size = 1.2;
     };
 
     class F_40mm_Red : F_40mm_White {
-        lightColor[] = {0.75, 0.5, 0.5, 0.25};
-        intensity = 70000;
+        lightColor[] = {0.75, 0.25, 0.25, 0.25};
         size = 1.2;
     };
 
