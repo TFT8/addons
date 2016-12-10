@@ -11,9 +11,9 @@ class CfgPatches {
 };
 
 class cfgVehicles {
-    class B_Soldier_base_F;    // External class reference
-    class B_AssaultPack_blk; // External class reference
-    class B_Kitbag_cbr; // External class reference
+    class B_Soldier_base_F;     // External class reference
+    class B_AssaultPack_blk;    // External class reference
+    class B_Kitbag_cbr;         // External class reference
 
     UNIT(OCP)
     UNIT(UCP)
@@ -22,20 +22,18 @@ class cfgVehicles {
     BACKPACK(OCP)
     BACKPACK(UCP)
     BACKPACK(WNT)
-
-    #include "Misc\cfgVehicles.hpp"
 };
 
 class cfgWeapons {
-    class UniformItem; // External class reference
-    class ItemCore; // External class reference
-    class HelmetBase; // External class reference
-    class U_B_CombatUniform_mcam; // External class reference
-    class U_B_CombatUniform_mcam_vest; // External class reference
-    class U_B_CombatUniform_mcam_tshirt; // External class reference
-    class Vest_NoCamo_Base; // External class reference
-    class H_Booniehat_khk; // External class reference
-    class H_Beret_02; // External class reference
+    class UniformItem;                      // External class reference
+    class ItemCore;                         // External class reference
+    class HelmetBase;                       // External class reference
+    class U_B_CombatUniform_mcam;           // External class reference
+    class U_B_CombatUniform_mcam_vest;      // External class reference
+    class U_B_CombatUniform_mcam_tshirt;    // External class reference
+    class Vest_NoCamo_Base;                 // External class reference
+    class H_Booniehat_khk;                  // External class reference
+    class H_Beret_02;                       // External class reference
 
     class H_HelmetSpecB : ItemCore {
         class ItemInfo;
@@ -44,6 +42,9 @@ class cfgWeapons {
         class ItemInfo;
     };
     class H_HelmetIA : H_HelmetB {
+        class ItemInfo;
+    };
+    class H_HelmetB_TI_tna_F : H_HelmetB {
         class ItemInfo;
     };
     class H_MilCap_ocamo : HelmetBase {
@@ -56,13 +57,13 @@ class cfgWeapons {
         class ItemInfo;
     };
 
-    class Beret_160th : H_Beret_02 {
+    class TFT_Beret_160th : H_Beret_02 {
         displayName = "160th SOAR Beret";
         author = "TFT8";
         picture = "\tft_uniforms\Misc\UI\beret160.paa";
         hiddenSelectionsTextures[] = {"\tft_uniforms\Misc\beret160th.paa"};
     };
-    class Beret_75th : H_Beret_02 {
+    class TFT_Beret_75th : H_Beret_02 {
         displayName = "75th Ranger Beret";
         author = "TFT8";
         picture = "\tft_uniforms\Misc\UI\beret75.paa";
@@ -83,11 +84,19 @@ class cfgWeapons {
 
     PROTEC(Black)
     PROTEC(Tan)
-
-    #include "Misc\cfgWeapons.hpp"
 };
 
 class CfgGlasses {
     class G_Bandanna_beast; // External class reference
-    #include "Misc\Bandana\cfgGlasses.hpp"
+
+    class TFT_Bandana_snow: G_Bandanna_beast {
+        displayname = "Bandana (Snow)";
+        picture = "\tft_uniforms\Misc\Bandana\UI\snow.paa";
+        hiddenSelectionsTextures[] = {"\tft_uniforms\Misc\Bandana\snow.paa"};
+    };
+
+    BANDANA(khaki)
+    BANDANA(olive)
+    BANDANA(tan)
+    BANDANA(snow)
 };
