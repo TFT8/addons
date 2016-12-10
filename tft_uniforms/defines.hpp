@@ -161,17 +161,17 @@
     };
 
 #define PROTEC(PATTERN) \
-    class TFT_Protec_##PATTERN : H_HelmetB_TI_tna_F { \
+    class TFT_Protec_##PATTERN : H_Helmet_Skate { \
         scope = 2; \
         weaponPoolAvailable = 1; \
         displayName = QUOTE(PATTERN ProTec); \
         author = "TFT8"; \
         picture = QUOTE(\tft_uniforms\Misc\Protec\UI\PATTERN.paa); \
-        model = "\A3\Characters_F_Exp\BLUFOR\H_HelmetB_TI_tna_F.p3d"; \
+        model = "\A3\Characters_F\Civil\C_Helmet_Skate_F.p3d"; \
         hiddenSelections[] = {"Camo"}; \
         hiddenSelectionsTextures[] = {QUOTE(MERGE(tft_uniforms\Misc\Protec\protec_,PATTERN.paa))}; \
         class ItemInfo : ItemInfo { \
-            uniformModel = "\A3\Characters_F_Exp\BLUFOR\H_HelmetB_TI_tna_F.p3d"; \
+            uniformModel = "\A3\Characters_F\Civil\C_Helmet_Skate_F.p3d"; \
             modelSides[] = {3, 1}; \
             hiddenSelections[] = {"Camo"}; \
         }; \

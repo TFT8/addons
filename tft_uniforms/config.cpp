@@ -44,7 +44,7 @@ class cfgWeapons {
     class H_HelmetIA : H_HelmetB {
         class ItemInfo;
     };
-    class H_HelmetB_TI_tna_F : H_HelmetB {
+    class H_Helmet_Skate : H_HelmetB {
         class ItemInfo;
     };
     class H_MilCap_ocamo : HelmetBase {
