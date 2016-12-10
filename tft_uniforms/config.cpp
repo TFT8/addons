@@ -94,6 +94,11 @@ class CfgGlasses {
         picture = "\tft_uniforms\Misc\Bandana\UI\snow.paa";
         hiddenSelectionsTextures[] = {"\tft_uniforms\Misc\Bandana\snow.paa"};
     };
+    class TFT_Bandana_Skull_black: G_Bandanna_beast {
+        displayname = "Bandana (Black) Skull";
+        picture = "\tft_uniforms\Misc\Bandana\UI\black_skull.paa";
+        hiddenSelectionsTextures[] = {"\tft_uniforms\Misc\Bandana\black_skull.paa"};
+    };
 
     BANDANA(khaki)
     BANDANA(olive)
