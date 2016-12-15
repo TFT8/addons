@@ -15,7 +15,6 @@ if(!isNil "TFT_prepPhase") exitWith {};
 TFT_prepPhase = true;
 
 if(hasInterface) then {
-    waituntil {!isNull player};
     call TFT_fnc_prepPhase;
 };
 
