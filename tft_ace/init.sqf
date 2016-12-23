@@ -4,7 +4,6 @@ if (!hasInterface) exitWith {};
     if (!dialog) then {
         [] call tft_ace_fnc_getIn;
     };
-    
     false
 }, {false}] call CBA_fnc_addKeybind;
 

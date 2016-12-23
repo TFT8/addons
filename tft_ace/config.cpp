@@ -10,7 +10,7 @@ class CfgPatches {
         version = 2.0.0;
         versionStr = 2.0.0;
         versionAr[] = {2, 0, 0};
-        author = "YoursTruly";
+        author = "YoursTruly, Fitzgerald";
     };
 };
 
@@ -22,6 +22,8 @@ class CfgFunctions {
             class getIn;
             class canTag;
             class tag;
+            class clearTag;
+            class markClear;
         };
     };
 };
@@ -30,14 +32,22 @@ class CfgVehicles {
     class Man;
     class CAManBase: Man {
         class ACE_SelfActions {
-            class ACE_Equipment {
+            class ACE_Tags {
                 class ACE_tagWallArtistic {
                     displayName = "Go artistic";
-                    condition = "[ACE_player] call tft_ace_fnc_canTag";
-                    statement = "[ACE_player, 5] call tft_ace_fnc_tag";
+                    condition = "[_player] call tft_ace_fnc_canTag";
+                    statement = "[_player, 5] call tft_ace_fnc_tag";
                     showDisabled = 0;
                     priority = 3;
-                    icon = "\tft_ace\UI\icons\retag.paa";
+                    icon = "\tft_ace\ui\icons\retag.paa";
+                };
+                class ACE_tagClear {
+                    displayName = "Mark Clear";
+                    condition = "[_player] call ACE_FUNC(checkTaggable));
+                    statement = "[_player,3] call tft_ace_fn_clearTag; _player call tft_ace_fnc_markClear";
+                    showDisabled = 0;
+                    priority = 3;
+                    icon = "\tft_ace\ui\icons\clearIcon_ca.paa";
                 };
             };
         };
@@ -51,6 +61,27 @@ class CfgVehicles {
     class ACE_envelope_big: BagFence_base_F {
         ace_trenches_diggingDuration = 110;
         ace_trenches_removalDuration = 65;
+    };
+};
+
+class CfgMarkerClasses {
+    class tft_markers {
+        displayName = "TFT8 Markers";
+        scope = 2;
+        scopeCurator = 2;
+    };
+};
+
+class CfgMarkers {
+    class tft_clearMarker    {
+        name = "Building Clear";
+        icon = "\tft_ace\ui\icons\clearIcon_ca.paa";
+        color[] = {1, 1, 1, 1};
+        size = 27;
+        scope = 2;
+        scopeCurator = 2;
+        shadow = 0;
+        markerClass = "tft_markers";
     };
 };
 
