@@ -1,6 +1,5 @@
-_marker_name = format ["clearMarker_%1", _marker_id_sequence];
-    _marker_id_sequence = _marker_id_sequence + 1;
-
+_mv = "mv +1";
+_marker_name = "_mv++";
 _marker = createMarker [_marker_name, _player];
-    _marker setMarkerShape "ICON";
-    _marker_name setMarkerType "tft_clearMarker";
+_marker setMarkerShape "ICON";
+_marker setMarkerType "tft_clearMarker";

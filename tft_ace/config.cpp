@@ -1,7 +1,4 @@
-﻿#include "\x\cba\addons\main\script_macros_common.hpp"
-#include "\x\cba\addons\xeh\script_xeh.hpp"
-
-class CfgPatches {
+﻿class CfgPatches {
     class tft_ace {
         units[] = {};
         weapons[] = {};
@@ -24,6 +21,7 @@ class CfgFunctions {
             class tag;
             class clearTag;
             class markClear;
+            class markerSize;
         };
     };
 };
@@ -43,8 +41,8 @@ class CfgVehicles {
                 };
                 class ACE_tagClear {
                     displayName = "Mark Clear";
-                    condition = "[_player] call ACE_FUNC(checkTaggable));
-                    statement = "[_player,3] call tft_ace_fn_clearTag; _player call tft_ace_fnc_markClear";
+                    condition = "[_player] call ACE_tagging_fnc_checkTaggable";
+                    statement = "[_player,3] call tft_ace_fnc_clearTag; _player call tft_ace_fnc_markClear; _player call tft_ace_fnc_markerSize;";
                     showDisabled = 0;
                     priority = 3;
                     icon = "\tft_ace\ui\icons\clearIcon_ca.paa";
@@ -73,15 +71,15 @@ class CfgMarkerClasses {
 };
 
 class CfgMarkers {
-    class tft_clearMarker    {
+    class tft_clearMarker {
         name = "Building Clear";
         icon = "\tft_ace\ui\icons\clearIcon_ca.paa";
+        markerClass = "tft_markers";
         color[] = {1, 1, 1, 1};
-        size = 27;
+        size = 25;
         scope = 2;
         scopeCurator = 2;
         shadow = 0;
-        markerClass = "tft_markers";
     };
 };
 
