@@ -5,7 +5,7 @@
             _scale = 0.05 / ctrlMapScale (_this select 0);
             {
                 _m = "#markerSize_" + _x;
-                if (markerShape _x == "ICON") then {
+                if (markerType _x == "tft_clearMarker") then {
                     if (isNil {missionNamespace getVariable _m}) then {
                         missionNamespace setVariable [_m, markerSize _x];
                     };
