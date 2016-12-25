@@ -76,7 +76,7 @@ class CfgMarkers {
         icon = "\tft_ace\ui\icons\clearIcon_ca.paa";
         markerClass = "tft_markers";
         color[] = {1, 1, 1, 1};
-        size = 25;
+        size = 20;
         scope = 2;
         scopeCurator = 2;
         shadow = 0;
