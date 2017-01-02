@@ -19,7 +19,7 @@ class CfgFunctions {
             class getIn;
             class canTag;
             class tag;
-            class clearTag;
+            class tagClear;
             class markClear;
             class markerSize;
         };
@@ -37,15 +37,15 @@ class CfgVehicles {
                     statement = "[_player, 5] call tft_ace_fnc_tag";
                     showDisabled = 0;
                     priority = 3;
-                    icon = "\tft_ace\ui\icons\retag.paa";
+                    icon = "\tft_ace\UI\icons\retag.paa";
                 };
                 class ACE_tagClear {
                     displayName = "Mark Clear";
                     condition = "[_player] call ACE_tagging_fnc_checkTaggable";
-                    statement = "[_player,3] call tft_ace_fnc_clearTag; _player call tft_ace_fnc_markClear; _player call tft_ace_fnc_markerSize;";
+                    statement = "[_player,3] call tft_ace_fnc_tagClear; _player call tft_ace_fnc_markClear; _player call tft_ace_fnc_markerSize;";
                     showDisabled = 0;
                     priority = 3;
-                    icon = "\tft_ace\ui\icons\clearIcon_ca.paa";
+                    icon = "\tft_ace\UI\icons\clearIcon_ca.paa";
                 };
             };
         };
@@ -73,7 +73,7 @@ class CfgMarkerClasses {
 class CfgMarkers {
     class tft_clearMarker {
         name = "Building Clear";
-        icon = "\tft_ace\ui\icons\clearIcon_ca.paa";
+        icon = "\tft_ace\UI\icons\clearIcon_ca.paa";
         markerClass = "tft_markers";
         color[] = {1, 1, 1, 1};
         size = 20;
