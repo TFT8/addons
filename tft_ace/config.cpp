@@ -41,8 +41,8 @@ class CfgVehicles {
                 };
                 class ACE_tagClear {
                     displayName = "Mark Clear";
-                    condition = "[_player] call ACE_tagging_fnc_checkTaggable";
-                    statement = "[_player,3] call tft_ace_fnc_tagClear; _player call tft_ace_fnc_markClear; _player call tft_ace_fnc_markerSize;";
+                    condition = "[_player] call ACE_tagging_fnc_checkTaggable && {'ACE_SpraypaintGreen' in items _player}";
+                    statement = "[_player,3] call tft_ace_fnc_tagClear; _player call tft_ace_fnc_markClear;";
                     showDisabled = 0;
                     priority = 3;
                     icon = "\tft_ace\UI\icons\clearIcon_ca.paa";
