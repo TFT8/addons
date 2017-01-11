@@ -1,3 +1,20 @@
+/*
+ * Author: [Name of Author(s)]
+ * [Description]
+ *
+ * Arguments:
+ * 0: The first argument <STRING>
+ * 1: The second argument <OBJECT>
+ *
+ * Return Value:
+ * The return value <BOOL>
+ *
+ * Example:
+ * ["something", player] call ace_common_fnc_imanexample
+ *
+ * Public: [Yes/No]
+ */
+
 private ["_unit", "_screams", "_scream", "_position"];
 
 _unit = _this;

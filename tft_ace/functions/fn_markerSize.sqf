@@ -1,3 +1,20 @@
+/*
+* Author: KillZone Kid
+*   Adaption by FitzGerald
+*
+* Description:
+* adjust marker size to stay relevant to size of map
+*
+* Arguments:
+* 
+* Return Value:
+* 
+* Example:
+* _nil = 0 spawn tft_ace_fnc_markerSize
+*
+* Public: [Yes/No]
+*/
+
 waitUntil {!isNull findDisplay 12};
 findDisplay 12 displayCtrl 51 ctrlAddEventHandler ["Draw", {
     if (visibleMap) then {

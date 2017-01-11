@@ -1,18 +1,19 @@
 /*
- * Author: Kingsley (modified by YoursTruly)
- * Mount the player in the vehicle they are directly looking at based on their distance.
- *
- * Arguments:
- * None
- *
- * Return Value:
- * None
- *
- * Example:
- * call tft_ace_fnc_getIn;
- *
- * Public: No
- */
+* Author: Kingsley (modified by YoursTruly)
+* Mount the player in the vehicle they are directly looking at based on their distance.
+*
+* Arguments:
+* None
+*
+* Return Value:
+* None
+*
+* Example:
+* call tft_ace_fnc_getIn;
+*
+* Public: No
+*/
+
 if((isNull ACE_player) || {vehicle ACE_player != ACE_player} || {!alive ACE_player} || {ACE_player getVariable ["ace_unconscious", false]}) exitWith { false };
 
 private _start = AGLtoASL positionCameraToWorld [0, 0, 0];
