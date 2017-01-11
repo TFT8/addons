@@ -9,5 +9,4 @@ In-house modifications for ACE3.
 - _Retagging_<br/>
   Possibility to change wall tags to randomly selected custom one.
 - _Mark Clear_<br/>
-  Custom ACE_Tagging function that uses a unique tag to mark buildings cleared and place a fixed size map marker where spraytag is located.
-  
+  Custom ACE_Tagging function that uses a custom tag to spray paint buildings cleared, and place a fixed size dynamically named map marker  where spraytag is located.  
