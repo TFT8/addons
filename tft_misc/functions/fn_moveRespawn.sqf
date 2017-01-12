@@ -11,6 +11,7 @@
  * Example:
  * call TFT_fnc_moveRespawn;
  */
+
 private ["_moved"];
 _moved = false;
 

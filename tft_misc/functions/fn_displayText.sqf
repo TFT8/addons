@@ -11,4 +11,5 @@
  * Example:
  * "<t size='2'>I'm big</t>" call TFT_fnc_titleText; // -> true
  */
+
 [_this,-1,1,1,0,0] spawn BIS_fnc_dynamicText;

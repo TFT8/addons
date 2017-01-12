@@ -11,6 +11,7 @@
  * Example:
  * call TFT_fnc_prepPhaseInit;
  */
+
 if(!isNil "TFT_prepPhase") exitWith {};
 TFT_prepPhase = true;
 
