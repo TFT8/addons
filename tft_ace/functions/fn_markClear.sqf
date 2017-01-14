@@ -1,19 +1,23 @@
 /*
 * Author: FitzGerald
-* Description: creates a marker with a unique variable name
+* Create a 'clear' map marker at unit's position.
 *
 * Arguments:
+* 0: Unit on which position to create a marker <OBJECT>
 *
 * Return Value:
-*
-* Last Modified: 2016/12/23
+* -
 *
 * Example:
-* [_player] call tft_fn_markClear.sqf
-*
+* [player] call tft_ace_fnc_markClear
 */
+params ["_player"];
 
-    _marker_name = format ["%1 %2", profileName, time];
-    _marker = createMarker [_marker_name, _player];
-    _marker setMarkerShape "ICON";
-    _marker setMarkerType "tft_clearMarker";
+private _num = missionNamespace getVariable ["tft_ace_markerNum", 1000];
+missionNamespace setVariable ["tft_ace_markerNum", _num+1];
+
+private _marker_name = format ["_USER_DEFINED #2/%1/%2", _num, currentChannel];
+private _marker = createMarker [_marker_name, _player];
+_marker setMarkerShape "ICON";
+_marker setMarkerType "tft_clearMarker";
+_marker setMarkerColor "ColorGreen";
