@@ -1,6 +1,6 @@
 /*
  Name: TFAR_fnc_serverInit
- 
+
  Author(s):
     NKey
     L-H
@@ -10,13 +10,14 @@
 
 Parameters:
     Nothing
- 
+
  Returns:
     Nothing
- 
+
  Example:
     call TFAR_fnc_serverInit;
 */
+
 #define MAX_RADIO_COUNT 1000
 private ["_variableName", "_radio_request", "_responseVariableName", "_response", "_task_force_radio_used", "_last_check", "_allUnits"];
 
@@ -30,14 +31,14 @@ waitUntil {sleep 0.1;time > 0};
 
 TF_Radio_Count = [];
 
-while {true} do {        
+while {true} do {
     call TFAR_fnc_processGroupFrequencySettings;
-    _allUnits = allUnits;    
+    _allUnits = allUnits;
     {
         _allUnits pushBack _x;
         true;
     } count (call BIS_fnc_listCuratorPlayers);
-    
+
     {
         if (isPlayer _x) then {
             _variableName = "radio_request_" + (getPlayerUID _x) + str (_x call BIS_fnc_objectSide);
