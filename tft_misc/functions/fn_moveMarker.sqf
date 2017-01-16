@@ -14,6 +14,7 @@
  * Example:
  * [_marker, _pos] call TFT_fnc_moveMarker;
  */
+
 params ["_from", "_to"];
 
 _from setMarkerPos (getMarkerPos _to);

@@ -11,6 +11,7 @@
  * Example:
  * [player] call TFT_fnc_simulationMgmt;
  */
+
 params ["_unit"];
 
 if(isNil "TFT_simulation_state") then {

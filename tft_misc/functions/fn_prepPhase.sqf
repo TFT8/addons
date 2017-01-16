@@ -11,6 +11,7 @@
  * Example:
  * call TFT_fnc_prepPhase;
  */
+
 player allowDamage false;
 _id = player addEventHandler ["Put", {
     _container = _this select 1;
