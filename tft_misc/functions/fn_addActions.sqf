@@ -12,7 +12,6 @@
  * Example:
  * [box, ["Arsenal"]] call TFT_fnc_addActions;
  */
-
 params [["_object", _this], ["_actions", []]];
 
 private _all = (count _actions == 0);

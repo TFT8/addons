@@ -36,4 +36,5 @@ class CfgAmmo {
         lightColor[] = {0.75, 0.25, 0.25, 0.25};
         size = 1.2;
     };
+
 };

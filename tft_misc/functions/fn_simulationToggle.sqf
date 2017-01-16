@@ -11,7 +11,6 @@
  * Example:
  * call TFT_fnc_simulationToggle;
  */
-
 TFT_simulation_state = !TFT_simulation_state;
 publicVariable "TFT_simulation_state";
 
