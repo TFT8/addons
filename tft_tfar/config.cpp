@@ -1,6 +1,6 @@
 class CfgPatches {
     class tft_tfar {
-        units[] =  {};
+        units[] =  { "tf_rt1523g_ucp", "tf_rt1523g_ocp", "tf_rt1523g_wnt", "tf_rt1523g_ucp_big", "tf_rt1523g_ocp_big", "tf_rt1523g_wnt_big" };
         weapons[] =  {};
         requiredVersion = 1.0;
         requiredAddons[] = { "CBA_Main", "task_force_radio_items", "task_force_radio"};
@@ -21,7 +21,6 @@ class CfgFunctions {
 };
 
 class CfgVehicles {
-
     class tf_rt1523g;
 
     class tf_rt1523g_ucp: tf_rt1523g {
@@ -34,13 +33,11 @@ class CfgVehicles {
     class tf_rt1523g_ocp: tf_rt1523g_ucp {
         displayName = "RT-1523G (ASIP) TFT8 [OCP]";
         descriptionShort = "RT-1523G (ASIP) OCP long range radio 20km";
-        hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"\tft_tfar\data\ocp.paa"};
     };
     class tf_rt1523g_wnt: tf_rt1523g_ucp {
         displayName = "RT-1523G (ASIP) TFT8 [WNT]";
         descriptionShort = "RT-1523G (ASIP) WNT long range radio 20km";
-        hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"\tft_tfar\data\wnt.paa"};
     };
     class tf_rt1523g_ucp_big: tf_rt1523g_ucp {
@@ -48,7 +45,6 @@ class CfgVehicles {
         descriptionShort = "RT-1523G (ASIP) UCP (Big) long range radio 20km";
         maximumLoad = 160;
         mass = 160;
-        hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"\tft_tfar\data\ucp_big.paa"};
         model="\task_force_radio_items\models\clf_nicecomm2";
     };
@@ -57,7 +53,6 @@ class CfgVehicles {
         descriptionShort = "RT-1523G (ASIP) OCP (Big) long range radio 20km";
         maximumLoad = 160;
         mass = 160;
-        hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"\tft_tfar\data\ocp_big.paa"};
         model="\task_force_radio_items\models\clf_nicecomm2";
     };
@@ -66,7 +61,6 @@ class CfgVehicles {
         descriptionShort = "RT-1523G (ASIP) WNT (Big) long range radio 20km";
         maximumLoad = 160;
         mass = 160;
-        hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"\tft_tfar\data\wnt_big.paa"};
         model="\task_force_radio_items\models\clf_nicecomm2";
     };
