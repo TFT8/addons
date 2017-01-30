@@ -22,7 +22,9 @@ class CfgFunctions {
 
 class CfgVehicles {
     class tf_rt1523g;
+    class TFAR_Bag_Base;
 
+//----------------------------------------- TFT8 Radios
     class tf_rt1523g_ucp: tf_rt1523g {
         author = "S4 @ TFT8 / Fitzgerald, Truly";
         displayName = "RT-1523G (ASIP) TFT8 [UCP]";
@@ -63,5 +65,57 @@ class CfgVehicles {
         mass = 160;
         hiddenSelectionsTextures[] = {"\tft_tfar\data\wnt_big.paa"};
         model="\task_force_radio_items\models\clf_nicecomm2";
+    };
+
+//------------------------------------------ Arsenal Clean Up
+    class tf_rt1523g_big_bwmod: tf_rt1523g {
+        scope = 1;
+    };
+    class tf_rt1523g_big_bwmod_tropen: tf_rt1523g {
+        scope = 1;
+    };
+    class tf_rt1523g_bwmod: tf_rt1523g {
+        scope = 1;
+    };
+    class tf_rt1523g_fabric: tf_rt1523g {
+        scope = 1;
+    };
+    class tf_rt1523g_green: tf_rt1523g {
+        scope = 1;
+    };
+    class tf_rt1523g_sage: tf_rt1523g {
+        scope = 1;
+    };
+    class tf_anprc155: TFAR_Bag_Base {
+        scope = 1;
+    };
+    class tf_mr3000: TFAR_Bag_Base {
+        scope = 1;
+    };
+    class tf_mr3000_bwmod: TFAR_Bag_Base {
+        scope = 1;
+    };
+    class tf_mr3000_bwmod_tropen: TFAR_Bag_Base {
+        scope = 1;
+    };
+    class tf_anarc210: TFAR_Bag_Base {
+        scope = 1;
+    };
+    class tf_anarc164: TFAR_Bag_Base {
+        scope = 1;
+    };
+    class tf_mr6000l: TFAR_Bag_Base {
+        scope = 1;
+    };
+};
+
+class CfgWeapons {
+    class ItemRadio;
+//--------------------------------- Arsenal Cleanup
+    class tf_anprc154: ItemRadio {
+        scope = 1;
+    };
+    class tf_pnr1000a: ItemRadio {
+        scope = 1;
     };
 };
