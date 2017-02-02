@@ -3,16 +3,16 @@
 params ["_spectator", "_exitable"];
 private ["_display", "_eh"];
 
+// --- hide player from STHUD
+_spectator setVariable ["tft_spec_group", group _spectator];
+_group = createGroup (side _spectator);
+[_spectator] joinSilent _group;
+
 // --- prevent player from dying (and disturbing)
 [_spectator, true]  remoteExec ["hideObjectGlobal", 2];
 _spectator allowDamage false;
 _spectator setCaptive true;
 [_spectator, false]  remoteExec ["enableSimulationGlobal", 2];
-
-// --- hide player from STHUD
-_spectator setVariable ["tft_spec_group", group _spectator];
-_group = createGroup (side _spectator);
-[_spectator] joinSilent _group;
 
 // --- launch BI spectator UI
 ["Initialize", [_spectator, [], false]] call BIS_fnc_EGSpectator;
@@ -39,13 +39,13 @@ tft_spec_voiceVolume = TF_speak_volume_meters;
 0 call TFAR_fnc_setVoiceVolume;
 _spectator setVariable ["tf_unable_to_use_radio", true];
 
-if(!_exitable) exitWith {};
-
 // --- handle escape
-_eh = _display displayAddEventHandler ["KeyDown",
-    format["if(_this select 1 == 1) then { [_this, %1] call TFT_fnc_spectateEnd }", _spectator]
-];
-_spectator setVariable ["tft_spec_keydown", _eh];
+if(_exitable) then {
+    _eh = _display displayAddEventHandler ["KeyDown",
+        format["if(_this select 1 == 1) then { [_this, %1] call TFT_fnc_spectateEnd }", _spectator]
+    ];
+    _spectator setVariable ["tft_spec_keydown", _eh];
+};
 
 // --- handle mouse button
 _eh = _display displayAddEventHandler ["MouseButtonUp",
