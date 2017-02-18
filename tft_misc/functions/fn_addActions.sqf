@@ -19,7 +19,6 @@ private _all = (count _actions == 0);
 
 if(_all || {"Arsenal" in _actions}) then {
     _object addAction ["<t color='#89f3ff'>Arsenal</t>", {["Open",true] spawn BIS_fnc_arsenal}, nil, 51, true, true, "", "_target distance _this < 8"];
-    _object addAction ["<t color='#89f3ff'>Virtual Ammobox</t>", "VAS\open.sqf", nil, 50, true, true, "", "_target distance _this < 8"];
 };
 if(_all || {"Spectator" in _actions}) then {
     _object addAction ["<t color='#83ffc6'>Spectate</t>", {[_this select 1, true] call TFT_fnc_spectate}, nil, -8, false, true, "", "_this distance _target < 10"];
