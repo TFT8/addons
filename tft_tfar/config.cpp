@@ -11,12 +11,9 @@ class CfgPatches {
     };
 };
 
-class CfgFunctions {
-    class TFAR {
-        class Radio {
-            class ServerInit {file = "tft_tfar\fn_ServerInit.sqf";};
-            class ClientInit {file = "tft_tfar\fn_ClientInit.sqf";};
-        };
+class Extended_PostInit_EventHandlers {
+    class tft_tfar {
+        init = "call compile preprocessFileLineNumbers '\tft_tfar\init.sqf'";
     };
 };
 
