@@ -68,6 +68,12 @@ class CfgVehicles {
     };
 
 //------------------------------------------ Arsenal Clean Up
+    class tf_rt1523g_rhs: tf_rt1523g {
+        scope = 1;
+    };
+    class tf_rt1523g_big_rhs: tf_rt1523g {
+        scope = 1;
+    };
     class tf_rt1523g_big_bwmod: tf_rt1523g {
         scope = 1;
     };
