@@ -18,11 +18,12 @@ class Extended_PostInit_EventHandlers {
 };
 
 class CfgVehicles {
-    class tf_rt1523g;
+    class TFAR_rt1523g;
     class TFAR_Bag_Base;
+    class TFAR_rt1523g_big;
 
 //----------------------------------------- TFT8 Radios
-    class tf_rt1523g_ucp: tf_rt1523g {
+    class tf_rt1523g_ucp: TFAR_rt1523g {
         author = "S4 @ TFT8 / Fitzgerald, Truly";
         displayName = "RT-1523G (ASIP) TFT8 [UCP]";
         descriptionShort = "RT-1523G (ASIP) UCP long range radio 20km";
@@ -39,75 +40,66 @@ class CfgVehicles {
         descriptionShort = "RT-1523G (ASIP) WNT long range radio 20km";
         hiddenSelectionsTextures[] = {"\tft_tfar\data\wnt.paa"};
     };
-    class tf_rt1523g_ucp_big: tf_rt1523g_ucp {
+    class tf_rt1523g_ucp_big: TFAR_rt1523g_big {
         displayName = "RT-1523G (ASIP) Big TFT8 [UCP]";
         descriptionShort = "RT-1523G (ASIP) UCP (Big) long range radio 20km";
-        maximumLoad = 160;
-        mass = 160;
         hiddenSelectionsTextures[] = {"\tft_tfar\data\ucp_big.paa"};
-        model="\task_force_radio_items\models\clf_nicecomm2";
     };
-    class tf_rt1523g_ocp_big: tf_rt1523g_ucp {
+    class tf_rt1523g_ocp_big: TFAR_rt1523g_big {
         displayName = "RT-1523G (ASIP) Big TFT8 [OCP]";
         descriptionShort = "RT-1523G (ASIP) OCP (Big) long range radio 20km";
-        maximumLoad = 160;
-        mass = 160;
         hiddenSelectionsTextures[] = {"\tft_tfar\data\ocp_big.paa"};
-        model="\task_force_radio_items\models\clf_nicecomm2";
     };
-    class tf_rt1523g_wnt_big: tf_rt1523g_ucp {
+    class tf_rt1523g_wnt_big: TFAR_rt1523g_big {
         displayName = "RT-1523G (ASIP) Big TFT8 [WNT]";
         descriptionShort = "RT-1523G (ASIP) WNT (Big) long range radio 20km";
-        maximumLoad = 160;
-        mass = 160;
         hiddenSelectionsTextures[] = {"\tft_tfar\data\wnt_big.paa"};
-        model="\task_force_radio_items\models\clf_nicecomm2";
     };
 
 //------------------------------------------ Arsenal Clean Up
-    class tf_rt1523g_rhs: tf_rt1523g {
+    class TFAR_rt1523g_rhs: TFAR_rt1523g {
         scope = 1;
     };
-    class tf_rt1523g_big_rhs: tf_rt1523g {
+    class TFAR_rt1523g_big_rhs: TFAR_rt1523g {
         scope = 1;
     };
-    class tf_rt1523g_big_bwmod: tf_rt1523g {
+    class TFAR_rt1523g_big_bwmod: TFAR_rt1523g {
         scope = 1;
     };
-    class tf_rt1523g_big_bwmod_tropen: tf_rt1523g {
+    class TFAR_rt1523g_big_bwmod_tropen: TFAR_rt1523g {
         scope = 1;
     };
-    class tf_rt1523g_bwmod: tf_rt1523g {
+    class TFAR_rt1523g_bwmod: TFAR_rt1523g {
         scope = 1;
     };
-    class tf_rt1523g_fabric: tf_rt1523g {
+    class TFAR_rt1523g_fabric: TFAR_rt1523g {
         scope = 1;
     };
-    class tf_rt1523g_green: tf_rt1523g {
+    class TFAR_rt1523g_green: TFAR_rt1523g {
         scope = 1;
     };
-    class tf_rt1523g_sage: tf_rt1523g {
+    class TFAR_rt1523g_sage: TFAR_rt1523g {
         scope = 1;
     };
-    class tf_anprc155: TFAR_Bag_Base {
+    class TFAR_anprc155: TFAR_Bag_Base {
         scope = 1;
     };
-    class tf_mr3000: TFAR_Bag_Base {
+    class TFAR_mr3000: TFAR_Bag_Base {
         scope = 1;
     };
-    class tf_mr3000_bwmod: TFAR_Bag_Base {
+    class TFAR_mr3000_bwmod: TFAR_Bag_Base {
         scope = 1;
     };
-    class tf_mr3000_bwmod_tropen: TFAR_Bag_Base {
+    class TFAR_mr3000_bwmod_tropen: TFAR_Bag_Base {
         scope = 1;
     };
-    class tf_anarc210: TFAR_Bag_Base {
+    class TFAR_anarc210: TFAR_Bag_Base {
         scope = 1;
     };
-    class tf_anarc164: TFAR_Bag_Base {
+    class TFAR_anarc164: TFAR_Bag_Base {
         scope = 1;
     };
-    class tf_mr6000l: TFAR_Bag_Base {
+    class TFAR_mr6000l: TFAR_Bag_Base {
         scope = 1;
     };
 };
@@ -115,10 +107,10 @@ class CfgVehicles {
 class CfgWeapons {
     class ItemRadio;
 //--------------------------------- Arsenal Cleanup
-    class tf_anprc154: ItemRadio {
+    class TFAR_anprc154: ItemRadio {
         scope = 1;
     };
-    class tf_pnr1000a: ItemRadio {
+    class TFAR_pnr1000a: ItemRadio {
         scope = 1;
     };
 };
