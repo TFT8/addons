@@ -14,4 +14,4 @@
 tft_bft_callsign_hq    = "PLT";
 tft_bft_callsign_1_1   = "1-1";
 tft_bft_callsign_1_2   = "1-2";
-tft_bft_callsign_razor = "RAZOR";
+tft_bft_callsign_razor = "SOAC";
