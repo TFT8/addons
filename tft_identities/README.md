@@ -1,3 +1,3 @@
 # TFT Identities
 
-Simple addon with insignia patches and custom faces for TFT8.
+Simple addon with insignia patches for TFT8.
