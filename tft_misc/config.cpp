@@ -22,16 +22,6 @@ class CfgFunctions {
             class displayText;
             class prepPhaseInit;
             class prepPhase;
-            class simulationMgmt;
-            class simulationToggle;
-        };
-        class spectator {
-            file = "tft_misc\spectator";
-            class spectate;
-            class spectateEnd;
-            class draw2D;
-            class draw3D;
-            class assignTarget;
         };
     };
 };
