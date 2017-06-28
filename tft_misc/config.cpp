@@ -15,7 +15,7 @@ class CfgFunctions {
     class tft_misc {
         tag = "tft";
         class functions {
-            file = "tft_misc\functions";
+            file = "\tft_misc\functions";
             class addActions;
             class moveMarker;
             class moveRespawn;
