@@ -11,6 +11,7 @@
     };
 };
 
+/* Can't do it this way because in Arma turrets are AI :/
 class CfgAISkill {
     aimingAccuracy[] = {0, 0, 1, 0.2};
     aimingShake[] = {0, 0, 1, 0.3};
@@ -22,7 +23,7 @@ class CfgAISkill {
     reloadSpeed[] = {0, 0, 1, 1};
     general[] = {0, 0, 1, 1};
     endurance[] = {0, 0, 1, 1};
-};
+};*/
 
 class Extended_Init_EventHandlers {
     class CAManBase {
