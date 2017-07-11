@@ -234,4 +234,11 @@ class CfgVehicles {
       };
     };
 
+	// Add fast roping to MH6M
+	class CUP_MH6_TRANSPORT;
+	class CUP_B_MH6M_USA: CUP_MH6_TRANSPORT
+	{
+		ace_fastroping_enabled = 1;
+		ace_fastroping_ropeOrigins[] = {"ropeOriginLeft", "ropeOriginRight"};
+	};
 };
