@@ -45,6 +45,8 @@ class CfgVehicles {
     class C_supplyCrate_F;    // External class reference
 
     class TFT_supplyCrate_F: C_supplyCrate_F {
+        scope = 2;
+        scopeCurator = 2;
         author = "TFT8";
         displayName = "[TFT8] Supply Box";
 
@@ -196,6 +198,8 @@ class CfgVehicles {
 
 
     class TFT_supplyCrate_Adv_F: C_supplyCrate_F {
+        scope = 2;
+        scopeCurator = 2;
         author = "TFT8";
         displayName = "[TFT8] Supply Box (Advanced)";
         
