@@ -30,9 +30,9 @@ class Extended_Init_EventHandlers {
         class tft_ai {
             init = "private _unit = _this select 0; \
                     if(!isPlayer _unit) then { \
-                    _unit setSkill ['aimingAccuracy', 0.2]; \
+                    _unit setSkill ['aimingAccuracy', 0.22]; \
                     _unit setSkill ['aimingShake', 0.3]; \
-                    _unit setSkill ['aimingSpeed', 1]; \
+                    _unit setSkill ['aimingSpeed', 0.4]; \
                     _unit setSkill ['spotDistance', 0.9]; \
                     _unit setSkill ['spotTime', 0.6]; \
                     _unit setSkill ['commanding', 0.9]; \

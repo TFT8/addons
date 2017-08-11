@@ -24,20 +24,14 @@ class CfgFunctions {
             class prepPhase;
         };
     };
-};
-
-class CfgAmmo {
-    class RocketBase;   //External Reference
-
-    class R_PG7_F : RocketBase {
-        aiAmmoUsageFlags = "64 + 128 + 256 + 512";
-        allowAgainstInfantry = 1;
-        cost = 100;
-    };
-    class R_PG32V_F : RocketBase {
-        aiAmmoUsageFlags = "64 + 128 + 256 + 512";
-        allowAgainstInfantry = 1;
-        cost = 200;
+    class A3_Bootcamp {
+        class Inventory {
+            delete arsenal;
+        };
+        class TFT {
+            file = "\tft_misc\functions";
+            class arsenal;
+        };
     };
 };
 
