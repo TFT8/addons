@@ -3,7 +3,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = 0.6;
-        requiredAddons[] = {"A3_Weapons_F"};
+        requiredAddons[] = {"cba_events", "cba_xeh", "A3_Weapons_F", "ace_grenades"};
         version = 1.0;
         versionStr = 1.0;
         versionAr[] = {1, 0};
@@ -39,7 +39,7 @@ class CfgAmmo {
 };
 
 class Extended_PostInit_EventHandlers {
-    class tft_tfar {
+    class tft_lights {
         init = "\
             tft_lights_instance = '#lightpoint' createVehicleLocal [worldSize/2,worldSize/2,25000]; \
             tft_lights_instance setLightDayLight false; \
