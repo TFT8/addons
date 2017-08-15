@@ -4,7 +4,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = 0.6;
-        requiredAddons[] = { "CUP_AirVehicles_UH60", "CUP_Vehicles_ACE_compat", "CUP_AirVehicles_MH60S", "CUP_AirVehicles_AH6", "CUP_Weapons_VehicleWeapons", "A3_Weapons_F", "CUP_Weapons_Ammunition"};
+        requiredAddons[] = { "CUP_AirVehicles_UH60", "CUP_Vehicles_ACE_compat", "CUP_AirVehicles_MH60S", "CUP_AirVehicles_AH6", "CUP_Weapons_VehicleWeapons", "A3_Weapons_F", "CUP_Weapons_Ammunition", "ace_frag", "ace_cookoff"};
         version = 2.0;
         versionStr = 2.0;
         versionAr[] = {2, 0};
@@ -20,16 +20,30 @@ class CfgPatches {
     whistleDist = 32;
 
 class CfgAmmo {
-    class RocketCore;
-    class RocketBase;
+    class RocketBase;   // External Class Reference
+    class ShellCore;    // External Class Reference
+
+    class ShellBase : ShellCore {
+        soundFly[] = {"a3\sounds_f\vehicles\soft\tires\int-tires-sand2.wss",170,2,1000};
+        //A3\Sounds_F\weapons\Rockets\rocket_fly_1, 8, 1.2
+        //a3\sounds_f_epc\Device\device_disassembled_loop.wss, 30, 1.6
+        //A3\Sounds_F\weapons\smokeshell\smoke_loop2, 6, 1.3
+        
+    };
+    class ace_explosion_reflection_base: ShellBase {
+        soundFly[] = {"",0.0316228,4};
+    };
+    class ace_ammoExplosion: ShellBase {
+        soundFly[] = {"",0.0316228,4};
+    };
 
     class R_PG32V_F: RocketBase {
         ENHANCED_LAUNCHER
-        cost = 25;
+        cost = 20;
     };
     class R_TBG32V_F: R_PG32V_F {
         ENHANCED_LAUNCHER
-        cost = 20;
+        cost = 15;
     };
     class CUP_R_PG7V_AT: RocketBase {
         ENHANCED_LAUNCHER
@@ -37,7 +51,7 @@ class CfgAmmo {
     };
     class CUP_R_PG7VL_AT: RocketBase {
         ENHANCED_LAUNCHER
-        cost = 25;
+        cost = 20;
     };
     class CUP_R_PG7VR_AT: RocketBase {
         ENHANCED_LAUNCHER
@@ -45,19 +59,19 @@ class CfgAmmo {
     };
     class CUP_R_OG7_AT: RocketBase {
         ENHANCED_LAUNCHER
-        cost = 25;
+        cost = 15;
     };
     class CUP_R_PG9_AT: RocketBase {
         ENHANCED_LAUNCHER
-        cost = 25;
+        cost = 20;
     };
     class CUP_R_OG9_HE: CUP_R_PG9_AT {
         ENHANCED_LAUNCHER
-        cost = 20;
+        cost = 15;
     };
     class CUP_R_SMAW_HEDP: RocketBase {
         ENHANCED_LAUNCHER
-        cost = 25;
+        cost = 20;
     };
     class CUP_R_SMAW_HEAA: CUP_R_SMAW_HEDP {
         ENHANCED_LAUNCHER
@@ -97,7 +111,7 @@ class CfgWeapons {
 };
 
 class CfgVehicles {
-    class Helicopter;     // External class reference
+    class Helicopter;       // External class reference
     class Helicopter_Base_F: Helicopter {
         class Turrets;
         class UserActions;
@@ -108,7 +122,23 @@ class CfgVehicles {
             class MainTurret;
         };
     };
-    
+    class CUP_AH6_BASE: Helicopter_Base_F {
+        class UserActions {
+            class CopilotStowMonitor    { showWindow = 0; };
+            class CopilotUnStowMonitor  { showWindow = 0; };
+            class PilotStowMonitor      { showWindow = 0; };
+            class PilotUnStowMonitor    { showWindow = 0; };
+        };
+    };
+    class CUP_AH6_ARMED_BASE: CUP_AH6_BASE {
+        class UserActions {
+            class CopilotStowMonitor    { showWindow = 0; };
+            class CopilotUnStowMonitor  { showWindow = 0; };
+            class PilotStowMonitor      { showWindow = 0; };
+            class PilotUnStowMonitor    { showWindow = 0; };
+        };
+    };
+
     class CUP_Uh60_Base: Helicopter_Base_H {
         class UserActions: UserActions {
             class OpenDoors {
