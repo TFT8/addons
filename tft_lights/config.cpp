@@ -16,6 +16,7 @@ class CfgAmmo {
 
     class F_40mm_White : FlareBase {
         lightColor[] = {0.75, 0.75, 0.75, 0.5};
+        coefGravity = 0.25;
         intensity = 95000;
         brightness = 500;
         timeToLive = 50;
