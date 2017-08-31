@@ -123,6 +123,14 @@ class CfgVehicles {
         };
     };
     class CUP_AH6_BASE: Helicopter_Base_F {
+        // Increase copilot camera range of motion
+        class Turrets: Turrets {
+			class MainTurret;
+            class CopilotTurret: MainTurret {
+				minTurn = -135;
+				maxTurn = 135;
+            };
+        };
         class UserActions {
             class CopilotStowMonitor    { showWindow = 0; };
             class CopilotUnStowMonitor  { showWindow = 0; };
