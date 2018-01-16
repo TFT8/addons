@@ -16,7 +16,6 @@ class CfgPatches {
     airLock = 1; \
     allowAgainstInfantry = 1; \
     aiAmmoUsageFlags = "64 + 128 + 256 + 512"; \
-    soundFly[] = {"A3\Sounds_F\weapons\Rockets\rocket_fly_1",6,0.85,500}; \
     whistleDist = 32;
 
 class CfgAmmo {
