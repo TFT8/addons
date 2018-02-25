@@ -8,8 +8,7 @@ class CfgPatches
 		requiredVersion = 1.000000;
 		requiredAddons[] = {
 			"ace_explosives",
-			"A3_Weapons_F_Explosives",
-			"A3_Modules_F_Curator_Mines"
+			"A3_Weapons_F_Explosives"
 		};
 	};
 };
