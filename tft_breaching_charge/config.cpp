@@ -51,8 +51,9 @@ class CfgMagazines
 		scopeArsenal = 2;
 		author = "TFT8";
 		ammo = "TFT_Breaching_Charge_Ammo";
-		picture = "\A3\Weapons_F\Data\UI\gear_mine_SLAM_directional_CA.paa";
+		mass = 10;
 		model = "\A3\Weapons_F\Explosives\mine_SLAM_directional_i";
+		picture = "\A3\Weapons_F\Data\UI\gear_mine_SLAM_directional_CA.paa";
 		descriptionShort = "A breaching charge takes down walls, doors, and other obstacles with minimal collateral damage.";
 		class Library
 		{
@@ -92,7 +93,7 @@ class CfgVehicles
 		
 		class EventHandlers
 		{
-			Deleted = "					[(_this select 0)] call TFT_fnc_plantBreachingCharge";
+			Deleted = "[(_this select 0)] call TFT_fnc_plantBreachingCharge;";
 		};
 	};
 };
