@@ -3,13 +3,18 @@ class CfgPatches
 {
 	class TFT_Breaching_Charge
 	{
-		units[] = { };
-		weapons[] = { };
+		// Meta information for editor
+		name = "Breaching Charge";
+		author = "Ampersand";
+		url = "";
+		
 		requiredVersion = 1.000000;
 		requiredAddons[] = {
 			"ace_explosives",
 			"A3_Weapons_F_Explosives"
 		};
+		units[] = {"TFT_Breaching_Charge","TFT_Breaching_Charge_Place"};
+		weapons[] = {"TFT_Breaching_Charge_Muzzle"};
 	};
 };
 
@@ -64,11 +69,7 @@ class CfgMagazines
 		
 		class ACE_Triggers
 		{
-			SupportedTriggers[] = {"Timer"};
-			class Timer
-			{
-				FuseTime = 0.5;
-			};
+			SupportedTriggers[] = {"Timer","Command"};
 		};
 	};
 };
@@ -89,11 +90,12 @@ class CfgVehicles
 	class ACE_Explosives_Place_SLAM;
 	class TFT_Breaching_Charge_Place: ACE_Explosives_Place_SLAM
 	{
+		author = "TFT8";
 		displayName = "Breaching Charge";
 		
 		class EventHandlers
 		{
-			Deleted = "[(_this select 0)] call TFT_fnc_plantBreachingCharge;";
+			Init = "[_this select 0] call TFT_fnc_plantBreachingCharge;";
 		};
 	};
 };
@@ -105,8 +107,8 @@ class CfgWeapons
         muzzles[] += {TFT_Breaching_Charge_Muzzle};
         class PutMuzzle: Default{};
         class TFT_Breaching_Charge_Muzzle: PutMuzzle {
-		magazines[] = {"TFT_Breaching_Charge_Mag"};
-		displayName = "Breaching Charge";
+			magazines[] = {"TFT_Breaching_Charge_Mag"};
+			displayName = "Breaching Charge";
         };
     };
 };

@@ -1,5 +1,5 @@
 class BIS_AddonInfo
 {
 	author="Ampersand";
-	timepacked="1502497441";
+	timepacked="1519765567";
 };
