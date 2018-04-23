@@ -1,10 +1,10 @@
 class CfgPatches {
     class tft_cup
     {
-        units[] = {};
+        units[] = {"TFT_B_Medical"};
         weapons[] = {};
         requiredVersion = 0.6;
-        requiredAddons[] = { "CUP_AirVehicles_UH60", "CUP_Vehicles_ACE_compat", "CUP_AirVehicles_MH60S", "CUP_AirVehicles_AH6", "CUP_Weapons_VehicleWeapons", "A3_Weapons_F", "CUP_Weapons_Ammunition", "ace_frag", "ace_cookoff"};
+        requiredAddons[] = { "CUP_AirVehicles_UH60", "CUP_Vehicles_ACE_compat", "CUP_AirVehicles_MH60S", "CUP_AirVehicles_AH6", "CUP_Weapons_VehicleWeapons", "A3_Weapons_F", "CUP_Weapons_Ammunition", "ace_frag", "ace_cookoff", "CUP_Weapons_Backpacks"};
         version = 2.0;
         versionStr = 2.0;
         versionAr[] = {2, 0};
@@ -319,4 +319,78 @@ class CfgVehicles {
         ace_fastroping_enabled = 1;
         ace_fastroping_ropeOrigins[] = {"ropeOriginLeft", "ropeOriginRight"};
     };
+	
+	// Add medical backpack
+	class CUP_B_TK_Medic_Desert;
+	class TFT_B_Medical: CUP_B_TK_Medic_Desert{
+		author = "TFT8";
+		_generalMacro = "TFT_B_Medical";
+		displayName = "Medical Bag [TFT8]";
+		//dlc = "TFT8";
+		hiddenSelectionsTextures[] = {"tft_cup\data\medicalpack_tft8_co.paa"};
+		maximumLoad = 240;
+		mass = 40;
+		scope = 2;
+		scopeCurator = 2;
+		class TransportItems {
+            //ACE medical
+            class _xx_ACE_fieldDressing {
+                name = "ACE_fieldDressing";
+                count = 20;
+            };
+            class _xx_ACE_elasticBandage {
+                name = "ACE_elasticBandage";
+                count = 20;
+            };
+            class _xx_ACE_quikclot {
+                name = "ACE_quikclot";
+                count = 20;
+            };
+            class _xx_ACE_packingBandage {
+                name = "ACE_packingBandage";
+                count = 20;
+            };
+            class _xx_ACE_morphine {
+                name = "ACE_morphine";
+                count = 20;
+            };
+            class _xx_ACE_tourniquet {
+                name = "ACE_tourniquet";
+                count = 20;
+            };
+            class _xx_ACE_bloodIV_500 {
+                name = "ACE_bloodIV_500";
+                count = 5;
+            };
+            class _xx_ACE_plasmaIV_500 {
+                name = "ACE_plasmaIV_500";
+                count = 5;
+            };
+            class _xx_ACE_salineIV_500 {
+                name = "ACE_salineIV_500";
+                count = 10;
+            };
+            class _xx_ACE_surgicalKit {
+                name = "ACE_surgicalKit";
+                count = 3;
+            };
+            class _xx_ACE_CableTie {
+                name = "ACE_CableTie";
+                count = 5;
+            };
+            class _xx_ACE_epinephrine {
+                name = "ACE_epinephrine";
+                count = 5;
+            };
+            class _xx_ACE_atropine {
+                name = "ACE_atropine";
+                count = 5;
+            };
+            class _xx_ACE_bodyBag {
+                name = "ACE_bodyBag";
+                count = 2;
+            };
+        };
+	};
+	
 };

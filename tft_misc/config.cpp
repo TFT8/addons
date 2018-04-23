@@ -1,6 +1,6 @@
 class CfgPatches {
     class tft_misc {
-        units[] = {};
+        units[] = {"TFT_supplyCrate_F", "TFT_supplyCrate_Adv_F", "Box_TFT8_Ammo_F"};
         weapons[] = {};
         requiredVersion = 0.6;
         requiredAddons[] = {"A3_Weapons_F","A3_Sounds_F","A3_Weapons_F_Exp","A3_Weapons_F_Ammoboxes","ace_cargo","cba_xeh","cba_xeh_a3"};
@@ -36,11 +36,10 @@ class CfgFunctions {
 };
 
 class CfgVehicles {
+	
     class C_supplyCrate_F;    // External class reference
 
     class TFT_supplyCrate_F: C_supplyCrate_F {
-        scope = 2;
-        scopeCurator = 2;
         author = "TFT8";
         displayName = "[TFT8] Supply Box";
 
@@ -190,10 +189,7 @@ class CfgVehicles {
         };
     };
 
-
     class TFT_supplyCrate_Adv_F: C_supplyCrate_F {
-        scope = 2;
-        scopeCurator = 2;
         author = "TFT8";
         displayName = "[TFT8] Supply Box (Advanced)";
         
@@ -281,4 +277,89 @@ class CfgVehicles {
             };
         };
     };
+
+	class Box_NATO_Ammo_F;
+	class Box_TFT8_Ammo_F: Box_NATO_Ammo_F {
+		author = "TFT8";
+		_generalMacro = "Box_TFT8_Ammo_F";
+		displayName = "Basic Ammo [TFT8]";
+		
+        class TransportMagazines {
+            // Pistol mags
+            class _xx_16Rnd_9x21_Mag {
+                magazine = "16Rnd_9x21_Mag";
+                count = 10;
+            };
+            // Weapon mags
+            class _xx_30Rnd_556x45_Stanag_Tracer_Green {
+                magazine = "30Rnd_556x45_Stanag_Tracer_Green";
+                count = 20;
+            };
+            class _xx_SMA_30Rnd_556x45_M855A1_Tracer {
+                magazine = "SMA_30Rnd_556x45_M855A1_Tracer";
+                count = 30;
+            };
+            class _xx_CUP_20Rnd_762x51_B_M110 {
+                magazine = "CUP_20Rnd_762x51_B_M110";
+                count = 15;
+            };
+            // MG mags
+            class _xx_150Rnd_556x45_Drum_Mag_Tracer_F {
+                magazine = "150Rnd_556x45_Drum_Mag_Tracer_F";
+                count = 10;
+            };
+            class _xx_200Rnd_556x45_Box_Tracer_Red_F {
+                magazine = "200Rnd_556x45_Box_Tracer_Red_F";
+                count = 10;
+            };
+            // AT rockets
+            class _xx_CUP_MAAWS_HEAT_M {
+                magazine = "CUP_MAAWS_HEAT_M";
+                count = 2;
+            };
+            class _xx_CUP_MAAWS_HEDP_M {
+                magazine = "CUP_MAAWS_HEDP_M";
+                count = 2;
+            };
+            // Grenades
+            class _xx_SmokeShellGreen {
+                magazine = "SmokeShellGreen";
+                count = 5;
+            };
+            class _xx_SmokeShellPurple {
+                magazine = "SmokeShellPurple";
+                count = 5;
+            };
+            class _xx_SmokeShell {
+                magazine = "SmokeShell";
+                count = 15;
+            };
+            class _xx_ACE_M84 {
+                magazine = "ACE_M84";
+                count = 5;
+            };
+            class _xx_HandGrenade {
+                magazine = "HandGrenade";
+                count = 10;
+            };
+            class _xx_MiniGrenade {
+                magazine = "MiniGrenade";
+                count = 5;
+            };
+            // Other
+            class _xx_1Rnd_HE_Grenade_shell {
+                magazine = "1Rnd_HE_Grenade_shell";
+                count = 10;
+            };
+            class _xx_UGL_FlareRed_F {
+                magazine = "UGL_FlareRed_F";
+                count = 5;
+            };
+            class _xx_1Rnd_Smoke_Grenade_shell {
+                magazine = "1Rnd_Smoke_Grenade_shell";
+                count = 5;
+            };
+        };
+
+	}
 };
