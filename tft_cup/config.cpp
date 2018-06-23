@@ -18,6 +18,30 @@ class CfgPatches {
     aiAmmoUsageFlags = "64 + 128 + 256 + 512"; \
     whistleDist = 32;
 
+#define ENHANCED_DAP \
+	memoryPointGun[] = {"machinegun", "machinegun_1"}; \
+	weapons[] += { \
+		"CUP_weapon_mastersafe",  \
+		"TFT_M134" \
+	}; \
+	magazines[] += { \
+		"CUP_fake_weapon_mag",  \
+		"CUP_4000Rnd_TE1_Red_Tracer_762x51_M134_M" \
+	}; \
+	 \
+	class Turrets: Turrets { \
+		class MainTurret: MainTurret { \
+			initElev = 0; \
+			initTurn = 0; \
+			hasGunner = 0; \
+		}; \
+		class RightDoorGun: RightDoorGun { \
+			initElev = 0; \
+			initTurn = 0; \
+			hasGunner = 0; \
+		}; \
+	}; \
+	
 class CfgAmmo {
     class RocketBase;   // External Class Reference
     class ShellCore;    // External Class Reference
@@ -147,6 +171,12 @@ class CfgVehicles {
     };
 
     class CUP_Uh60_Base: Helicopter_Base_H {
+		weapons[] += {
+			"CMFlareLauncher"
+        };
+        magazines[] += {
+            "168Rnd_CMFlare_Chaff_Magazine"
+        };
         class UserActions: UserActions {
             class OpenDoors {
                 available = 1;    // Making sure you can open/close doors in all these choppers
@@ -175,7 +205,7 @@ class CfgVehicles {
         };
     };
 
-    class CUP_MH60S_Base: Helicopter_Base_H {
+    class CUP_Uh60s_Base: CUP_Uh60_Base {
         class UserActions {
             class OpenDoors {
                 available = 1;
@@ -203,115 +233,49 @@ class CfgVehicles {
         };
     };
 
-    class CUP_MH60L_Dap_4x_Base: CUP_Uh60_Base {
-        transportSoldier = 2;
+	class CUP_MH60L_Dap_4x_Dynamic_Base: CUP_Uh60_Base {
+		ENHANCED_DAP
+	};
+	class CUP_MH60L_Dap_2x_Dynamic_Base: CUP_Uh60_Base {
+		ENHANCED_DAP
+	};
+	class CUP_UH60S_Dap_2x_Dynamic_Base: CUP_Uh60S_Base {
+		ENHANCED_DAP
+	};
+	class CUP_UH60S_Dap_4x_Dynamic_Base: CUP_Uh60S_Base {
+		ENHANCED_DAP
+	};
+/*
+    class CUP_MH60L_Dap_2x_Dynamic_Base: CUP_Uh60_Base {
+        //transportSoldier = 2;
         memoryPointGun[] = {"machinegun", "machinegun_1"};    // Show machinegun fire from both doorgun memory points
         // Can't find a way to have separate memory points for M134 minigun and M230 autocannon.
         // Ideally M230 would use one of the rocket memory points.
+        weapons[] += {
+            //"CMFlareLauncher", 
+            "CUP_weapon_mastersafe", 
+            "TFT_M134"
+        };
+        magazines[] += {
+            //"168Rnd_CMFlare_Chaff_Magazine", 
+            "CUP_fake_weapon_mag", 
+            "CUP_4000Rnd_TE1_Red_Tracer_762x51_M134_M"
+        };
         
         class Turrets: Turrets {
             class MainTurret: MainTurret {
                 initElev = 0;   // Point door guns straight forward for DAPs
                 initTurn = 0;
-                hasGunner = 0;
+                //hasGunner = 0;
             };
             class RightDoorGun: RightDoorGun {
                 initElev = 0;
                 initTurn = 0;
-                hasGunner = 0;
+                //hasGunner = 0;
             };
         };
     };
-    
-    class CUP_MH60L_Dap_4x_AT_Base: CUP_MH60L_Dap_4x_Base {
-        weapons[] = {
-            "CMFlareLauncher", 
-            "CUP_weapon_mastersafe", 
-            "TFT_M134"
-        };
-        magazines[] = {
-            "168Rnd_CMFlare_Chaff_Magazine", 
-            "CUP_fake_weapon_mag", 
-            "CUP_4000Rnd_TE1_Red_Tracer_762x51_M134_M"
-        };
-    };
-    class CUP_MH60L_Dap_4x_Escort_Base: CUP_MH60L_Dap_4x_Base {
-        weapons[] = {
-            "CMFlareLauncher", 
-            "CUP_weapon_mastersafe", 
-            "TFT_M134",
-            "CUP_Vmlauncher_FFAR_veh_19Out", 
-            "CUP_Vmlauncher_FFAR_veh_19In"
-        };
-        magazines[] = {
-            "168Rnd_CMFlare_Chaff_Magazine", 
-            "CUP_fake_weapon_mag", 
-            "CUP_4000Rnd_TE1_Red_Tracer_762x51_M134_M",
-            "CUP_2Rnd_pylonblank_M", 
-            "CUP_2Rnd_Hydra_Pod_19_M", 
-            "CUP_2Rnd_Hydra_Pod_19_M", 
-            "CUP_38Rnd_FFAR_Out_M", 
-            "CUP_38Rnd_FFAR_In_M"
-        };
-    };
-    class CUP_MH60L_Dap_4x_Multi_Base: CUP_MH60L_Dap_4x_Base {
-        weapons[] = {
-            "CMFlareLauncher", 
-            "CUP_weapon_mastersafe", 
-            "TFT_M134",
-            "CUP_Vmlauncher_FFAR_veh_19Out"
-        };
-        magazines[] = {
-            "168Rnd_CMFlare_Chaff_Magazine", 
-            "CUP_4000Rnd_TE1_Red_Tracer_762x51_M134_M",
-            "CUP_38Rnd_FFAR_Out_M"
-        };
-    };
-    class CUP_MH60L_Dap_2x_Base;    // External class reference
-    class CUP_MH60L_Dap_2x_AT_Base: CUP_MH60L_Dap_2x_Base {
-        weapons[] = {
-            "CMFlareLauncher", 
-            "CUP_weapon_mastersafe", 
-            "TFT_M134"
-        };
-        magazines[] = {
-            "168Rnd_CMFlare_Chaff_Magazine", 
-            "CUP_fake_weapon_mag", 
-            "CUP_4000Rnd_TE1_Red_Tracer_762x51_M134_M"
-        };
-    };
-    class CUP_MH60L_Dap_2x_Escort_Base: CUP_MH60L_Dap_2x_Base {
-        weapons[] = {
-            "CMFlareLauncher", 
-            "CUP_weapon_mastersafe", 
-            "TFT_M134",
-            "CUP_Vmlauncher_FFAR_veh_19In"
-        };
-        magazines[] = {
-            "168Rnd_CMFlare_Chaff_Magazine", 
-            "CUP_fake_weapon_mag", 
-            "CUP_4000Rnd_TE1_Red_Tracer_762x51_M134_M",
-            "CUP_2Rnd_pylonblank_M", 
-            "CUP_2Rnd_pylonblank_M", 
-            "CUP_2Rnd_Hydra_Pod_19_M", 
-            "CUP_2Rnd_pylonblank_M", 
-            "CUP_38Rnd_FFAR_In_M"
-        };
-    };
-    class CUP_MH60L_Dap_2x_Multi_Base: CUP_MH60L_Dap_2x_Base {
-        weapons[] = {
-            "CMFlareLauncher",
-            "CUP_weapon_mastersafe", 
-            "TFT_M134",
-            "CUP_Vmlauncher_FFAR_veh_19Right"
-        };
-        magazines[] = {
-            "168Rnd_CMFlare_Chaff_Magazine",
-            "CUP_fake_weapon_mag", 
-            "CUP_4000Rnd_TE1_Red_Tracer_762x51_M134_M",
-            "CUP_19Rnd_FFAR_M"
-        };
-    };
+*/
 
     // Add fast roping to MH6M
     class CUP_MH6_TRANSPORT;    // External class reference
