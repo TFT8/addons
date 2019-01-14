@@ -346,10 +346,6 @@ class CfgVehicles {
                 name = "ACE_epinephrine";
                 count = 5;
             };
-            class _xx_ACE_atropine {
-                name = "ACE_atropine";
-                count = 5;
-            };
             class _xx_ACE_bodyBag {
                 name = "ACE_bodyBag";
                 count = 2;
