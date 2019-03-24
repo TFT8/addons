@@ -41,7 +41,24 @@ class CfgPatches {
 			hasGunner = 0; \
 		}; \
 	}; \
-	
+
+#define ENHANCED_DOORGUNS \
+	class Turrets: Turrets {\
+		class MainTurret: MainTurret {\
+			minElev = -90;\
+			maxElev = 60;\
+			minTurn = -10;\
+			maxTurn = 185;\
+		};\
+		class RightDoorGun: MainTurret {\
+			minElev = -90;\
+			maxElev = 60;\
+			minTurn = -185;\
+			maxTurn = 10;\
+		};\
+	};\
+        
+        
 class CfgAmmo {
     class RocketBase;   // External Class Reference
     class ShellCore;    // External Class Reference
@@ -188,21 +205,7 @@ class CfgVehicles {
             };
         };
         
-        // Increase door gun range of motion
-        class Turrets: Turrets {
-            class MainTurret: MainTurret {
-                minElev = -85;
-                maxElev = 60;
-                minTurn = -5;
-                maxTurn = 180;
-            };
-            class RightDoorGun: MainTurret {
-                minElev = -85;
-                maxElev = 60;
-                minTurn = -180;
-                maxTurn = 5;
-            };
-        };
+        ENHANCED_DOORGUNS
     };
 
     class CUP_Uh60s_Base: CUP_Uh60_Base {
@@ -216,21 +219,8 @@ class CfgVehicles {
                 showWindow = 0;
             };
         };
-
-        class Turrets: Turrets {
-            class MainTurret: MainTurret {
-                minElev = -85;
-                maxElev = 60;
-                minTurn = -5;
-                maxTurn = 180;
-            };
-            class RightDoorGun: MainTurret {
-                minElev = -85;
-                maxElev = 60;
-                minTurn = -180;
-                maxTurn = 5;
-            };
-        };
+        
+		ENHANCED_DOORGUNS
     };
 
 	class CUP_MH60L_Dap_4x_Dynamic_Base: CUP_Uh60_Base {
@@ -300,19 +290,19 @@ class CfgVehicles {
             //ACE medical
             class _xx_ACE_fieldDressing {
                 name = "ACE_fieldDressing";
-                count = 30;
+                count = 20;
             };
             class _xx_ACE_elasticBandage {
                 name = "ACE_elasticBandage";
-                count = 30;
+                count = 20;
             };
             class _xx_ACE_quikclot {
                 name = "ACE_quikclot";
-                count = 30;
+                count = 20;
             };
             class _xx_ACE_packingBandage {
                 name = "ACE_packingBandage";
-                count = 30;
+                count = 20;
             };
             class _xx_ACE_morphine {
                 name = "ACE_morphine";
@@ -320,15 +310,23 @@ class CfgVehicles {
             };
             class _xx_ACE_tourniquet {
                 name = "ACE_tourniquet";
-                count = 10;
+                count = 20;
+            };
+            class _xx_ACE_bloodIV_500 {
+                name = "ACE_bloodIV_500";
+                count = 5;
+            };
+            class _xx_ACE_plasmaIV_500 {
+                name = "ACE_plasmaIV_500";
+                count = 5;
             };
             class _xx_ACE_salineIV_500 {
                 name = "ACE_salineIV_500";
-                count = 4;
+                count = 10;
             };
             class _xx_ACE_surgicalKit {
                 name = "ACE_surgicalKit";
-                count = 5;
+                count = 3;
             };
             class _xx_ACE_CableTie {
                 name = "ACE_CableTie";
@@ -336,16 +334,16 @@ class CfgVehicles {
             };
             class _xx_ACE_epinephrine {
                 name = "ACE_epinephrine";
-                count = 20;
+                count = 5;
             };
-	    class _xx_ACE_salineIV {
-		name = "ACE_salineIV";
-		count = 2;
-	    };
-	    class _xx_ACE_salineIV_250 {
-		name = "ACE_salineIV_250";
-		count = 4;
-	    };
+            class _xx_ACE_atropine {
+                name = "ACE_atropine";
+                count = 5;
+            };
+            class _xx_ACE_bodyBag {
+                name = "ACE_bodyBag";
+                count = 2;
+            };
         };
 	};
 	
