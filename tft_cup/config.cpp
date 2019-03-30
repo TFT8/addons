@@ -17,48 +17,7 @@ class CfgPatches {
     allowAgainstInfantry = 1; \
     aiAmmoUsageFlags = "64 + 128 + 256 + 512"; \
     whistleDist = 32;
-
-#define ENHANCED_DAP \
-	memoryPointGun[] = {"machinegun", "machinegun_1"}; \
-	weapons[] += { \
-		"CUP_weapon_mastersafe",  \
-		"TFT_M134" \
-	}; \
-	magazines[] += { \
-		"CUP_fake_weapon_mag",  \
-		"CUP_4000Rnd_TE1_Red_Tracer_762x51_M134_M" \
-	}; \
-	 \
-	class Turrets: Turrets { \
-		class MainTurret: MainTurret { \
-			initElev = 0; \
-			initTurn = 0; \
-			hasGunner = 0; \
-		}; \
-		class RightDoorGun: RightDoorGun { \
-			initElev = 0; \
-			initTurn = 0; \
-			hasGunner = 0; \
-		}; \
-	}; \
-
-#define ENHANCED_DOORGUNS \
-	class Turrets: Turrets {\
-		class MainTurret: MainTurret {\
-			minElev = -90;\
-			maxElev = 60;\
-			minTurn = -10;\
-			maxTurn = 185;\
-		};\
-		class RightDoorGun: MainTurret {\
-			minElev = -90;\
-			maxElev = 60;\
-			minTurn = -185;\
-			maxTurn = 10;\
-		};\
-	};\
-        
-        
+   
 class CfgAmmo {
     class RocketBase;   // External Class Reference
     class ShellCore;    // External Class Reference
@@ -140,6 +99,46 @@ class CfgAmmo {
         cost = 100;
     };
 };
+
+#define ENHANCED_DAP \
+	memoryPointGun[] = {"machinegun", "machinegun_1"}; \
+	weapons[] += { \
+		"CUP_weapon_mastersafe",  \
+		"TFT_M134" \
+	}; \
+	magazines[] += { \
+		"CUP_fake_weapon_mag",  \
+		"CUP_4000Rnd_TE1_Red_Tracer_762x51_M134_M" \
+	}; \
+	 \
+	class Turrets: Turrets { \
+		class MainTurret: MainTurret { \
+			initElev = 0; \
+			initTurn = 0; \
+			hasGunner = 0; \
+		}; \
+		class RightDoorGun: RightDoorGun { \
+			initElev = 0; \
+			initTurn = 0; \
+			hasGunner = 0; \
+		}; \
+	}; \
+
+#define ENHANCED_DOORGUNS \
+	class Turrets: Turrets {\
+		class MainTurret: MainTurret {\
+			minElev = -90;\
+			maxElev = 60;\
+			minTurn = -10;\
+			maxTurn = 185;\
+		};\
+		class RightDoorGun: MainTurret {\
+			minElev = -90;\
+			maxElev = 60;\
+			minTurn = -185;\
+			maxTurn = 10;\
+		};\
+	};\
 
 class CfgWeapons {
     class CUP_Vlmg_M134_veh;        // External class reference
@@ -235,37 +234,6 @@ class CfgVehicles {
 	class CUP_UH60S_Dap_4x_Dynamic_Base: CUP_Uh60S_Base {
 		ENHANCED_DAP
 	};
-/*
-    class CUP_MH60L_Dap_2x_Dynamic_Base: CUP_Uh60_Base {
-        //transportSoldier = 2;
-        memoryPointGun[] = {"machinegun", "machinegun_1"};    // Show machinegun fire from both doorgun memory points
-        // Can't find a way to have separate memory points for M134 minigun and M230 autocannon.
-        // Ideally M230 would use one of the rocket memory points.
-        weapons[] += {
-            //"CMFlareLauncher", 
-            "CUP_weapon_mastersafe", 
-            "TFT_M134"
-        };
-        magazines[] += {
-            //"168Rnd_CMFlare_Chaff_Magazine", 
-            "CUP_fake_weapon_mag", 
-            "CUP_4000Rnd_TE1_Red_Tracer_762x51_M134_M"
-        };
-        
-        class Turrets: Turrets {
-            class MainTurret: MainTurret {
-                initElev = 0;   // Point door guns straight forward for DAPs
-                initTurn = 0;
-                //hasGunner = 0;
-            };
-            class RightDoorGun: RightDoorGun {
-                initElev = 0;
-                initTurn = 0;
-                //hasGunner = 0;
-            };
-        };
-    };
-*/
 
     // Add fast roping to MH6M
     class CUP_MH6_TRANSPORT;    // External class reference
@@ -273,78 +241,4 @@ class CfgVehicles {
         ace_fastroping_enabled = 1;
         ace_fastroping_ropeOrigins[] = {"ropeOriginLeft", "ropeOriginRight"};
     };
-	
-	// Add medical backpack
-	class CUP_B_TK_Medic_Desert;
-	class TFT_B_Medical: CUP_B_TK_Medic_Desert{
-		author = "TFT8";
-		_generalMacro = "TFT_B_Medical";
-		displayName = "Medical Bag [TFT8]";
-		//dlc = "TFT8";
-		hiddenSelectionsTextures[] = {"tft_cup\data\medicalpack_tft8_co.paa"};
-		maximumLoad = 240;
-		mass = 40;
-		scope = 2;
-		scopeCurator = 2;
-		class TransportItems {
-            //ACE medical
-            class _xx_ACE_fieldDressing {
-                name = "ACE_fieldDressing";
-                count = 20;
-            };
-            class _xx_ACE_elasticBandage {
-                name = "ACE_elasticBandage";
-                count = 20;
-            };
-            class _xx_ACE_quikclot {
-                name = "ACE_quikclot";
-                count = 20;
-            };
-            class _xx_ACE_packingBandage {
-                name = "ACE_packingBandage";
-                count = 20;
-            };
-            class _xx_ACE_morphine {
-                name = "ACE_morphine";
-                count = 20;
-            };
-            class _xx_ACE_tourniquet {
-                name = "ACE_tourniquet";
-                count = 20;
-            };
-            class _xx_ACE_bloodIV_500 {
-                name = "ACE_bloodIV_500";
-                count = 5;
-            };
-            class _xx_ACE_plasmaIV_500 {
-                name = "ACE_plasmaIV_500";
-                count = 5;
-            };
-            class _xx_ACE_salineIV_500 {
-                name = "ACE_salineIV_500";
-                count = 10;
-            };
-            class _xx_ACE_surgicalKit {
-                name = "ACE_surgicalKit";
-                count = 3;
-            };
-            class _xx_ACE_CableTie {
-                name = "ACE_CableTie";
-                count = 5;
-            };
-            class _xx_ACE_epinephrine {
-                name = "ACE_epinephrine";
-                count = 5;
-            };
-            class _xx_ACE_atropine {
-                name = "ACE_atropine";
-                count = 5;
-            };
-            class _xx_ACE_bodyBag {
-                name = "ACE_bodyBag";
-                count = 2;
-            };
-        };
-	};
-	
 };

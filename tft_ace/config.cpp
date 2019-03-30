@@ -39,16 +39,6 @@ class CfgVehicles {
             };
         };
     };
-
-    class BagFence_base_F;
-    class ACE_envelope_small: BagFence_base_F {
-        ace_trenches_diggingDuration = 90;
-        ace_trenches_removalDuration = 50;
-    };
-    class ACE_envelope_big: BagFence_base_F {
-        ace_trenches_diggingDuration = 110;
-        ace_trenches_removalDuration = 65;
-    };
 };
 
 class CfgMarkerClasses {
