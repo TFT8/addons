@@ -21,7 +21,7 @@
 			minTurn = -10;\
 			maxTurn = 185;\
 		};\
-		class RightDoorGun: MainTurret {\
+		class RightDoorGun: RightDoorGun {\
 			initElev = 0; \
 			initTurn = 0; \
 			minElev = -90;\
@@ -37,40 +37,58 @@
 	ace_fastroping_ropeOrigins[] = {{-1.2,2,-0.1},{1.25,2.22,-0.1}}; \
 	
 class CfgVehicles {
-    class Helicopter;       // External class reference
-    class Helicopter_Base_F: Helicopter {
-        class Turrets;
-    };
-    class Helicopter_Base_H: Helicopter_Base_F {
-        class Turrets : Turrets
+
+/*
+Heli_Transport_01_base_F
+	B_UH60L_base_F
+		B_MH60L_F
+			B_MH60L_noprobe_F
+				B_MH60L_noprobe_vvar
+			B_MH60L_gray_F
+				B_HH60A_gray_F
+					B_HH60A_gray_doors_F
+		B_UH60L_F
+			B_UH60L_med_F
+				B_UH60L_med_vvar
+*/
+	class Helicopter_Base_H;
+	class Heli_Transport_01_base_F: Helicopter_Base_H {
+        class Turrets
         {
             class MainTurret;
-        };
-    };
-	class Heli_Transport_01_base_F: Helicopter_Base_H {
-        class Turrets : Turrets 
-        {
-            class MainTurret : MainTurret {};
+            class RightDoorGun;
         };
     }; 
+
     class B_UH60L_base_F: Heli_Transport_01_base_F {
-		FASTROPING
+		memoryPointGun[] = {"machinegun"};
 		ENHANCED_DOORGUNS
     };
 	class B_MH60L_F: B_UH60L_base_F {
+		FASTROPING
+		weapons[] = {"hh60safe", "LMG_Minigun_Transport"};
+		magazines[] = {"2000Rnd_762x51_Belt_T_Red"};
 		ENHANCED_DOORGUNS
     };
     class B_MH60L_gray_F: B_MH60L_F {
 		FASTROPING
 		ENHANCED_DOORGUNS
+		weapons[] = {"hh60safe", "26thSTS_GAU21"};
+		magazines[] = {"rhsusf_mag_gau19_melb_left", "rhsusf_mag_gau19_melb_left", "rhsusf_mag_gau19_melb_left", "rhsusf_mag_gau19_melb_left"};
     };
 	class B_HH60A_gray_F: B_MH60L_gray_F {
 		ENHANCED_DOORGUNS
     };
 	class B_HH60A_gray_doors_F: B_HH60A_gray_F {
+		ace_fastroping_enabled = 2;
+		ace_fastroping_ropeOrigins[] = {"ropeOriginLeft", "ropeOriginRight"};
 		ENHANCED_DOORGUNS
     };
+
     class B_UH60L_F: B_UH60L_base_F {
+		ace_fastroping_friesAttachmentPoint[] = {0.065,2.2,0};
+		weapons[] = {"hh60safe","LMG_M240_UH60"};
+		magazines[] = {"200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow"};
 		ENHANCED_DOORGUNS
 	};
 };
