@@ -62,19 +62,21 @@ Heli_Transport_01_base_F
 
     class B_UH60L_base_F: Heli_Transport_01_base_F {
 		memoryPointGun[] = {"machinegun"};
+		weapons[] = {"hh60safe", "rhsusf_weap_CMFlareLauncher", "rhsusf_weap_ANALQ144"};
+		magazines[] = {"168Rnd_CMFlare_Chaff_Magazine", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM"};
 		ENHANCED_DOORGUNS
     };
 	class B_MH60L_F: B_UH60L_base_F {
 		FASTROPING
-		weapons[] = {"hh60safe", "LMG_Minigun_Transport"};
-		magazines[] = {"2000Rnd_762x51_Belt_T_Red"};
+		weapons[] += {"LMG_Minigun_Transport"};
+		magazines[] += {"2000Rnd_762x51_Belt_T_Red"};
 		ENHANCED_DOORGUNS
     };
     class B_MH60L_gray_F: B_MH60L_F {
 		FASTROPING
 		ENHANCED_DOORGUNS
-		weapons[] = {"hh60safe", "26thSTS_GAU21"};
-		magazines[] = {"rhsusf_mag_gau19_melb_left", "rhsusf_mag_gau19_melb_left", "rhsusf_mag_gau19_melb_left", "rhsusf_mag_gau19_melb_left"};
+		weapons[] += {"26thSTS_GAU21"};
+		magazines[] += {"rhsusf_mag_gau19_melb_left", "rhsusf_mag_gau19_melb_left", "rhsusf_mag_gau19_melb_left", "rhsusf_mag_gau19_melb_left"};
     };
 	class B_HH60A_gray_F: B_MH60L_gray_F {
 		ENHANCED_DOORGUNS
@@ -87,8 +89,8 @@ Heli_Transport_01_base_F
 
     class B_UH60L_F: B_UH60L_base_F {
 		ace_fastroping_friesAttachmentPoint[] = {0.065,2.2,0};
-		weapons[] = {"hh60safe","LMG_M240_UH60"};
-		magazines[] = {"200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow"};
+		weapons[] = {"hh60safe", "rhsusf_weap_CMFlareLauncher", "rhsusf_weap_ANALQ144", "LMG_M240_UH60"};
+		magazines[] = {"168Rnd_CMFlare_Chaff_Magazine", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "rhsusf_mag_DIRCM", "200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow","200Rnd_762x51_Belt_Yellow"};
 		ENHANCED_DOORGUNS
 	};
 };
