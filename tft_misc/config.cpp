@@ -22,7 +22,6 @@ class CfgFunctions {
             class displayText;
             class prepPhaseInit;
             class prepPhase;
-            class smokeMarker;
         };
     };
     class A3_Bootcamp {
@@ -36,31 +35,43 @@ class CfgFunctions {
     };
 };
 
-class CfgMagazines {
-	class FakeMagazine;
-	class SmokeMarker : FakeMagazine {};
+class CfgFactionClasses {
+    class B_TFT8 {
+        displayName = "Task Force Tempor 8";
+        side = 1;
+        flag = "\tft_misc\TFT8_flag.paa";
+        icon = "\tft_misc\TFT8_flag.paa";
+        priority = 0;
+    };
 };
-
-class CfgWeapons {
-	class FakeWeapon;
-	class SmokeMarker : FakeWeapon
+class CfgVehicles {
+	class FlagCarrier;
+	class Flag_TFT8_F: FlagCarrier
 	{
-		scope = 1;
-		displayName = "Smoke Marker";
-		magazines[] = {"SmokeMarker"};
-		sounds[] = {};
+		author = "TFT8";
+		class SimpleObject
+		{
+			eden = 0;
+			animate[] = {{"flag", 0}};
+			hide[] = {};
+			verticalOffset = 3.977;
+			verticalOffsetWorld = 0;
+			init = "''";
+		};
+		editorPreview = "\tft_misc\Flag_TFT8_F.jpg";
+		_generalMacro = "Flag_TFT8_F";
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "Flag (TFT8)";
+		hiddenSelectionsTextures[] = {"\A3\Structures_F\Mil\Flags\Data\Mast_mil_CO.paa"};
+		hiddenSelectionsMaterials[] = {"\A3\Structures_F\Mil\Flags\Data\Mast_mil.rvmat"};
 		class EventHandlers
 		{
-			fired = "_this call tft_melb_fnc_smokeMarker;";
+			init = "(_this select 0) setFlagTexture '\tft_misc\TFT8_flag.paa'";
+		};
+		class ACE_Actions
+		{
 		};
 	};
-};
 
-class CfgVehicles {
-    class Helicopter;
-    class Helicopter_Base_F: Helicopter
-	{
-		weapons[] += {"SmokeMarker"};
-		magazines[] += {"SmokeMarker"};
-	};
 };

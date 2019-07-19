@@ -1,3 +1,3 @@
 # TFT CUP
 
-Modifies some parameters of UH-60 choppers.
+Allows use of RPGs against infantry and air targets
