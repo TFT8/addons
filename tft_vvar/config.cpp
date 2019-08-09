@@ -39,6 +39,7 @@
 class CfgVehicles {
 
 /*
+["B_UH60L_base_F","Heli_Transport_01_base_F","Helicopter_Base_H","Helicopter_Base_F","Helicopter","Air"]
 Heli_Transport_01_base_F
 	B_UH60L_base_F
 		B_MH60L_F

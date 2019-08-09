@@ -155,6 +155,7 @@ class CfgFunctions {
 			maxElev = 60;\
 			minTurn = -10;\
 			maxTurn = 190;\
+			stabilizedInAxes = 3;\
 		}; \
 		class RightDoorGun: MainTurret { \
 			initElev = 0; \
@@ -177,7 +178,7 @@ class CfgVehicles {
 			};
 			class TFT_ArmDoorGun {
 				displayName = "Arm Door Gun";
-				condition = "(alive _target) && !(_target weaponsTurret [1] isEqualTo [])";
+				condition = "(alive _target) && (driver _target == _player)";
 				statement = "[_target] call tft_fnc_armDoorGun";
 			};
 		};
@@ -313,4 +314,5 @@ class CfgVehicles {
 	class RHS_UH60_Base: Heli_Transport_01_base_F {
 		SLINGLOAD_CAMERA
 	};
+	
 };
