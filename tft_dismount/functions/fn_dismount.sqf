@@ -6,7 +6,7 @@ Moves player out at get-in memory point closest to where they are looking.
 * -
 *
 * Return Value:
-* Exit position <ARRAY>
+* Exit position (vehicle model space <ARRAY>
 
 * Example:
 * [] call tft_fnc_dismount
@@ -18,6 +18,8 @@ Moves player out at get-in memory point closest to where they are looking.
 scopeName "main";
 
 private _vehicle = vehicle player;
+
+player action ["getOut", _vehicle];
 
 private _vehicleConfig = configFile >> "CfgVehicles" >> typeOf _vehicle;
 private _isInVehicle = player in _vehicle;
@@ -121,7 +123,7 @@ if ("pos cargo" in _selections) then {
 
 //_selectionPositions apply {_wl = createVehicle ["Sign_Arrow_Direction_Cyan_F", _vehicle modelToWorld _x, [], 0, "CAN_COLLIDE"];};
 
-private _lookPos = _vehicle worldToModel positionCameraToWorld [0,0,20];
+private _lookPos = positionCameraToWorld [0,0,20] vectorDiff positionCameraToWorld [0,0,0];
 private _exitPos = [0,0,0];
 {
 	if (_x vectorDistance _lookPos < _exitPos vectorDistance _lookPos) then {
@@ -129,15 +131,14 @@ private _exitPos = [0,0,0];
 	};
 } forEach _selectionPositions;
 
-//moveOut player;
-player action ["getOut", vehicle player];
-
-if (_exitPos isEqualTo [0,0,0]) exitWith {};
-private _vehicleandle = [_vehicle, _exitPos] spawn {
+if (_exitPos isEqualTo [0,0,0]) exitWith {_exitPos};
+private _vehicleHandle = [_vehicle, _exitPos] spawn {
 	params ["_vehicle", "_exitPos"];
 	waitUntil {vehicle player == player};
-	player setPos (_vehicle modelToWorld _exitPos);
+	player attachTo [_vehicle, _exitPos];
+	detach player;
 	player setVectorDir (_vehicle vectorModelToWorld _exitPos); 
+	player setVelocity velocity _vehicle;
 };
 _exitPos
 
