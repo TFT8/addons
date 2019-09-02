@@ -1,10 +1,3 @@
-# Arma-3-Breaching-Charge
-Breaching charge that sticks to surfaces, demolishes walls, and opens doors, with minimal collateral damage.
+# TFT Dismount
 
-Class names
-
-AMP_Breaching_Charge_Mag
-
-Works on doors locked via
-
-_house setVariable ["bis_disabled_Door_1", 1, true];
+Adds new GET OUT action to enable exiting vehicle at the enter/exit point in the same compartment and closest to camera view. Hooks on Vanilla Get Out keybind.
