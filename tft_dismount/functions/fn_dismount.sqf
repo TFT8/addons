@@ -89,6 +89,9 @@ private _cargoNumber = -1;
 			if (_isInVehicle) then {
 				if (_compartment != (_cargoCompartments select (_cargoNumber min _cargoCompartmentsLast))) then {breakTo "crewLoop"};
 				_selection = getText(_vehicleConfig >> "memoryPointsGetInCargo");
+				if (_selection isEqualTo "") then {
+					_selections append getArray(_vehicleConfig >> "memoryPointsGetInCargo");
+				};
 			};
 		};
 		default { // all turrets including FFV
@@ -105,6 +108,9 @@ private _cargoNumber = -1;
 					&& {1 > _vehicle doorPhase _enabledByAnimationSource}
 				) then {breakTo "crewLoop"};
 				_selection = getText (_turretConfig >> "memoryPointsGetInGunner");
+				if (_selection isEqualTo "") then {
+					_selections append getArray(_vehicleConfig >> "memoryPointsGetInGunner");
+				};
 			};
 		};
 	};
