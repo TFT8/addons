@@ -121,6 +121,12 @@ private _selectionPositions = _selections apply {_vehicle selectionPosition _x};
 
 //hint format ["%1\n%2\n%3", _compartment, _selections,_selectionPositions];
 
+//mirror driver exit if not isolated
+if ((!_isDriverIsolated) && (getText(_vehicleConfig >> "memoryPointsGetInDriver") in _selections)) then {
+	private _spDriver = _vehicle selectionPosition getText(_vehicleConfig >> "memoryPointsGetInDriver");
+	_selectionPositions pushBackUnique [-1 * (_spDriver # 0), _spDriver # 1, _spDriver # 2];
+};
+
 // mirror cargo
 if ("pos cargo" in _selections) then {
 	private _spCargo = _vehicle selectionPosition "pos cargo";
