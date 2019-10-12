@@ -5,5 +5,7 @@ class tft_ace {
         class canTag;
         class tag;
         class markClear;
+		class reduceFoliage;
+		class canReduceFoliage;
     };
 };

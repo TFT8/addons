@@ -7,7 +7,7 @@
         version = 2.0.0;
         versionStr = 2.0.0;
         versionAr[] = {2, 0, 0};
-        author = "YoursTruly, Fitzgerald";
+        author = "Ampersand, YoursTruly, Fitzgerald";
     };
 };
 
@@ -19,6 +19,19 @@ class CfgVehicles {
     class Man;
     class CAManBase: Man {
         class ACE_SelfActions {
+            class ACE_Equipment {
+				class ace_trenches {
+					class TFT_ReduceFoliage {
+						displayName = "Reduce Foliage";
+						condition = "[_player] call tft_ace_fnc_canReduceFoliage";
+						//wait a frame to handle "Do When releasing action menu key" option
+						statement = "[{[] call tft_ace_fnc_reduceFoliage},[]] call CBA_fnc_execNextFrame";
+						exceptions[] = {};
+						showDisabled = 0;
+						//icon = QPATHTOF(UI\icon_sandbag_ca.paa);
+					};
+				};
+            };
             class ACE_Tags {
                 class ACE_tagWallArtistic {
                     displayName = "Go artistic";
