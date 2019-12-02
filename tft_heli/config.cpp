@@ -26,6 +26,8 @@ class CfgFunctions {
             file = "\tft_heli\functions";
             class smokeMarker;
             class armDoorGun;
+            class deployUAV;
+            class slingLoadLocalise;
         };
     };
 };
@@ -173,8 +175,13 @@ class CfgVehicles {
 		class ACE_SelfActions {
 			class TFT_DropSmoke {
 				displayName = "Drop Smoke";
-				condition = "alive _target";
+				condition = "alive _target && _player in _target";
 				statement = "[_target] call tft_fnc_smokeMarker";
+			};
+			class TFT_DeployUAV {
+				displayName = "Deploy UAV";
+				condition = "alive _target && _player in _target";
+				statement = "[_target] call tft_fnc_deployUAV";
 			};
 			class TFT_ArmDoorGun {
 				displayName = "Arm Door Gun";
@@ -315,4 +322,24 @@ class CfgVehicles {
 		SLINGLOAD_CAMERA
 	};
 	
+};
+
+//disable ACEX HC and VCOM for UAVs
+#define DISABLE(UAV_AI)\
+    class UAV_AI {\
+        class TFT_UAV_AI {\
+            init = "(_this # 0) setVariable ['acex_headless_blacklist', true]; group (_this # 0) setVariable ['Vcm_Disable', true];";\
+        };\
+    };
+
+class Extended_Init_EventHandlers {
+	DISABLE(B_UAV_AI)
+	DISABLE(O_UAV_AI)
+	DISABLE(I_UAV_AI)
+};
+
+class Extended_PostInit_EventHandlers {
+    class TFT_Sling_Load_Localise {
+        init = "call TFT_fnc_slingLoadLocalise";
+    };
 };

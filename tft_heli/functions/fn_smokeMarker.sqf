@@ -6,7 +6,7 @@ Drop a smoke marker grenade out of a helicopter
 * 0: helicopter
 *
 * Return Value:
-* -
+* 0: <OBJECT> Smoke Shell
 
 * Example:
 * [_hel] call tft_fnc_smokeMarker
@@ -18,3 +18,4 @@ private _smk = createVehicle ["SmokeShellRed", [0, 0, 1000], [], 0, "CAN_COLLIDE
 _smk attachTo [_hel, [0, 0, boundingBoxReal _hel # 0 # 2]];
 detach _smk;
 _smk setVelocity (velocity _hel);
+_smk
