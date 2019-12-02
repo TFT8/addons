@@ -322,6 +322,22 @@ class CfgVehicles {
 		SLINGLOAD_CAMERA
 	};
 	
+	class RHS_UH60M;
+	
+	class RHS_UH60M2: RHS_UH60M {
+		class Components;
+	};
+	class RHS_UH60M_ESSS: RHS_UH60M2 {
+		class Components: Components {	
+			class TransportPylonsComponent {
+				class pylons {
+					class pylon1 {
+						hardpoints[] += {"DAR", "DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_LARGE", "CUP_NATO_HELO_UH60"};
+					};
+				};
+			};
+		};
+	};
 };
 
 //disable ACEX HC and VCOM for UAVs
@@ -336,6 +352,9 @@ class Extended_Init_EventHandlers {
 	DISABLE(B_UAV_AI)
 	DISABLE(O_UAV_AI)
 	DISABLE(I_UAV_AI)
+	DISABLE(B_UAV_AI_F)
+	DISABLE(O_UAV_AI_F)
+	DISABLE(I_UAV_AI_F)
 };
 
 class Extended_PostInit_EventHandlers {
