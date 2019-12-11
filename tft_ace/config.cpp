@@ -3,7 +3,7 @@
         units[] = {};
         weapons[] = {};
         requiredVersion = 0.6;
-        requiredAddons[] = {"ace_medical", "ace_tagging", "ace_trenches"};
+        requiredAddons[] = {"ace_main"};
         version = 2.0.0;
         versionStr = 2.0.0;
         versionAr[] = {2, 0, 0};
