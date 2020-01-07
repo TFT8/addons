@@ -16,13 +16,13 @@ if !hasInterface exitWith {};
 
 // add line of sight Zeus ACE Actions
 _statement = {
-	[] call tft_fnc_toggleDoor
+	[] call tft_zeus_fnc_toggleDoor
 };
 _action = ["ToggleDoor","Toggle Door","",_statement,{true}] call ace_interact_menu_fnc_createAction;
 [["ACE_ZeusActions"], _action] call ace_interact_menu_fnc_addActionToZeus;
 
 _statement = {
-	[] call tft_fnc_toggleLight
+	[] call tft_zeus_fnc_toggleLight
 };
 _action = ["ToggleLight","Toggle Light","",_statement,{true}] call ace_interact_menu_fnc_createAction;
 [["ACE_ZeusActions"], _action] call ace_interact_menu_fnc_addActionToZeus;
@@ -189,7 +189,7 @@ private _customZeusModules = [
 		if (_objectUnderCursor isEqualTo objNull) exitWith {[objNull, format ["Place module on unit!"]] call bis_fnc_showCuratorFeedbackMessage;};
 		[_objectUnderCursor, {
 			params ["_successful", "_unit", "_mousePosASL"];
-			private _magazine = "ALiVE_Handgrenade_stone";
+			private _magazine = "HandGrenade_Stone";
 			private _muzzle = "HandGrenade_Stone";
 			private _firemode = "HandGrenade_Stone";
 			[_unit, _magazine, _muzzle, _firemode, _mousePosASL] call tft_zeus_fnc_zeusProjectile;

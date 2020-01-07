@@ -25,9 +25,7 @@ if (_stance isEqualTo "CROUCH") then {_unit setUnitPosWeak "Middle";};
 if (_stance isEqualTo "PRONE") then {_unit setUnitPosWeak "DOWN";};
 
 _unit doWatch ASLToAGL _targetPos;
-(uniformContainer _unit) addItemCargoGlobal [_magazine,1];
-_unit selectWeapon _muzzle;
-	
+
 _unit addEventHandler ["Fired", {
 	params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
 	
@@ -134,6 +132,19 @@ _unit setVariable ["amp_projectiles_time", diag_tickTime];
 
 _this spawn {
 	params ["_unit", "_magazine", "_muzzle", "_firemode", "_targetPos", "_throwFlatTrajectory"];
+		
+	private _uniformItems = [];
+	private _canAdd = _unit canAdd _magazine;
+	if !_canAdd then {
+		{
+			while {!(_unit canAdd _magazine)} do {
+				_unit removeItemFromUniform _x;
+				_uniformItems pushBack _x;
+			};
+		} forEach uniformItems _unit;
+	};
+	_unit addMagazineGlobal _magazine;
+		
 	waitUntil { 
 		if (_unit getVariable ["amp_projectiles_thrown", false]) exitWith {
 			//systemChat "Success.";
@@ -158,4 +169,10 @@ _this spawn {
 
 	_unit setVariable ["amp_projectiles_thrown", nil];
 	_unit enableAI "PATH";
+	
+	if !_canAdd then {
+		{
+			_unit addItemToUniform _x;
+		} forEach _uniformItems;
+	};
 };
