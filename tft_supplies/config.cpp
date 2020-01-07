@@ -1,3 +1,4 @@
+#include "BIS_AddonInfo.hpp"
 class CfgPatches {
     class tft_supplies
     {
@@ -80,6 +81,10 @@ class CfgVehicles {
                 name = "ACE_bodyBag";
                 count = 2;
             };
+			class _xx_adv_aceSplint_splint {
+				name = "adv_aceSplint_splint";
+				count = 4;
+			};
         };
 	};
 	
@@ -89,51 +94,47 @@ class CfgVehicles {
         displayName = "[TFT8] Supply Box";
 
         class TransportWeapons {
-            class _xx_SMA_Mk16QCB {
-                weapon = "SMA_Mk16QCB";
+            class _xx_rhs_weap_m4a1_carryhandle {
+                weapon = "rhs_weap_m4a1_carryhandle";
                 count = 1;
             };
-            class _xx_CUP_launch_M72A6 {
-                weapon = "CUP_launch_M72A6";
+            class _xx_rhs_weap_M136 {
+                weapon = "rhs_weap_M136";
                 count = 3;
             };
         };
 
         class TransportMagazines {
             // Pistol mags
-            class _xx_16Rnd_9x21_Mag {
-                magazine = "16Rnd_9x21_Mag";
+            class _xx_rhsusf_mag_15Rnd_9x19_JHP {
+                magazine = "rhsusf_mag_15Rnd_9x19_JHP";
                 count = 10;
             };
             // Weapon mags
-            class _xx_30Rnd_556x45_Stanag_Tracer_Green {
-                magazine = "30Rnd_556x45_Stanag_Tracer_Green";
-                count = 20;
-            };
-            class _xx_SMA_30Rnd_556x45_M855A1_Tracer {
-                magazine = "SMA_30Rnd_556x45_M855A1_Tracer";
+            class _xx_rhs_mag_30Rnd_556x45_M855A1_PMAG {
+                magazine = "rhs_mag_30Rnd_556x45_M855A1_PMAG";
                 count = 30;
             };
-            class _xx_CUP_20Rnd_762x51_B_M110 {
-                magazine = "CUP_20Rnd_762x51_B_M110";
-                count = 15;
+            class _xx_rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red {
+                magazine = "rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red";
+                count = 20;
             };
             // MG mags
-            class _xx_150Rnd_556x45_Drum_Mag_Tracer_F {
-                magazine = "150Rnd_556x45_Drum_Mag_Tracer_F";
+            class _xx_rhsusf_200Rnd_556x45_box {
+                magazine = "rhsusf_200Rnd_556x45_box";
                 count = 10;
             };
-            class _xx_200Rnd_556x45_Box_Tracer_Red_F {
-                magazine = "200Rnd_556x45_Box_Tracer_Red_F";
+            class _xx_rhsusf_200rnd_556x45_mixed_box {
+                magazine = "rhsusf_200rnd_556x45_mixed_box";
                 count = 10;
             };
             // AT rockets
-            class _xx_CUP_MAAWS_HEAT_M {
-                magazine = "CUP_MAAWS_HEAT_M";
+            class _xx_MRAWS_HEAT_F {
+                magazine = "MRAWS_HEAT_F";
                 count = 2;
             };
-            class _xx_CUP_MAAWS_HEDP_M {
-                magazine = "CUP_MAAWS_HEDP_M";
+            class _xx_MRAWS_HE_F {
+                magazine = "MRAWS_HE_F";
                 count = 2;
             };
             class _xx_Titan_AP {
@@ -231,6 +232,10 @@ class CfgVehicles {
                 name = "ACE_CableTie";
                 count = 5;
             };
+			class _xx_adv_aceSplint_splint {
+				name = "adv_aceSplint_splint";
+				count = 12;
+			};
         };
     };
 
@@ -305,19 +310,27 @@ class CfgVehicles {
                 name = "ACE_wirecutter";
                 count = 4;
             };
+			class _xx_ToolKit {
+                name = "ToolKit";
+                count = 1;
+            };
+			class _xx_tfw_rf3080Item {
+				name = "tfw_rf3080Item";
+				count = 1;
+			};
         };
         
         class TransportBackpacks {
-            class _xx_TFT_Kitbag_OCP {
-                backpack = "TFT_Kitbag_OCP";
+            class _xx_tft8_assaultpack_ocp {
+                backpack = "tft8_assaultpack_ocp";
                 count = 2;
             };
-            class _xx_TFT_Kitbag_UCP {
-                backpack = "TFT_Kitbag_UCP";
+            class _xx_tft8_kitbag_ocp {
+                backpack = "tft8_kitbag_ocp";
                 count = 2;
             };
-            class _xx_TFT_Kitbag_WNT {
-                backpack = "TFT_Kitbag_WNT";
+            class _xx_tft8_rt1523g_ocp {
+                backpack = "tft8_rt1523g_ocp";
                 count = 2;
             };
         };
@@ -331,27 +344,22 @@ class CfgVehicles {
 		
         class TransportMagazines {
             // Weapon mags
-            class _xx_30Rnd_556x45_Stanag {
-                magazine = "30Rnd_556x45_Stanag";
+            class _xx_rhs_mag_30Rnd_556x45_M855A1_PMAG {
+                magazine = "rhs_mag_30Rnd_556x45_M855A1_PMAG";
                 count = 30;
             };
-            class _xx_30Rnd_556x45_Stanag_Tracer_Red {
-                magazine = "30Rnd_556x45_Stanag_Tracer_Red";
-                count = 10;
-            };
-            class _xx_20Rnd_762x51_Mag {
-                magazine = "20Rnd_762x51_Mag";
+            class _xx_rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red {
+                magazine = "rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red";
                 count = 10;
             };
             // MG mags
-            class _xx_CUP_200Rnd_TE4_Red_Tracer_556x45_M249 {
-                magazine = "CUP_200Rnd_TE4_Red_Tracer_556x45_M249";
-                count = 10;
-            };
-            class _xx_CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M {
-                magazine = "CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M";
+            class _xx_rhsusf_200Rnd_556x45_box {
+                magazine = "rhsusf_200Rnd_556x45_box";
                 count = 5;
             };
+            class _xx_rhsusf_200rnd_556x45_mixed_box {
+                magazine = "rhsusf_200rnd_556x45_mixed_box";
+                count = 5;
             // Grenades
             class _xx_SmokeShellGreen {
                 magazine = "SmokeShellGreen";
