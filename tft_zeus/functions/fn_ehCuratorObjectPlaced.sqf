@@ -16,9 +16,10 @@ params ["_zeus"];
 if !hasInterface exitWith {};
 
 // Spawn placement
-private _handle = tft_zeus addEventHandler ["CuratorObjectPlaced", {
+private _handle = _zeus addEventHandler ["CuratorObjectPlaced", {
 	params ["_curator", "_entity"];
 	if !(_entity isKindOf "AllVehicles") exitWith {};
+	if ((count (curatorSelected # 0)) > 1)  exitWith {};
 	
 	private _position0 = positionCameraToWorld [0, 0, 0];
 	private _mousePosASL = AGLToASL screenToWorld getMousePosition;
