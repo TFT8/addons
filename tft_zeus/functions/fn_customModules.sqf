@@ -44,6 +44,10 @@ private _customZeusModules = [
 		"respawn_west" setMarkerPos _targetPos;
 		[objNull, format ["Marker respawn_west moved to: %1", _position]] call bis_fnc_showCuratorFeedbackMessage;
 	}],
+	["Objects", "Draw Bounding Box Marker", {
+		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+		[_objectUnderCursor] call tft_zeus_fnc_drawBoundingMarker;
+	}],
 	["AI Systems", "ACEX HC Blacklist Group", {
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 		group _objectUnderCursor setVariable ["acex_headless_blacklist", true, true];
