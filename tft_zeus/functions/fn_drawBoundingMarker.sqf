@@ -14,7 +14,7 @@ Draws rectangle marker on object bounding box, to make placed building look like
 * [_building] call tft_zeus_fnc_drawBoundingMarker
 */
 
-params ["_object", ["_markerBrush", "SolidFull", ""], ["_markerColor", "ColorGrey", ""]];
+params ["_object", ["_markerBrush", "SolidFull", [""]], ["_markerColor", "ColorGrey", [""]]];
 
 if !(local _object) exitWith {_this remoteExecCall ["tft_fnc_drawBoundingMarker", 2]};
 
