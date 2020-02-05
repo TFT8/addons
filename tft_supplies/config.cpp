@@ -360,6 +360,7 @@ class CfgVehicles {
             class _xx_rhsusf_200rnd_556x45_mixed_box {
                 magazine = "rhsusf_200rnd_556x45_mixed_box";
                 count = 5;
+		   };
             // Grenades
             class _xx_SmokeShellGreen {
                 magazine = "SmokeShellGreen";
@@ -400,5 +401,5 @@ class CfgVehicles {
             };
         };
 
-	}
+	};
 };
