@@ -317,6 +317,10 @@ class CfgVehicles {
 		SLINGLOAD_CAMERA
     };
 
+    class RHS_CH_47F : RHS_CH_47F_base {
+		ENHANCED_DOORGUNS
+    };
+
 	class Heli_Transport_01_base_F;
 	class RHS_UH60_Base: Heli_Transport_01_base_F {
 		SLINGLOAD_CAMERA
