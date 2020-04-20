@@ -20,6 +20,8 @@ class CfgActions
     AF_NO_ACTION_CONIG_ENTRY(TurnOut, 1);
     AF_NO_ACTION_CONIG_ENTRY(LightOn, 1);
     AF_NO_ACTION_CONIG_ENTRY(LightOff, 1);
+    AF_NO_ACTION_CONIG_ENTRY(AutoHover, 1);
+    AF_NO_ACTION_CONIG_ENTRY(AutoHoverCancel, 1);
 };
 
 

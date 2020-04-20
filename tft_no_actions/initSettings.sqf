@@ -29,3 +29,7 @@ AF_NO_ACTION_SETTING(turnout, false);
 AF_NO_ACTION_SETTING(lighton, false);
 //
 AF_NO_ACTION_SETTING(lightoff, false);
+//
+AF_NO_ACTION_SETTING(autohover, false);
+//
+AF_NO_ACTION_SETTING(autohovercancel, false);

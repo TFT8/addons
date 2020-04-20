@@ -77,4 +77,18 @@
         <Polish>Usuwa akcję Wyłącz światła z menu akcji. Wymaga restartu gry.</Polish>
         <German>Entfernt die Lichter ausschalten-Aktion aus dem Aktionsmenü. Benötigt einen Neustart des Spiels.</German>
     </Key>
+    <!-- AutoHover on  -->
+    <Key ID="STR_tft_no_action_autohover">
+        <English>Hide AutoHover on action</English>
+    </Key>
+    <Key ID="STR_tft_no_action_autohover_desc">
+        <English>Hides the AutoHover on entry from the action menu. Requires a game restart.</English>
+    </Key>
+    <!-- AutoHover off  -->
+    <Key ID="STR_tft_no_action_autohovercancel">
+        <English>Hide AutoHover off action</English>
+    </Key>
+    <Key ID="STR_tft_no_action_autohovercancel_desc">
+        <English>Hides the AutoHover off entry from the action menu. Requires a game restart.</English>
+    </Key>
 </Project>
