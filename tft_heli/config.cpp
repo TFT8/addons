@@ -9,8 +9,7 @@
 			"CUP_AirVehicles_CH47",
 			"CUP_AirVehicles_UH60",
 			"RHS_US_A2_AirImport",
-			"rhsusf_c_melb",
-			"uh60"
+			"rhsusf_c_melb"
 		};
         version = 2.0;
         versionStr = 2.0;
@@ -154,7 +153,7 @@ class CfgFunctions {
 			initElev = 0; \
 			initTurn = 0; \
 			minElev = -90;\
-			maxElev = 60;\
+			maxElev = 10;\
 			minTurn = -10;\
 			maxTurn = 190;\
 			stabilizedInAxes = 3;\
@@ -163,7 +162,7 @@ class CfgFunctions {
 			initElev = 0; \
 			initTurn = 0; \
 			minElev = -90;\
-			maxElev = 60;\
+			maxElev = 10;\
 			minTurn = -195;\
 			maxTurn = 10;\
 		}; \
