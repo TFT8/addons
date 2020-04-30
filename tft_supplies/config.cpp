@@ -81,8 +81,8 @@ class CfgVehicles {
                 name = "ACE_bodyBag";
                 count = 2;
             };
-			class _xx_adv_aceSplint_splint {
-				name = "adv_aceSplint_splint";
+			class _xx_ACE_splint {
+				name = "ACE_splint";
 				count = 4;
 			};
         };
