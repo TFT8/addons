@@ -199,6 +199,28 @@ private _customZeusModules = [
 			[_unit, _magazine, _muzzle, _firemode, _mousePosASL] call tft_zeus_fnc_zeusProjectile;
 		}] call ace_zeus_fnc_getModuleDestination;
 	}],
+	["Projectiles", "Throw Can", {
+		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+		if (_objectUnderCursor isEqualTo objNull) exitWith {[objNull, format ["Place module on unit!"]] call bis_fnc_showCuratorFeedbackMessage;};
+		[_objectUnderCursor, {
+			params ["_successful", "_unit", "_mousePosASL"];
+			private _magazine = "ALiVE_HandGrenade_Can";
+			private _muzzle = "ALiVE_Handgrenade_canMuzzle";
+			private _firemode = "ALiVE_Handgrenade_canMuzzle";
+			[_unit, _magazine, _muzzle, _firemode, _mousePosASL] call tft_zeus_fnc_zeusProjectile;
+		}] call ace_zeus_fnc_getModuleDestination;
+	}],
+	["Projectiles", "Throw Bottle", {
+		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+		if (_objectUnderCursor isEqualTo objNull) exitWith {[objNull, format ["Place module on unit!"]] call bis_fnc_showCuratorFeedbackMessage;};
+		[_objectUnderCursor, {
+			params ["_successful", "_unit", "_mousePosASL"];
+			private _magazine = "ALiVE_HandGrenade_Bottle";
+			private _muzzle = "ALiVE_Handgrenade_BottleMuzzle";
+			private _firemode = "ALiVE_Handgrenade_BottleMuzzle";
+			[_unit, _magazine, _muzzle, _firemode, _mousePosASL] call tft_zeus_fnc_zeusProjectile;
+		}] call ace_zeus_fnc_getModuleDestination;
+	}],
 	["Projectiles", "GL Frag", {
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 		if (_objectUnderCursor isEqualTo objNull) exitWith {[objNull, format ["Place module on unit!"]] call bis_fnc_showCuratorFeedbackMessage;};
