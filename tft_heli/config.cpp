@@ -163,7 +163,7 @@ class CfgFunctions {
 			initTurn = 0; \
 			minElev = -90;\
 			maxElev = 10;\
-			minTurn = -195;\
+			minTurn = -190;\
 			maxTurn = 10;\
 		}; \
 	}; \
