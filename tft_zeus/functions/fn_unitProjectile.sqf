@@ -1,15 +1,21 @@
 /*
-Author: Ampers
-Makes unit throw the specified magazine to the specified location.
+ Author: Ampers
+ Makes unit throw the specified magazine to the specified location.
 
-* Arguments:
-* 0: 
-*
-* Return Value:
-* Exit position <ARRAY>
+ * Arguments:
+ * 0: Unit <OBJECT>
+ * 1: Magazine <STRING>
+ * 2: Muzzle <STRING>
+ * 3: Fire Mode <STRING>
+ * 4: Target Pos ASL <ARRAY>
+ * 5: Trajectory <BOOLEAN>
+ *
+ * Return Value:
+ * Exit position <ARRAY>
 
-* Example:
-* [] call tft_fnc_dismount
+ * Example:
+ * [_unit, _magazine, _muzzle, _firemode, _targetPos, _throwFlatTrajectory] call tft_zeus_fnc_unitProjectile;
+ * [_unit, _magazine, _muzzle, _firemode, _targetPos, _throwFlatTrajectory] remoteExecCall ["tft_zeus_fnc_unitProjectile", _unit];
 */
 
 params ["_unit", "_magazine", "_muzzle", "_firemode", "_targetPos", "_throwFlatTrajectory"];
