@@ -16,6 +16,7 @@
 #define ENHANCED_DOORGUNS \
 	class Turrets: Turrets { \
 		class MainTurret: MainTurret { \
+			gunnerType = "B_helicrew_F"; \
 			initElev = 0; \
 			initTurn = 0; \
 			minElev = -90; \
@@ -26,6 +27,7 @@
 			stabilizedInAxes = 3; \
 		}; \
 		class RightDoorGun: MainTurret { \
+			gunnerType = "B_helicrew_F"; \
 			initElev = 0; \
 			initTurn = 0; \
 			minElev = -90; \
@@ -37,6 +39,7 @@
 		}; \
 	}; \
 
+class SensorTemplateIR;
 class CfgVehicles {
     class Helicopter_Base_H;
     class Heli_Transport_01_base_F :Helicopter_Base_H {
@@ -44,13 +47,26 @@ class CfgVehicles {
 	};
     class vtx_H60_base: Heli_Transport_01_base_F {
 		crew="B_helipilot_F";
+		class Components;
 		class Turrets : Turrets {
             class MainTurret;
         };
     };
 	class vtx_MH60M: vtx_H60_base {
 		faction="B_TFT8";
-		class Components;
+		memoryPointGun[] = {"otochlaven", "otochlaven_1"};
+		
+		class Components: Components
+		{
+			class SensorsManagerComponent
+			{
+				class Components
+				{
+					delete ActiveRadarSensorComponent;
+					class IRSensorComponent: SensorTemplateIR {};
+				};
+			};
+		};
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
@@ -59,11 +75,20 @@ class CfgVehicles {
 	};
 	class vtx_MH60M_DAP: vtx_MH60M {
 		faction="B_TFT8";
+		weapons[] += {"CUP_weapon_mastersafe"};
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
 		class TransportBackpacks{};	
 		class Components: Components {
+			class SensorsManagerComponent
+			{
+				class Components
+				{
+					delete ActiveRadarSensorComponent;
+					class IRSensorComponent: SensorTemplateIR {};
+				};
+			};
 			class TransportPylonsComponent {
 				UIPicture = "\rhsusf\addons\rhsusf_a2port_air\data\loadouts\RHS_UH60_EWS_EDEN_CA.paa";
 				class Pylons
