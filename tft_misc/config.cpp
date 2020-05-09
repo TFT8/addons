@@ -3,7 +3,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = 0.6;
-        requiredAddons[] = {"cba_xeh","cba_xeh_a3","ace_main"};
+        requiredAddons[] = {"cba_main","ace_main"};
         version = 2.0;
         versionStr = 2.0;
         versionAr[] = {2, 0};
@@ -25,3 +25,5 @@ class CfgFunctions {
         };
     };
 };
+
+#include "CfgEventHandlers.hpp"
