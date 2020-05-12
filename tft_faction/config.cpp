@@ -164,7 +164,7 @@ class CfgVehicles
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="M1126(M2|CROWS)[75th]"
+		displayName="M1126(M2|CROWS)[75th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
