@@ -1,5 +1,5 @@
 // Add keybinds
-["TFT Misc", "tft_misc_hideHUD", "Hide HUD", {false}, {
+["TFT Misc", "tft_misc_toggleHUD", "Toggle HUD", {false}, {
 	// Statement
     if (isNil "tft_showHUD") then {tft_showHUD = true};
 	tft_showHUD = !tft_showHUD;
