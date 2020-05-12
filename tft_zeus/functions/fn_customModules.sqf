@@ -147,8 +147,7 @@ private _customZeusModules = [
 				_x setVectorUp surfaceNormal getPos _x;
 			};
 		};
-	}]
-	/*
+	}],
 	["Projectiles", "Throw Can", {
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 		if (_objectUnderCursor isEqualTo objNull) exitWith {[objNull, format ["Place module on unit!"]] call bis_fnc_showCuratorFeedbackMessage;};
@@ -183,12 +182,12 @@ private _customZeusModules = [
 		}] call ace_zeus_fnc_getModuleDestination;
 	}],
 	["Projectiles", "Toggle Throw Trajectory", {
-		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
-		private _throwFlatTrajectory = profileNamespace getVariable ["amp_projectiles_throwFlatTrajectory", 1];
-		_throwFlatTrajectory = abs (_throwFlatTrajectory - 1);
-		profileNamespace setVariable ["amp_projectiles_throwFlatTrajectory", _throwFlatTrajectory];
+		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];		
+		if (isNil "zen_projectiles_throwFlatTrajectory") then {zen_projectiles_throwFlatTrajectory = true;};
+		zen_projectiles_throwFlatTrajectory = !zen_projectiles_throwFlatTrajectory;
 		[objNull, format ["Throw Trajectory: %1", ["High", "Flat"] # _throwFlatTrajectory]] call bis_fnc_showCuratorFeedbackMessage;
-	}],
+	}]
+	/*
 	["Projectiles", "Throw Frag", {
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 		if (_objectUnderCursor isEqualTo objNull) exitWith {[objNull, format ["Place module on unit!"]] call bis_fnc_showCuratorFeedbackMessage;};
@@ -286,11 +285,6 @@ private _customZeusModules = [
 	}]
 	*/
 ];
-
-//Achilles
-if isClass (configfile >> "CfgPatches" >> "achilles_ui_f") then {
-	_customZeusModules apply {_x call Ares_fnc_RegisterCustomModule};
-};
 
 //Zeus Enhanced
 if isClass (configfile >> "CfgPatches" >> "zen_main") then {
