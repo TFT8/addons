@@ -105,6 +105,8 @@ onEachFrame {
 
 	sleep 1; 
 	[_heli, ["startup", "apucont"], "OFF"] call vxf_interaction_fnc_scriptedInteract;
+	[_heli, ["startup", "fuelPump"], "OFF"] call vxf_interaction_fnc_scriptedInteract; 
+	[_heli, ["startup", "b_airsce"], "OFF"] call vxf_interaction_fnc_scriptedInteract; 
 };
 
 // auto start ghetto
@@ -216,7 +218,6 @@ h disableAI "PATH";
 
 [h] params ["_heli"];
 _hoist_vars = _heli getVariable ["vtx_uh60_hoist_vars", []];
-if (_hoist_vars isEqualTo []) exitWith{false};
 _hoist_vars params ["_rope", "_dummy", "_hook"];
 
 
