@@ -185,7 +185,7 @@ private _customZeusModules = [
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];		
 		if (isNil "zen_projectiles_throwFlatTrajectory") then {zen_projectiles_throwFlatTrajectory = true;};
 		zen_projectiles_throwFlatTrajectory = !zen_projectiles_throwFlatTrajectory;
-		[objNull, format ["Throw Trajectory: %1", ["High", "Flat"] # _throwFlatTrajectory]] call bis_fnc_showCuratorFeedbackMessage;
+		[objNull, format ["Throw Trajectory: %1", ["High", "Flat"] # zen_projectiles_throwFlatTrajectory]] call bis_fnc_showCuratorFeedbackMessage;
 	}]
 	/*
 	["Projectiles", "Throw Frag", {
