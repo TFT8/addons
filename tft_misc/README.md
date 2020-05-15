@@ -14,5 +14,6 @@ Available functions:
     + **"Respawns"** - adds _move respawn points_ action
     + **"Spectator"** - adds option for moving into spectator view
 
-Add kebind to toggle HUD including STUI, default O for Oscar
+Add keybind to toggle HUD including STHUD and STGI, default O for Oscar
 Add anti-bounce for base game and RHS GL smoke shells
+Add keybind to launch GCam

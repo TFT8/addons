@@ -30,5 +30,6 @@ class CfgFunctions {
     };
 };
 
+#include "gcam\gcam_component.hpp"
 #include "CfgAmmo.hpp"
 #include "CfgEventHandlers.hpp"
