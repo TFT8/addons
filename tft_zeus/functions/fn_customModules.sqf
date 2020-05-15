@@ -116,6 +116,7 @@ private _customZeusModules = [
 		[_objectUnderCursor, "Path"] remoteExec ["EnableAI", owner _objectUnderCursor];
 		[objNull, format ["Path AI Enabled: %1", _objectUnderCursor]] call bis_fnc_showCuratorFeedbackMessage;
 	}],
+  /*
 	["AI Behaviour", "Unpack Static Weapon", {
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 		if (_objectUnderCursor isEqualTo objNull) exitWith {[objNull, format ["Place module on unit!"]] call bis_fnc_showCuratorFeedbackMessage;};
@@ -148,6 +149,7 @@ private _customZeusModules = [
 			};
 		};
 	}],
+  */
 	["Projectiles", "Throw Can", {
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 		if (_objectUnderCursor isEqualTo objNull) exitWith {[objNull, format ["Place module on unit!"]] call bis_fnc_showCuratorFeedbackMessage;};
@@ -185,7 +187,7 @@ private _customZeusModules = [
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];		
 		if (isNil "zen_projectiles_throwFlatTrajectory") then {zen_projectiles_throwFlatTrajectory = true;};
 		zen_projectiles_throwFlatTrajectory = !zen_projectiles_throwFlatTrajectory;
-		[objNull, format ["Throw Trajectory: %1", ["High", "Flat"] # zen_projectiles_throwFlatTrajectory]] call bis_fnc_showCuratorFeedbackMessage;
+		[objNull, format ["Throw Trajectory: %1", ["High", "Flat"] select zen_projectiles_throwFlatTrajectory]] call bis_fnc_showCuratorFeedbackMessage;
 	}]
 	/*
 	["Projectiles", "Throw Frag", {
