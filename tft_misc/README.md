@@ -13,3 +13,6 @@ Available functions:
     + **"Preparation"** - adds option to end preparation phase (NOTE:it still needs to be initialized in the _init.sqf_)
     + **"Respawns"** - adds _move respawn points_ action
     + **"Spectator"** - adds option for moving into spectator view
+
+Add kebind to toggle HUD including STUI, default O for Oscar
+Add anti-bounce for base game and RHS GL smoke shells
