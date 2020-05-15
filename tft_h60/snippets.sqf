@@ -196,6 +196,16 @@ ropeDestroy  _rope;
 
 
 // live test
+
+heli = vehicle player;
+private _hoist_vars = _heli getVariable ["vtx_uh60_hoist_vars", []];
+_hoist_vars params ["_rope", "_dummy", "_hook"];
+hoistPos = [1.405, 2.03, 0.45];
+rope = _rope;
+dummy = _dummy;
+hook = _hook;
+
+
 h = createVehicle ["vtx_uh60m", (getPos player) vectorAdd [0,0,20], [], 0, "FLY"];
 createVehicleCrew h;
 publicVariable "h";
