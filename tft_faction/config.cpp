@@ -299,7 +299,7 @@ class CfgVehicles
 		author="TFT8";
 		scope=2;
 		faction="B_TFT8";
-		uniformClass="US_uniform_rifleman";
+		uniformClass="acu_jacket_uniform";
 		model="\TheACUProject\uniform_jacket\US_uniform_02.p3d";
 		Items[]=
         {
@@ -881,53 +881,6 @@ class CfgVehicles
 };
 class CfgWeapons
 {
-	class ItemCore; 
-    class UniformItem; 
-    class Uniform_Base: ItemCore 
-    { 
-        class ItemInfo; 
-    };
-	class US_uniform_full: Uniform_Base{};
-    class US_uniform_rifleman: US_uniform_full
-    {
-        scope =2;
-        picture="\TheACUProject\UI\icon_tft8_ocp_ui.paa"; 
-        author="TFT8";
-	    displayName="[TFT8]ACU[RCT/PVT]";
-		model="\A3\Characters_F\Common\Suitpacks\suitpack_original_F.p3d";
-		class ItemInfo : UniformItem 
-		{
-            uniformClass = "tft8_rifleman";
-            containerClass = "Supply60";
-            mass = 10;
-			class HitpointsProtectionInfo
-			{
-				class Chest
-				{
-					HitpointName="HitChest";
-					armor=16;
-					PassThrough=0.30000002;
-				};
-				class Diaphragm
-				{
-					HitpointName="HitDiaphragm";
-					armor=16;
-					PassThrough=0.30000002;
-				};
-				class Abdomen
-				{
-					hitpointName="HitAbdomen";
-					armor=16;
-					passThrough=0.30000002;
-				};
-				class Body
-				{
-					hitpointName="HitBody";
-					passThrough=0.30000002;
-				};
-			};
-        };
-    };
     class rhs_weap_m4_base;
     class rhs_weap_m4a1: rhs_weap_m4_base {};
     class rhs_weap_m4a1_carryhandle: rhs_weap_m4a1

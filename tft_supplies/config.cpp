@@ -22,7 +22,7 @@ class CfgVehicles {
 		_generalMacro = "TFT_B_Medical";
 		displayName = "Medical Bag [TFT8]";
 		//dlc = "TFT8";
-		hiddenSelectionsTextures[] = {"tft_cup\data\medicalpack_tft8_co.paa"};
+		//hiddenSelectionsTextures[] = {"tft_cup\data\medicalpack_tft8_co.paa"};
 		maximumLoad = 240;
 		mass = 40;
 		scope = 2;

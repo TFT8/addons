@@ -5,7 +5,7 @@
         requiredVersion = 0.6;
         requiredAddons[] = {
             "vtx_MH60M"
-		};
+        };
         version = 2.0;
         versionStr = 2.0;
         versionAr[] = {2, 0};
@@ -13,38 +13,12 @@
     };
 };
 
-#define ENHANCED_DOORGUNS \
-	class Turrets: Turrets { \
-		class MainTurret: MainTurret { \
-			gunnerType = "B_helicrew_F"; \
-			initElev = 0; \
-			initTurn = 0; \
-			minElev = -90; \
-			maxElev = 10; \
-			minTurn = -10; \
-			maxTurn = 190; \
-			magazines[] = {"vtx_2000Rnd_65x39_Belt_Tracer_Red","vtx_2000Rnd_65x39_Belt_Tracer_Red","vtx_2000Rnd_65x39_Belt_Tracer_Red","vtx_2000Rnd_65x39_Belt_Tracer_Red"}; \
-			stabilizedInAxes = 3; \
-		}; \
-		class RightDoorGun: MainTurret { \
-			gunnerType = "B_helicrew_F"; \
-			initElev = 0; \
-			initTurn = 0; \
-			minElev = -90; \
-			maxElev = 10; \
-			minTurn = -190; \
-			maxTurn = 10; \
-			magazines[] = {"vtx_2000Rnd_65x39_Belt_Tracer_Red","vtx_2000Rnd_65x39_Belt_Tracer_Red","vtx_2000Rnd_65x39_Belt_Tracer_Red","vtx_2000Rnd_65x39_Belt_Tracer_Red"}; \
-			stabilizedInAxes = 3; \
-		}; \
-	}; \
-
 class SensorTemplateIR;
 
 class Extended_Init_EventHandlers {
     class vtx_H60_base {
         class FRIES {
-            init = "[_this select 0] call ace_fastroping_fnc_equipFRIES";
+            init = "if (local (_this select 0)) then {[_this select 0] call ace_fastroping_fnc_equipFRIES}";
         };
     };
 };
@@ -52,25 +26,27 @@ class Extended_Init_EventHandlers {
 class CfgVehicles {
     class Helicopter_Base_H;
     class Heli_Transport_01_base_F :Helicopter_Base_H {
-		class Turrets;
-	};
-  class vtx_H60_base: Heli_Transport_01_base_F {
-  crew="B_helipilot_F";
-  ace_fastroping_friesType = "ACE_friesAnchorBar";
-  ace_fastroping_friesAttachmentPoint[] = {0, 1.7, 0.04};
-  ace_fastroping_ropeOrigins[] = {
+        class Turrets;
+        class CopilotTurret;
+    };
+    class vtx_H60_base: Heli_Transport_01_base_F {
+    crew="B_helipilot_F";
+    ace_fastroping_friesType = "ACE_friesAnchorBar";
+    ace_fastroping_friesAttachmentPoint[] = {0, 1.7, 0.04};
+    ace_fastroping_ropeOrigins[] = {
       {-1.66, 0.115,-0.13},
        {1.66, -0.115,-0.13}
     };
 
-  class Components;
-  class Turrets : Turrets {
+    class Components;
+    class Turrets : Turrets {
           class MainTurret;
+          class CopilotTurret;
       };
-  driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
-  driverOpticsModel = "rhsusf\addons\rhsusf_melb\data\optics\melb_flir_w2.p3d";
-  class vtx_templateFLIR
-  {
+    driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
+    driverOpticsModel = "rhsusf\addons\rhsusf_melb\data\optics\melb_flir_w2.p3d";
+    class vtx_templateFLIR
+    {
     class OpticsIn
     {
       class Wide
@@ -145,94 +121,117 @@ class CfgVehicles {
     maxYRotSpeed=0.5;
     pilotOpticsShowCursor=1;
     controllable="True";
-  };
-  gunnerOpticsModel = "rhsusf\addons\rhsusf_melb\data\optics\melb_flir_w2.p3d";
-  turretInfoType = "Rsc_MELB_Turret_UnitInfo";
-  };
-	class vtx_MH60M: vtx_H60_base {
-		faction="B_TFT8";
-		memoryPointGun[] = {"otochlaven", "otochlaven_1"};
-		
-		class Components: Components
-		{
-			class SensorsManagerComponent
-			{
-				class Components
-				{
-					delete ActiveRadarSensorComponent;
-					class IRSensorComponent: SensorTemplateIR {};
-				};
-			};
-		};
-		class TransportMagazines{};
-		class TransportItems{};
-		class TransportWeapons{};
-		class TransportBackpacks{};
-		ENHANCED_DOORGUNS
-	};
-	class vtx_MH60M_DAP: vtx_MH60M {
-		faction="B_TFT8";
-		weapons[] += {"CUP_weapon_mastersafe"};
-		class TransportMagazines{};
-		class TransportItems{};
-		class TransportWeapons{};
-		class TransportBackpacks{};	
-		class Components: Components {
-			class SensorsManagerComponent
-			{
-				class Components
-				{
-					delete ActiveRadarSensorComponent;
-					class IRSensorComponent: SensorTemplateIR {};
-				};
-			};
-			class TransportPylonsComponent {
-				UIPicture = "\rhsusf\addons\rhsusf_a2port_air\data\loadouts\RHS_UH60_EWS_EDEN_CA.paa";
-				class Pylons
-				{
-					class pylons1
-					{
-						attachment = "CUP_PylonPod_1200Rnd_TE1_Red_Tracer_30x113mm_M789_HEDP_M";
-						priority = 1;
-						hardpoints[] = {"RHS_HP_HELLFIRE_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_Fuel_ARMY", "RHS_HP_ATAS", "DAR", "DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_LARGE", "CUP_NATO_HELO_UH60"};
-					UIposition[] = {0.555, 0.37};
-					};
-					class pylons2
-					{
-						attachment = "rhs_mag_M229_19";
-						mirroredMissilePos = 1;
-						hardpoints[] = {"RHS_HP_HELLFIRE_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_Fuel_ARMY", "RHS_HP_ATAS", "DAR", "DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_LARGE", "CUP_NATO_HELO_UH60"};
-					UIposition[] = {0.11, 0.37};
-						priority = 1;
-					};
-					class cmDispenser
-					{
-						hardpoints[] = {"RHSUSF_cm_M130", "RHSUSF_cm_M130_x2"};
-						priority = 1;
-						attachment = "rhsusf_M130_CMFlare_Chaff_Magazine_x2";
-						maxweight = 800;
-						UIposition[] = {0.33, 0};
-					};
-				};
-				class Presets
-				{
-					class Empty
-					{
-						displayName = "Empty";
-						attachment[] = {};
-					};
-					class Default
-					{
-						displayName = "Default";
-						attachment[] = {"CUP_PylonPod_1200Rnd_TE1_Red_Tracer_30x113mm_M789_HEDP_M", "rhs_mag_M229_19", "rhsusf_M130_CMFlare_Chaff_Magazine_x2"};
-					};
-					class AT
-					{
-						displayName = "AT";
-						attachment[] = {"PylonRack_4Rnd_ACE_Hellfire_AGM114K", "PylonRack_4Rnd_ACE_Hellfire_AGM114K", "rhsusf_M130_CMFlare_Chaff_Magazine_x2"};
-					};
-				};
-			};
-		};
-	};
+    };
+    gunnerOpticsModel = "rhsusf\addons\rhsusf_melb\data\optics\melb_flir_w2.p3d";
+    turretInfoType = "Rsc_MELB_Turret_UnitInfo";
+    };
+    class vtx_MH60M: vtx_H60_base {
+        faction="B_TFT8";
+        memoryPointGun[] = {"otochlaven", "otochlaven_1"};
+        
+        class Components: Components
+        {
+            class SensorsManagerComponent
+            {
+                class Components
+                {
+                    delete ActiveRadarSensorComponent;
+                    class IRSensorComponent: SensorTemplateIR {};
+                };
+            };
+        };
+        class TransportMagazines{};
+        class TransportItems{};
+        class TransportWeapons{};
+        class TransportBackpacks{};
+        
+        class Turrets: Turrets {
+            class MainTurret: MainTurret {
+                gunnerType = "B_helicrew_F";
+                minElev = -90;
+                maxElev = 10;
+                initElev = 0;
+                minTurn = -10;
+                maxTurn = 190;
+                initTurn = 0;
+                magazines[] = {"vtx_2000Rnd_65x39_Belt_Tracer_Red","vtx_2000Rnd_65x39_Belt_Tracer_Red","vtx_2000Rnd_65x39_Belt_Tracer_Red","vtx_2000Rnd_65x39_Belt_Tracer_Red"};
+                stabilizedInAxes = 3;
+            };
+            class RightDoorGun: MainTurret {
+                gunnerType = "B_helicrew_F";
+                minElev = -90;
+                maxElev = 10;
+                initElev = 0;
+                minTurn = -190;
+                maxTurn = 10;
+                initTurn = 0;
+            };
+        };
+
+    };
+    class vtx_MH60M_DAP: vtx_MH60M {
+        faction="B_TFT8";
+        weapons[] += {"CUP_weapon_mastersafe"};
+        class TransportMagazines{};
+        class TransportItems{};
+        class TransportWeapons{};
+        class TransportBackpacks{};    
+        class Components: Components {
+            class SensorsManagerComponent
+            {
+                class Components
+                {
+                    delete ActiveRadarSensorComponent;
+                    class IRSensorComponent: SensorTemplateIR {};
+                };
+            };
+            class TransportPylonsComponent {
+                UIPicture = "\rhsusf\addons\rhsusf_a2port_air\data\loadouts\RHS_UH60_EWS_EDEN_CA.paa";
+                class Pylons
+                {
+                    class pylons1
+                    {
+                        attachment = "CUP_PylonPod_1200Rnd_TE1_Red_Tracer_30x113mm_M789_HEDP_M";
+                        priority = 1;
+                        hardpoints[] = {"RHS_HP_HELLFIRE_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_Fuel_ARMY", "RHS_HP_ATAS", "DAR", "DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_LARGE", "CUP_NATO_HELO_UH60"};
+                    UIposition[] = {0.555, 0.37};
+                    };
+                    class pylons2
+                    {
+                        attachment = "rhs_mag_M229_19";
+                        mirroredMissilePos = 1;
+                        hardpoints[] = {"RHS_HP_HELLFIRE_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_Fuel_ARMY", "RHS_HP_ATAS", "DAR", "DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_LARGE", "CUP_NATO_HELO_UH60"};
+                    UIposition[] = {0.11, 0.37};
+                        priority = 1;
+                    };
+                    class cmDispenser
+                    {
+                        hardpoints[] = {"RHSUSF_cm_M130", "RHSUSF_cm_M130_x2"};
+                        priority = 1;
+                        attachment = "rhsusf_M130_CMFlare_Chaff_Magazine_x2";
+                        maxweight = 800;
+                        UIposition[] = {0.33, 0};
+                    };
+                };
+                class Presets
+                {
+                    class Empty
+                    {
+                        displayName = "Empty";
+                        attachment[] = {};
+                    };
+                    class Default
+                    {
+                        displayName = "Default";
+                        attachment[] = {"CUP_PylonPod_1200Rnd_TE1_Red_Tracer_30x113mm_M789_HEDP_M", "rhs_mag_M229_19", "rhsusf_M130_CMFlare_Chaff_Magazine_x2"};
+                    };
+                    class AT
+                    {
+                        displayName = "AT";
+                        attachment[] = {"PylonRack_4Rnd_ACE_Hellfire_AGM114K", "PylonRack_4Rnd_ACE_Hellfire_AGM114K", "rhsusf_M130_CMFlare_Chaff_Magazine_x2"};
+                    };
+                };
+            };
+        };
+    };
 };

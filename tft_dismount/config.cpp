@@ -16,32 +16,13 @@ class CfgFunctions {
         tag = "tft";
         class functions {
             file = "\tft_dismount\functions";
-            class addDismountAction;
             class dismount;
         };
     };
 };
 
-class Extended_PreInit_EventHandlers {
-    class tft_dismount_preinit_eh {
-        init = "call compile preprocessFileLineNumbers '\tft_dismount\initSettings.sqf'";
-    };
-};
-
 class Extended_PostInit_EventHandlers {
-    class tft_dismount_postinit_eh {        
-        init = "[player, tft_dismount_setting_priority] call tft_fnc_addDismountAction";
+    class tft_dismount_postinit_eh {   
+        init = "call compile preprocessFileLineNumbers '\tft_dismount\XEH_postInit.sqf'";
     };
 };
-
-class Extended_Init_EventHandlers {
-    class Man {
-		class tft_dismount_init_eh {
-			onRespawn = true;                    
-			init = "if (_this select 0 == player) then {[player, tft_dismount_setting_priority] call tft_fnc_addDismountAction}";
-		};
-	};
-};
-
-
-#include "CfgActions.hpp"

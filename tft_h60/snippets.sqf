@@ -81,7 +81,7 @@ onEachFrame {
 };
 
 // auto start legit
-[_heli] spawn {
+[vehicle player] spawn {
 	params ["_heli"]; 
 	[_heli, ["startup", "b_gen1"], "ON"] call vxf_interaction_fnc_scriptedInteract; 
 	[_heli, ["startup", "b_gen2"], "ON"] call vxf_interaction_fnc_scriptedInteract; 
