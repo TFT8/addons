@@ -30,100 +30,92 @@ class CfgVehicles {
         class CopilotTurret;
     };
     class vtx_H60_base: Heli_Transport_01_base_F {
-    crew="B_helipilot_F";
-    ace_fastroping_friesType = "ACE_friesAnchorBar";
-    ace_fastroping_friesAttachmentPoint[] = {0, 1.7, 0.04};
-    ace_fastroping_ropeOrigins[] = {
-      {-1.66, 0.115,-0.13},
-       {1.66, -0.115,-0.13}
-    };
+        crew="B_helipilot_F";
 
-    class Components;
-    class Turrets : Turrets {
-          class MainTurret;
-          class CopilotTurret;
-      };
-    driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
-    driverOpticsModel = "rhsusf\addons\rhsusf_melb\data\optics\melb_flir_w2.p3d";
-    class vtx_templateFLIR
-    {
-    class OpticsIn
-    {
-      class Wide
-      {
-        opticsDisplayName="TRK COR";
-        initAngleX=180;
-        minAngleX=-360;
-        maxAngleX=360;
-        initAngleY=0;
-        minAngleY=-15;
-        maxAngleY=85;
-        initFov=0.30000001;
-        minFov=0.30000001;
-        maxFov=0.30000001;
-        visionMode[]=
+        class Components;
+        class Turrets : Turrets {
+              class MainTurret;
+              class CopilotTurret;
+          };
+        driverWeaponsInfoType = "Rsc_MELB_Turret_UnitInfo";
+        driverOpticsModel = "rhsusf\addons\rhsusf_melb\data\optics\melb_flir_w2.p3d";
+        class vtx_templateFLIR
         {
-          "Normal",
-          "NVG",
-          "Ti"
-        };
-        thermalMode[]={0};
-        directionStabilized=1;
-        horizontallyStabilized=1;
-        gunnerOpticsModel="rhsusf\addons\rhsusf_melb\data\optics\melb_flir_wf.p3d";
-        opticsPPEffects[]=
+        class OpticsIn
         {
-          "OpticsCHAbera3",
-          "OpticsBlur3"
+          class Wide
+          {
+            opticsDisplayName="TRK COR";
+            initAngleX=180;
+            minAngleX=-360;
+            maxAngleX=360;
+            initAngleY=0;
+            minAngleY=-15;
+            maxAngleY=85;
+            initFov=0.30000001;
+            minFov=0.30000001;
+            maxFov=0.30000001;
+            visionMode[]=
+            {
+              "Normal",
+              "NVG",
+              "Ti"
+            };
+            thermalMode[]={0};
+            directionStabilized=1;
+            horizontallyStabilized=1;
+            gunnerOpticsModel="rhsusf\addons\rhsusf_melb\data\optics\melb_flir_wf.p3d";
+            opticsPPEffects[]=
+            {
+              "OpticsCHAbera3",
+              "OpticsBlur3"
+            };
+            gunnerOpticsEffect[]=
+            {
+              "TankCommanderOptics2"
+            };
+          };
+          class WideT: Wide
+          {
+            initFov=0.2;
+            minFov=0.2;
+            maxFov=0.2;
+            gunnerOpticsModel="rhsusf\addons\rhsusf_melb\data\optics\melb_flir_w2.p3d";
+          };
+          class MediumT: WideT
+          {
+            initFov=0.1;
+            minFov=0.1;
+            maxFov=0.1;
+            gunnerOpticsModel="rhsusf\addons\rhsusf_melb\data\optics\melb_flir_m.p3d";
+          };
+          class NarrowT: WideT
+          {
+            initFov=0.022;
+            minFov=0.022;
+            maxFov=0.022;
+            gunnerOpticsModel="rhsusf\addons\rhsusf_melb\data\optics\melb_flir_n.p3d";
+          };
+          class NarrowT2: WideT
+          {
+            initFov=0.0092000002;
+            minFov=0.0092000002;
+            maxFov=0.0092000002;
+            gunnerOpticsModel="rhsusf\addons\rhsusf_melb\data\optics\melb_flir_n2.p3d";
+          };
         };
-        gunnerOpticsEffect[]=
-        {
-          "TankCommanderOptics2"
+        stabilizedInAxes=3;
+        minElev=-40;
+        maxElev=180;
+        initElev=0;
+        minTurn=-180;
+        maxTurn=180;
+        initTurn=0;
+        maxXRotSpeed=0.5;
+        maxYRotSpeed=0.5;
         };
-      };
-      class WideT: Wide
-      {
-        initFov=0.2;
-        minFov=0.2;
-        maxFov=0.2;
-        gunnerOpticsModel="rhsusf\addons\rhsusf_melb\data\optics\melb_flir_w2.p3d";
-      };
-      class MediumT: WideT
-      {
-        initFov=0.1;
-        minFov=0.1;
-        maxFov=0.1;
-        gunnerOpticsModel="rhsusf\addons\rhsusf_melb\data\optics\melb_flir_m.p3d";
-      };
-      class NarrowT: WideT
-      {
-        initFov=0.022;
-        minFov=0.022;
-        maxFov=0.022;
-        gunnerOpticsModel="rhsusf\addons\rhsusf_melb\data\optics\melb_flir_n.p3d";
-      };
-      class NarrowT2: WideT
-      {
-        initFov=0.0092000002;
-        minFov=0.0092000002;
-        maxFov=0.0092000002;
-        gunnerOpticsModel="rhsusf\addons\rhsusf_melb\data\optics\melb_flir_n2.p3d";
-      };
-    };
-    stabilizedInAxes=3;
-    minElev=-40;
-    maxElev=180;
-    initElev=0;
-    minTurn=-180;
-    maxTurn=180;
-    initTurn=0;
-    maxXRotSpeed=0.5;
-    maxYRotSpeed=0.5;
-    pilotOpticsShowCursor=1;
-    controllable="True";
-    };
-    gunnerOpticsModel = "rhsusf\addons\rhsusf_melb\data\optics\melb_flir_w2.p3d";
-    turretInfoType = "Rsc_MELB_Turret_UnitInfo";
+        gunnerOpticsModel = "rhsusf\addons\rhsusf_melb\data\optics\melb_flir_w2.p3d";
+        turretInfoType = "Rsc_MELB_Turret_UnitInfo";
     };
     class vtx_MH60M: vtx_H60_base {
         faction="B_TFT8";
@@ -186,31 +178,16 @@ class CfgVehicles {
                 };
             };
             class TransportPylonsComponent {
-                UIPicture = "\rhsusf\addons\rhsusf_a2port_air\data\loadouts\RHS_UH60_EWS_EDEN_CA.paa";
                 class Pylons
                 {
                     class pylons1
                     {
-                        attachment = "CUP_PylonPod_1200Rnd_TE1_Red_Tracer_30x113mm_M789_HEDP_M";
-                        priority = 1;
-                        hardpoints[] = {"RHS_HP_HELLFIRE_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_Fuel_ARMY", "RHS_HP_ATAS", "DAR", "DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_LARGE", "CUP_NATO_HELO_UH60"};
-                    UIposition[] = {0.555, 0.37};
+                        UIposition[] = {0.555, 0.37};
                     };
                     class pylons2
                     {
                         attachment = "rhs_mag_M229_19";
-                        mirroredMissilePos = 1;
-                        hardpoints[] = {"RHS_HP_HELLFIRE_RACK", "RHS_HP_FFAR_ARMY", "RHS_HP_Fuel_ARMY", "RHS_HP_ATAS", "DAR", "DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_LARGE", "CUP_NATO_HELO_UH60"};
-                    UIposition[] = {0.11, 0.37};
-                        priority = 1;
-                    };
-                    class cmDispenser
-                    {
-                        hardpoints[] = {"RHSUSF_cm_M130", "RHSUSF_cm_M130_x2"};
-                        priority = 1;
-                        attachment = "rhsusf_M130_CMFlare_Chaff_Magazine_x2";
-                        maxweight = 800;
-                        UIposition[] = {0.33, 0};
+                        UIposition[] = {0.11, 0.37};
                     };
                 };
                 class Presets
@@ -223,12 +200,12 @@ class CfgVehicles {
                     class Default
                     {
                         displayName = "Default";
-                        attachment[] = {"CUP_PylonPod_1200Rnd_TE1_Red_Tracer_30x113mm_M789_HEDP_M", "rhs_mag_M229_19", "rhsusf_M130_CMFlare_Chaff_Magazine_x2"};
+                        attachment[] = {"VTX_M230_Chaingun_L", "rhs_mag_M229_19"};
                     };
-                    class AT
+                    class Rocket
                     {
-                        displayName = "AT";
-                        attachment[] = {"PylonRack_4Rnd_ACE_Hellfire_AGM114K", "PylonRack_4Rnd_ACE_Hellfire_AGM114K", "rhsusf_M130_CMFlare_Chaff_Magazine_x2"};
+                      displayName = "Rocket";
+                      attachment[] = {"rhs_mag_M229_19", "rhs_mag_M229_19"};
                     };
                 };
             };
