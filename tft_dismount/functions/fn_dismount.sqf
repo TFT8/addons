@@ -15,7 +15,13 @@
 
 if (isNull objectParent player) exitWith {};
 
-#define TO_COMPARTMENT_STRING(var) if !(var isEqualType "") then {var = format ["Compartment%1",var]}
+//#define _fnc_TO_COMPARTMENT_STRING(var) if !(var isEqualType "") then {var = format ["Compartment%1",var]}
+
+_fnc_TO_COMPARTMENT_STRING = {
+    params ["_var"];
+    if !(_var isEqualType "") then {_var = format ["Compartment%1",_var]};
+    _var
+};
 
 scopeName "main";
 
@@ -31,7 +37,7 @@ if (_isInVehicle) then {
     _driverCompartments = (_vehicleConfig >> "driverCompartments") call BIS_fnc_getCfgData;
     // Air class by default has driverCompartments=0 and cargoCompartments[]={0}, so we have to disable them
     _isDriverIsolated = _driverCompartments isEqualTo 0 && {_vehicle isKindOf "Air"};
-    TO_COMPARTMENT_STRING(_driverCompartments);
+    _driverCompartments = [_driverCompartments] call _fnc_TO_COMPARTMENT_STRING;
 
     _cargoCompartments = getArray (_vehicleConfig >> "cargoCompartments");
     {
@@ -62,7 +68,7 @@ if (_isInVehicle) then {
         default {
             private _turretConfig = [_vehicleConfig, _turretPath] call CBA_fnc_getTurret;
             _compartment = (_turretConfig >> "gunnerCompartments") call BIS_fnc_getCfgData;
-            TO_COMPARTMENT_STRING(_compartment);
+            _compartment = [_compartment] call _fnc_TO_COMPARTMENT_STRING;
         };
     };
 };
@@ -99,7 +105,7 @@ private _cargoNumber = -1;
             private _turretConfig = [_vehicleConfig, _turretPath] call CBA_fnc_getTurret;
             if (_isInVehicle) then {
                 private _gunnerCompartments = (_turretConfig >> "gunnerCompartments") call BIS_fnc_getCfgData;
-                TO_COMPARTMENT_STRING(_gunnerCompartments);
+                _gunnerCompartments = [_gunnerCompartments] call _fnc_TO_COMPARTMENT_STRING;
                 if (_compartment != _gunnerCompartments) then {breakTo "crewLoop"};
                 // due to arma bug the unit is stuck in wrong anim when move in turret with configured enabledByAnimationSource
                 private _enabledByAnimationSource = getText (_turretConfig >> "enabledByAnimationSource");
