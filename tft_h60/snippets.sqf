@@ -149,10 +149,10 @@ _dummy allowDamage false;
 _hook = "vtx_hook" createVehicle [0, 0, 0];
 _hookSP = _hook selectionPosition "sling_point";
 _hook attachTo [_dummy, _hookSP vectorMultiply -1];
-_heli setVariable ["vtx_uh60_hoist_hook", _hook, true];
-_hook setVariable ["vtx_uh60_hoist_heli", _heli, true];
 detach _dummy;
 _rope = ropeCreate [_heli, _hoistPos, _dummy, [0,0,0], 0.5];
+_heli setVariable ["vtx_uh60_hoist_vars", [_rope, _dummy, _hook], true];
+_hook setVariable ["vtx_uh60_hoist_heli", _heli, true];
 ropeUnwind [_rope, 3, getPos _hook # 2];
 
 heli = _heli;
@@ -183,10 +183,8 @@ hook attachedTo //dummy
 ropeAttachedTo attachedTo hook //hoist
 attachedTo ropeAttachedTo attachedTo hook //heli
 
-attachedObjects heli //hoist
-attachedObjects heli select {typeOf _x isEqualTo "ace_fastroping_helper"} select 0 //hoist
-ropeAttachedObjects (attachedObjects heli select {typeOf _x isEqualTo "ace_fastroping_helper"} select 0) //dummy
-attachedObjects (ropeAttachedObjects (attachedObjects heli select {typeOf _x isEqualTo "ace_fastroping_helper"} select 0) select 0) select 0 //hook
+ropeAttachedObjects (attachedObjects heli select {typeOf _x isEqualTo "vtx_hook_helper"} select 0) //dummy
+attachedObjects (ropeAttachedObjects (attachedObjects heli select {typeOf _x isEqualTo "vtx_hook_helper"} select 0) select 0) select 0 //hook
 
 [heli, hoistPos, dummy, rope] params ["_heli", "_hoistPos", "_dummy", "_rope"];
 _heli animateSource ["hoist_dummy_hide", 0];
@@ -214,7 +212,17 @@ h flyInHeight 20;
 (group h) setGroupOwner 2;
 h disableAI "PATH";
 
-
+ 
+[h] params ["_heli"]; 
+_hoist_vars = _heli getVariable ["vtx_uh60_hoist_vars", []]; 
+_hoist_vars params ["_rope", "_dummy", "_hook"];
+removeAllActions _hook;
+_hook addAction ["Hook On Person", {
+    params ["_target", "_caller", "_actionId", "_arguments"];
+    private _dragged = _caller getVariable "ace_dragging_draggedObject";
+    [_caller, _dragged] call ace_dragging_fnc_dropObject;
+    _dragged moveInCargo _target;
+}, nil, 1, true, true, "", "private _dragged = _this getVariable 'ace_dragging_draggedObject'; crew _target isEqualTo [] && {!isNil '_dragged' && _dragged isKindOf 'Man'}", 10, false, "", "sling_point"];
 
 
 [h] call vtx_uh60_hoist_fnc_deployHook
