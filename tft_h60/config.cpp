@@ -25,22 +25,6 @@ class Extended_Init_EventHandlers {
     };
 };
 
-class CfgAmmo {
-  class M_Scalpel_AT;
-  class ACE_Hellfire_AGM114K: M_Scalpel_AT {
-    model = "vtx_uh60_weapons\fza_agm114k.p3d";
-    proxyShape = "vtx_uh60_weapons\fza_agm114k.p3d";
-  };
-};
-
-class CfgMagazines {
-  delete VTX_4Rnd_ACE_Hellfire_AGM114K;
-};
-
-class CfgWeapons {
-    delete vtx_hellfire_launcher;
-};
-
 class CfgVehicles {
     class Helicopter_Base_H;
     class Heli_Transport_01_base_F :Helicopter_Base_H {
@@ -157,9 +141,8 @@ class CfgVehicles {
             };
         };
         
-        receiveRemoteTargets = true;
-        reportRemoteTargets = true;
-        reportOwnPosition = true;
+        reportRemoteTargets = 1;
+        reportOwnPosition = 1;
         class TransportMagazines{};
         class TransportItems{};
         class TransportWeapons{};
