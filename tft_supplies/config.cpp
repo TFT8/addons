@@ -2,7 +2,7 @@
 class CfgPatches {
     class tft_supplies
     {
-        units[] = {"TFT_B_Medical", "TFT_supplyCrate_F", "TFT_supplyCrate_Adv_F", "Box_TFT8_Ammo_F"};
+        units[] = {"TFT_supplyCrate_F", "TFT_supplyCrate_Adv_F", "Box_TFT8_Ammo_F"};
         weapons[] = {};
         requiredVersion = 0.6;
         requiredAddons[] = {"CUP_Weapons_Backpacks","A3_Weapons_F","A3_Sounds_F","A3_Weapons_F_Exp","A3_Weapons_F_Ammoboxes","ace_cargo"};
@@ -14,79 +14,6 @@ class CfgPatches {
 };
 
 class CfgVehicles {
-	
-	// Add medical backpack
-	class CUP_B_TK_Medic_Desert;
-	class TFT_B_Medical: CUP_B_TK_Medic_Desert{
-		author = "TFT8";
-		_generalMacro = "TFT_B_Medical";
-		displayName = "Medical Bag [TFT8]";
-		//dlc = "TFT8";
-		//hiddenSelectionsTextures[] = {"tft_cup\data\medicalpack_tft8_co.paa"};
-		maximumLoad = 240;
-		mass = 40;
-		scope = 2;
-		scopeCurator = 2;
-		class TransportItems {
-            //ACE medical
-            class _xx_ACE_fieldDressing {
-                name = "ACE_fieldDressing";
-                count = 20;
-            };
-            class _xx_ACE_elasticBandage {
-                name = "ACE_elasticBandage";
-                count = 20;
-            };
-            class _xx_ACE_quikclot {
-                name = "ACE_quikclot";
-                count = 20;
-            };
-            class _xx_ACE_packingBandage {
-                name = "ACE_packingBandage";
-                count = 20;
-            };
-            class _xx_ACE_morphine {
-                name = "ACE_morphine";
-                count = 20;
-            };
-            class _xx_ACE_tourniquet {
-                name = "ACE_tourniquet";
-                count = 20;
-            };
-            class _xx_ACE_bloodIV_500 {
-                name = "ACE_bloodIV_500";
-                count = 5;
-            };
-            class _xx_ACE_plasmaIV_500 {
-                name = "ACE_plasmaIV_500";
-                count = 5;
-            };
-            class _xx_ACE_salineIV_500 {
-                name = "ACE_salineIV_500";
-                count = 10;
-            };
-            class _xx_ACE_surgicalKit {
-                name = "ACE_surgicalKit";
-                count = 1;
-            };
-            class _xx_ACE_CableTie {
-                name = "ACE_CableTie";
-                count = 5;
-            };
-            class _xx_ACE_epinephrine {
-                name = "ACE_epinephrine";
-                count = 5;
-            };
-            class _xx_ACE_bodyBag {
-                name = "ACE_bodyBag";
-                count = 2;
-            };
-			class _xx_ACE_splint {
-				name = "ACE_splint";
-				count = 4;
-			};
-        };
-	};
 	
     class C_supplyCrate_F;    // External class reference
     class TFT_supplyCrate_F: C_supplyCrate_F {
@@ -206,6 +133,10 @@ class CfgVehicles {
             class _xx_ACE_morphine {
                 name = "ACE_morphine";
                 count = 25;
+            };
+            class _xx_ACE_splint {
+                name = "ACE_splint";
+                count = 30;
             };
             class _xx_ACE_bloodIV_500 {
                 name = "ACE_bloodIV_500";

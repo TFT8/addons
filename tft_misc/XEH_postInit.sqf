@@ -10,11 +10,21 @@
 }, [24, [false, false, false]], false] call CBA_fnc_addKeybind; // O
 
 ["TFT8 S6", "tft_misc_openGCam", "GCam","", {
-    [] execVM "tft_misc\gcam\gcam.sqf";
+    if (isNull curatorCamera) then {[] execVM "tft_misc\gcam\gcam.sqf";};
 }] call CBA_fnc_addKeybind; // no default key
 
 ["TFT8 S6", "tft_misc_openSplendidCam", "Splendid Camera","", {
-    ["Exit"] call BIS_fnc_camera;
+    if (isNull curatorCamera) then {["Exit"] call BIS_fnc_camera;};
+}] call CBA_fnc_addKeybind; // no default key
+
+["View Distance", "tft_misc_cqbViewDistance", "Toggle CQB View Distance","", {
+    if (isNil "tft_viewDistance") then {
+        tft_viewDistance = viewDistance;
+        setViewDistance 500;
+    } else {
+        setViewDistance tft_viewDistance;
+        tft_viewDistance = nil;
+    };
 }] call CBA_fnc_addKeybind; // no default key
 
 /* PhysX anti bounce, doesn't work on planes that are not PhysX

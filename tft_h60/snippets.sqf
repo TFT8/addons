@@ -1,12 +1,23 @@
-tanker = (curatorSelected # 0 # 0);
+tanker = createVehicle ["VTX_KV44", [0,0,500], [], 0, "FLY"];
+createVehicleCrew tanker;
 tanker forceSpeed 50;
 tanker flyInHeight 500;
+group tanker addWaypoint [[0, worldSize, 500],0];
+_wp = group tanker addWaypoint [[0, 0, 500],0];
+_wp setWaypointType "CYCLE";
+publicVariable "tanker";
+vehicle master attachTo [tanker , [-10, -60,-10]];
+
 [vehicle player, tanker] call BIS_fnc_attachToRelative
 observer moveInCargo [tanker, 54];
+vehicle player addAction ["Detach", {detach vehicle player}, nil, 2, false, true, "", "isNull attachedTo vehicle player"];
+vehicle player addAction ["Attach", {
+vehicle player attachTo [tanker , [-10, -45,-10]];}, nil, 2, false, true, "", "isNull attachedTo vehicle player"];
 
 // CUP C-130
 [tanker,[[7.65,-4.9,-2.90],[-7.65,-4.9,-2.90]]] call vtx_uh60_aar_fnc_initTanker;
 ["ramp_bottom","ramp_top"] apply {tanker animateSource [_x, 1]};
+["Door_1_source"] apply {tanker animateSource [_x, 1]};
 // easy catchup
 vehicle player attachTo [tanker , [-10, -45,-10]];
 
@@ -109,35 +120,10 @@ onEachFrame {
 	[_heli, ["startup", "b_airsce"], "OFF"] call vxf_interaction_fnc_scriptedInteract; 
 };
 
-// auto start ghetto
-private _h = vehicle player;
-_h animateSource ["Switch_batt1",0,true];
-_h animateSource ["Switch_batt2",0,true];
-_h animateSource ["Switch_fuelpump",0,true];
-_h animateSource ["Switch_apucont",0,true];
-_h animateSource ["Switch_airsce",0,true];
-_h animateSource ["Switch_apugen",0,true];
-_h animateSource ["Switch_stbyinst",0,true];
-_h animateSource ["Switch_gen1",0,true];
-_h animateSource ["Switch_gen2",0,true];
-[_h] call vtx_uh60_engine_fnc_batteryState;
-[_h] call vtx_uh60_engine_fnc_apuState;
-_h animateSource ["Switch_ignition",1,true];
-[_h] call vtx_uh60_engine_fnc_starterState;
-_h animateSource ["Lever_fuelsys1",0.6,true];
-[_h, false, "fuel"] call vtx_uh60_engine_fnc_engineEH;
-[_h, "STARTER1", "ON"] call vtx_uh60_engine_fnc_starterState;
-_h animateSource ["Lever_engpower1",[0.85,0.23] select difficultyEnabledRTD,true];
-[_h, true] call vtx_uh60_engine_fnc_engineEH;
-_h animateSource ["Lever_fuelsys2",0.6,true];
-[_h, false, "fuel"] call vtx_uh60_engine_fnc_engineEH;
-[_h, "STARTER2", "ON"] call vtx_uh60_engine_fnc_starterState;
-_h animateSource ["Lever_engpower2",[0.85,0.23] select difficultyEnabledRTD,true];
-[_h, true] call vtx_uh60_engine_fnc_engineEH;
-_h animateSource ["Switch_fuelpump",0.5,true];
-_h animateSource ["Switch_apucont",0.5,true];
-_h animateSource ["Switch_airsce",0.5,true];
-[_h] call vtx_uh60_engine_fnc_batteryState;
+// pilot on server
+_group = createGroup [west, true];
+p = _group createUnit ["B_Helipilot_F", position master, [], 0, "NONE"];
+p moveInDriver vehicle master;
 
 // hoist
 _heli = h;
@@ -242,6 +228,55 @@ _hoist_vars params ["_rope", "_dummy", "_hook"];
 ropeUnwind [_rope, 1.5, -1];
 
 
+/////////////////////////////////////////////////////////////////////////////////////
+//testing =D
+vtx_uh60_doorguns_fnc_prepareAIGunners = {
+  private _heli = vehicle player;
+  {
+    private _u = _heli turretUnit _x;
+    if (isNull _u) then {
+      _u = group player createUnit ["vtx_uh60_doorgunner", [0,0,0], [], 0, "NONE"];
+      _u moveInTurret [_heli, _x];
+    };
+    _u setSkill 1;
+    if !("vtx_wpn_m134" in (_heli weaponsTurret _x)) then {
+      _heli addWeaponTurret ["vtx_wpn_m134", _x];
+    };
+  } forEach [[1], [2]];
+};
+
+vtx_uh60_doorguns_fnc_forceAIGunnerFire = {
+  private _heli = vehicle player;
+  private _laserTargets = (entities "laserTarget") select {local _x};
+  if (_laserTargets isEqualTo []) exitWith {};
+  private _targetPos = getPosASL (_laserTargets # 0);
+  {
+    ([_heli, _x] call ace_common_fnc_getTurretDirection) params ["_gunPos", "_gunDir"];
+    private _los = _gunPos vectorFromTo _targetPos;
+    //_gunDir = [_gunDir # 0, _gunDir # 1, 0];
+    //_los = [_los # 0, _los # 1, 0];
+    private _aim = _gunDir vectorDotProduct _los;
+    //systemChat str [_x,_gunDir,_los,_aim];
+    systemChat str [_x,_aim];
+    if (_aim > 0.997) then {
+      (_heli turretUnit _x) forceWeaponFire ["vtx_wpn_m134", "far"];
+    };
+  } forEach [[1], [2]];
+};
+
+[
+  "UH-60M Blackhawk","vtx_uh60_doorguns_forceAIGunnerFire","AI Gunner Fire",
+  {call vtx_uh60_doorguns_fnc_forceAIGunnerFire}, {},
+  [240,[false,true,false]]
+] call CBA_fnc_addKeybind;
+/////////////////////////////////////////////////////////////////////////////////////
+
+diag_mergeConfigFile ["E:\Documents\GitHub\hatchet\vtx_MH60M\config\cfgVehicles.hpp"];
+deleteVehicle h;
+h = "vtx_mh60m" createVehicle getPos player;
+player moveInDriver h;
+
+
 // animationNames
 ["switch_lights_collision","switch_lights_position","switch_lights_cockpit","switch_minigun_safe_r","pylonleft","pylonright","pylonleftforward","pylonrightforward","fuelprobe","hh60flares","skis","landinglight_show","positionlights_show","cockpitlight_show","fuelprobe_extend","lasspylons","lasscovers","essspylons","essscovers","radar_hide","flir_hide","flir_back","flir_direction","flir_elevation","gau21_l_hide","gau21l_dir","gau21l_gunner","gau21l_gunner_legs","gau21l_elev","gau21_r_hide","gau21r_dir","gau21r_gunner","gau21r_gunner_legs","gau21r_elev","minigunl_dir","minigunl_elev","minigunl_barrel","minigunl__flash","minigunl_gunner","minigunl_gunner_legs","minigunr_dir","minigunr_elev","minigunr_barrel","minigunr__flash","minigunr_gunner","minigunr_gunner_legs","cabindoor_l","cabindoor_r","cabinseats_hide","hoist_hook_hide","cockpitdoors_hide","stabilator_rotate_user","stabilator_rotate","comm1_rot","comm2_rot","comm3_rot","comm4_rot","comm1r_rot","comm2r_rot","comm3r_rot","comm4r_rot","mvol_rot","mvolr_rot","tx_rot","txr_rot","fd_1_rot","fd_2_rot","fd_3_rot","fd_4_rot","fd_5_rot","fdr_1_rot","fdr_2_rot","fdr_3_rot","fdr_4_rot","fdr_5_rot","rotorbrakegauge","gauge_temp_left","gauge_temp_right","cyclic_right_x","cyclic_right_y","cyclic_left_x","cyclic_left_y","collective_right_anim","collective_left_anim","collective_right_anim_rtd","collective_left_anim_rtd","leftpedalpilot_rtd","rightpedalpilot_rtd","leftpedalcopilot_rtd","rightpedalcopilot_rtd","knob_lightupperconsole","knob_lightlowerconsole","knob_lightinstpanel","lever_engpower1z_off","lever_engpower1z_idle1","lever_engpower1z_idle2","lever_engpower1z_fly","lever_engpower2z_off","lever_engpower2z_idle1","lever_engpower2z_idle2","lever_engpower2z_fly","lever_fuelsys1","lever_fuelsys2","lever_engpower1","lever_engpower2","lever_rotorbrake","mfd1_hide","mfd2_hide","mfd3_hide","mfd4_hide","esis_hide","poweronoff","generatorsonoff","acclow","apufail","apuon","battgood","battlow","emerrlse","oilhot","testlte","cautioneng1out","cautioneng2out","cautionfire","cautionmastercaution","cautionlowrpm","switch_minigun_safe_cover_l","switch_minigun_safe_l","switch_minigun_safe_cover_r","switch_fuelboostpump1","switch_fuelboostpump2","switch_batt1","switch_batt2","switch_stbyinst","switch_airsce","switch_ignition","switch_fuelpump","switch_apucont","switch_apugen","switch_gen1","switch_gen2","handle_wheelbrake","headingball","bankangle1","bankangle2","bankangle3","bankangle4","damper_left","damper_right","damper_rear","wheel_l","wheel_r","wheel_rear","turbinefan_l","turbinefan_r","wheel_rear_rudder_afm","rotortilt","hrotor","vrotor"]
 
@@ -253,20 +288,51 @@ ropeUnwind [_rope, 1.5, -1];
 
 
 
+gsl_fnc_attachCargo = {call compile preprocessFileLineNumbers "gsl_fnc_attachCargo.sqf"};
+gsl_fnc_canAttachCargo = {call compile preprocessFileLineNumbers "gsl_fnc_canAttachCargo.sqf"};
+gsl_fnc_canRigCargo = {call compile preprocessFileLineNumbers "gsl_fnc_canRigCargo.sqf"};
+gsl_fnc_canRigCargoManual = {call compile preprocessFileLineNumbers "gsl_fnc_canRigCargoManual.sqf"};
+gsl_fnc_getCargoLiftPoints = {call compile preprocessFileLineNumbers "gsl_fnc_getCargoLiftPoints.sqf"};
+gsl_fnc_rigCargo = {call compile preprocessFileLineNumbers "gsl_fnc_rigCargo.sqf"};
+gsl_fnc_rigCargoManual = {call compile preprocessFileLineNumbers "gsl_fnc_rigCargoManual.sqf"};
 
+private _displayName = "Attach Cargo";
+private _icon = "\a3\ui_f\data\igui\cfg\vehicletoggles\slingloadropeiconon2_ca.paa";
+private _statement = gsl_fnc_attachCargo;
+private _condition = gsl_fnc_canAttachCargo;
+private _position = "slingload0";
+_action = ["gsl_attachCargo", _displayName, _icon, _statement, _condition, {}, [], _position, 100] call ace_interact_menu_fnc_createAction;
+["Helicopter", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
 
+// chinnok forward cargo hook
+_statement = {[_target, _player, [0, 2.7, -3.10134]] call gsl_fnc_attachCargo};
+_position = [0, 2.7, -3.10134];
+_action = ["gsl_attachCargoForward", _displayName, _icon, _statement, _condition, {}, [], _position, 100] call ace_interact_menu_fnc_createAction;
+// chinnok aft cargo hook
+_position = [0, -3.7, -3.10134];
+_statement = {[_target, _player, [0, -3.7, -3.10134]] call gsl_fnc_attachCargo};
+private _actionAft = ["gsl_attachCargoAft", _displayName, _icon, _statement, _condition, {}, [], _position, 100] call ace_interact_menu_fnc_createAction;
+if (isClass (configFile >> "CfgVehicles" >> "RHS_CH_47F_base")) then {
+    ["RHS_CH_47F_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
+    ["RHS_CH_47F_base", 0, [], _actionAft, true] call ace_interact_menu_fnc_addActionToClass;
+};
+if (isClass (configFile >> "CfgVehicles" >> "CUP_CH47F_base")) then {
+    ["CUP_CH47F_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
+    ["CUP_CH47F_base", 0, [], _actionAft, true] call ace_interact_menu_fnc_addActionToClass;
+};
 
+_displayName = "Rig For Sling Load";
+_condition = gsl_fnc_canRigCargo;
+_statement = gsl_fnc_rigCargo;
+_action = ["gsl_rigCargo", _displayName, _icon, _statement, _condition] call ace_interact_menu_fnc_createAction;
+["All", 0, ["ACE_MainActions"], _action, true] call ace_interact_menu_fnc_addActionToClass;
 
-
-
-
-
-
-
-
-
-
-
+_displayName = "Manual Rig";
+_icon = "\a3\ui_f\data\igui\rscingameui\rscunitinfoairrtdfull\ico_insp_hand_ca.paa";
+_statement = gsl_fnc_rigCargoManual;
+_condition = gsl_fnc_canRigCargoManual;
+_action = ["gsl_rigCargoManual", _displayName, _icon, _statement, _condition] call ace_interact_menu_fnc_createAction;
+["All", 0, ["ACE_MainActions","gsl_rigCargo"], _action, true] call ace_interact_menu_fnc_addActionToClass;
 
 
 
