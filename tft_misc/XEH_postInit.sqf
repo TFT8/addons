@@ -1,13 +1,13 @@
 // Add keybinds
 ["TFT8 S6", "tft_misc_toggleHUD", "Toggle HUD", {false}, {
-    // Statement
     if (isNil "tft_showHUD") then {tft_showHUD = true};
     tft_showHUD = !tft_showHUD;
     showHUD [tft_showHUD,tft_showHUD,tft_showHUD,tft_showHUD,tft_showHUD,tft_showHUD,tft_showHUD,tft_showHUD,tft_showHUD];
-    if !(isNil "STHud_UIMode") then {STHud_UIMode = [0, STHud_Settings_HUDMode] select tft_showHUD;};
-    if !(isNil "STGI_Enabled") then {STGI_Enabled = tft_showHUD;};
+    STHud_UIMode = [0, STHud_Settings_HUDMode] select tft_showHUD;
+    STGI_Enabled = tft_showHUD;
+    diwako_dui_main_toggled_off = !tft_showHUD;
     true
-}, [24, [false, false, false]], false] call CBA_fnc_addKeybind; // O
+}, [24, [false, false, false]], false, 0 , true] call CBA_fnc_addKeybind; // O
 
 ["TFT8 S6", "tft_misc_openGCam", "GCam","", {
     if (isNull curatorCamera) then {[] execVM "tft_misc\gcam\gcam.sqf";};
