@@ -48,16 +48,14 @@ private _customZeusModules = [
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 		[_objectUnderCursor] call tft_zeus_fnc_drawBoundingMarker;
 	}],
-	["AI Systems", "ACEX HC Blacklist Group", {
+	["AI Systems", "ACEX HC Blacklist Group Toggle", {
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
-		group _objectUnderCursor setVariable ["acex_headless_blacklist", true, true];
-		[objNull, format ["Group Blacklisted: %1", group _objectUnderCursor]] call bis_fnc_showCuratorFeedbackMessage;
+		private _g = group _objectUnderCursor;
+        private _bl = !(_g setVariable ["acex_headless_blacklist", false]);
+        _g setVariable ["acex_headless_blacklist", _bl, true];
+		[objNull, format ["HC %1 for Group: %2", ["Enabled", "Disabed"] select _bl, group _objectUnderCursor]] call bis_fnc_showCuratorFeedbackMessage;
 	}],
-	["AI Systems", "ACEX HC Unblacklist Group", {
-		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
-		group _objectUnderCursor setVariable ["acex_headless_blacklist", false, true];
-		[objNull, format ["Group Unblacklisted: %1", group _objectUnderCursor]] call bis_fnc_showCuratorFeedbackMessage;
-	}],
+    /*
 	["AI Systems", "Vcom Disable for Group", {
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 		group _objectUnderCursor setVariable ["Vcm_Disable", true, true];
@@ -68,6 +66,7 @@ private _customZeusModules = [
 		group _objectUnderCursor setVariable ["Vcm_Disable", false, true];
 		[objNull, format ["Group Vcom Enabled: %1", group _objectUnderCursor]] call bis_fnc_showCuratorFeedbackMessage;
 	}],
+    */
 	["AI Behaviour", "Look Here", {
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 		if (_objectUnderCursor isEqualTo objNull) exitWith {[objNull, format ["Place module on unit!"]] call bis_fnc_showCuratorFeedbackMessage;};
