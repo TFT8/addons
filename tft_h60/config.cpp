@@ -30,10 +30,27 @@ class CfgVehicles {
     class Heli_Transport_01_base_F :Helicopter_Base_H {
         class Turrets;
         class CopilotTurret;
+        class UserActions;
     };
     class vtx_H60_base: Heli_Transport_01_base_F {
         crew="B_helipilot_F";
 
+        icon = "\tft_h60\Data\UI\Map_vtx_UH60_CA.paa";	/// icon in map/editor
+        picture = "\tft_h60\Data\UI\vtx_UH60_CA.paa";	/// small picture in command menu
+
+        class UserActions : UserActions {
+            delete HMDs_Kimi_UserAction_0_ON;
+            delete HMDs_Kimi_UserAction_0_OFF;
+            delete HMDs_Kimi_UserAction_1_IMPERIAL;
+            delete HMDs_Kimi_UserAction_1_METRIC;
+            delete HMDs_Kimi_UserAction_2_FULL;
+            delete HMDs_Kimi_UserAction_2_DECLUTTER;
+            delete HMDs_Kimi_UserAction_345_COLOR_GREEN;
+            delete HMDs_Kimi_UserAction_345_COLOR_YELLOW;
+            delete HMDs_Kimi_UserAction_6_ALPHA_HIGH;
+            delete HMDs_Kimi_UserAction_6_ALPHA_MED;
+            delete HMDs_Kimi_UserAction_6_ALPHA_LOW;
+        };
         class Components;
         class Turrets : Turrets {
               class MainTurret;
