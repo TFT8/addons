@@ -1,4 +1,5 @@
-﻿class CfgPatches {
+#include "BIS_AddonInfo.hpp"
+class CfgPatches {
     class tft_heli{
         units[] = {};
         weapons[] = {};
@@ -168,23 +169,23 @@ class CfgFunctions {
 class CfgVehicles {
     class Air;
     class Helicopter: Air {
-      class ACE_SelfActions {
-        class TFT_DropSmoke {
-          displayName = "Drop Smoke";
-          condition = "alive _target && _player in _target";
-          statement = "[_target] call tft_fnc_smokeMarker";
-        };
-        class TFT_DeployUAV {
-          displayName = "Deploy UAV";
-          condition = "alive _target && _player in _target";
-          statement = "[_target] call tft_fnc_deployUAV";
-        };
-        class TFT_ArmDoorGun {
-          displayName = "Arm Door Gun";
-          condition = "(alive _target) && (driver _target == _player)";
-          statement = "[_target] call tft_fnc_armDoorGun";
-        };
-      };
+		class ACE_SelfActions {
+			class TFT_DropSmoke {
+				displayName = "Drop Smoke";
+				condition = "alive _target && _player in _target";
+				statement = "[_target] call tft_fnc_smokeMarker";
+			};
+			class TFT_DeployUAV {
+				displayName = "Deploy UAV";
+				condition = "alive _target && _player in _target";
+				statement = "[_target] call tft_fnc_deployUAV";
+			};
+			class TFT_ArmDoorGun {
+				displayName = "Arm Door Gun";
+				condition = "(alive _target) && (driver _target == _player)";
+				statement = "[_target] call tft_fnc_armDoorGun";
+			};
+		};
     };
     
     class Helicopter_Base_F: Helicopter {
@@ -302,6 +303,57 @@ class CfgVehicles {
 		memoryPointDriverOptics = "commanderview";
 		ENHANCED_PILOTCAMERA
     };
+	/// Pylons for the AH6 ///
+	class RHS_MELB_AH6M;
+	class tft8_littlebird_attack: RHS_MELB_AH6M
+	{
+		class Components
+        {
+            class TransportPylonsComponent
+            {
+                UIPicture = "\rhsusf\addons\rhsusf_melb\data\loadouts\RHS_AH6M_EDEN_CA.paa";
+                class pylons
+                {
+                    class pylon1
+                    {
+                        hardpoints[]		= {"RHS_HP_MELB","RHS_HP_MELB_L","DAR","DAGR","B_SHRIEKER", "CUP_NATO_HELO_SMALL","CUP_NATO_HELO_AH6","CUP_NATO_HELO_AH6_LEFT"};
+                        priority			= 2;
+                        attachment			= "rhs_mag_M151_7";
+                        maxweight			= 1200;
+                        UIposition[]		= {0.625,0.20};
+                        bay					= -1;
+                        turret[]			= {};
+                        hitpoint 			= HitPylon1;
+                    };
+                    class pylon2 : pylon1
+                    {
+                        hardpoints[]		= {"RHS_HP_MELB_M134"};
+                        UIposition[]		= {0.562,0.30};
+                        priority			= 1;
+                        attachment			= "rhs_mag_m134_pylon_3000";
+                        turret[]			= {};
+                        hitpoint 			= HitPylon2;
+                    };
+                    class pylon3 : pylon2
+                    {
+                        UIposition[]		= {0.103,0.30};
+                        mirroredMissilePos	= 2;
+                        attachment			= "rhs_mag_m134_pylon_3000";
+                        turret[]			= {};
+                        hitpoint 			= HitPylon3;
+                    };
+                    class pylon4 : pylon1
+                    {
+                        hardpoints[]		= {"RHS_HP_MELB","RHS_HP_MELB_R","DAR","DAGR","B_SHRIEKER", "CUP_NATO_HELO_SMALL","CUP_NATO_HELO_AH6","CUP_NATO_HELO_AH6_RIGHT"};
+                        UIposition[]		= {0.04,0.20};
+                        mirroredMissilePos	= 1;
+                        turret[]			= {};
+                        hitpoint 			= HitPylon4;
+                    };
+                };
+            };
+        };
+	};
     
     class Heli_Transport_02_base_F : Helicopter_Base_H {
         class Turrets : Turrets {
