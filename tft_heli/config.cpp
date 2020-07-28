@@ -300,60 +300,10 @@ class CfgVehicles {
 */
    
     class RHS_MELB_base : Helicopter_Base_H {
-		memoryPointDriverOptics = "commanderview";
-		ENHANCED_PILOTCAMERA
+		class Components;
+		 memoryPointDriverOptics = "commanderview";
+		ENHANCED_PILOTCAMERA 
     };
-	/// Pylons for the AH6 ///
-	class RHS_MELB_AH6M;
-	class tft8_littlebird_attack: RHS_MELB_AH6M
-	{
-		class Components
-        {
-            class TransportPylonsComponent
-            {
-                UIPicture = "\rhsusf\addons\rhsusf_melb\data\loadouts\RHS_AH6M_EDEN_CA.paa";
-                class pylons
-                {
-                    class pylon1
-                    {
-                        hardpoints[]		= {"RHS_HP_MELB","RHS_HP_MELB_L","DAR","DAGR","B_SHRIEKER", "CUP_NATO_HELO_SMALL","CUP_NATO_HELO_AH6","CUP_NATO_HELO_AH6_LEFT"};
-                        priority			= 2;
-                        attachment			= "rhs_mag_M151_7";
-                        maxweight			= 1200;
-                        UIposition[]		= {0.625,0.20};
-                        bay					= -1;
-                        turret[]			= {};
-                        hitpoint 			= HitPylon1;
-                    };
-                    class pylon2 : pylon1
-                    {
-                        hardpoints[]		= {"RHS_HP_MELB_M134"};
-                        UIposition[]		= {0.562,0.30};
-                        priority			= 1;
-                        attachment			= "rhs_mag_m134_pylon_3000";
-                        turret[]			= {};
-                        hitpoint 			= HitPylon2;
-                    };
-                    class pylon3 : pylon2
-                    {
-                        UIposition[]		= {0.103,0.30};
-                        mirroredMissilePos	= 2;
-                        attachment			= "rhs_mag_m134_pylon_3000";
-                        turret[]			= {};
-                        hitpoint 			= HitPylon3;
-                    };
-                    class pylon4 : pylon1
-                    {
-                        hardpoints[]		= {"RHS_HP_MELB","RHS_HP_MELB_R","DAR","DAGR","B_SHRIEKER", "CUP_NATO_HELO_SMALL","CUP_NATO_HELO_AH6","CUP_NATO_HELO_AH6_RIGHT"};
-                        UIposition[]		= {0.04,0.20};
-                        mirroredMissilePos	= 1;
-                        turret[]			= {};
-                        hitpoint 			= HitPylon4;
-                    };
-                };
-            };
-        };
-	};
     
     class Heli_Transport_02_base_F : Helicopter_Base_H {
         class Turrets : Turrets {
@@ -3888,12 +3838,45 @@ class CfgVehicles {
 	class RHS_UH60M2: RHS_UH60M {
 		class Components;
 	};
+
 	class RHS_UH60M_ESSS: RHS_UH60M2 {
 		class Components: Components {	
 			class TransportPylonsComponent {
 				class pylons {
 					class pylon1 {
 						hardpoints[] += {"DAR", "DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_LARGE", "CUP_NATO_HELO_UH60"};
+					};
+				};
+			};
+		};
+	};
+	
+	class RHS_MELB_AH6M: RHS_MELB_base
+	{ 
+		class Components: Components
+		{
+			class TransportPylonsComponent
+			{
+				class pylons
+				{
+					class pylon1
+					{
+						hardpoints[]+= {"RHS_HP_MELB", "RHS_HP_MELB_L", "DAR","DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_AH6", "CUP_NATO_HELO_AH6_LEFT"};
+						hitpoint="HitPylon1";
+					};
+					class pylon2: pylon1
+					{
+						hardpoints[]= {"RHS_HP_MELB_M134"};
+						hitpoint="HitPylon2";
+					};
+					class pylon3: pylon2
+					{
+						hitpoint="HitPylon3";
+					};
+					class pylon4: pylon1
+					{
+						hardpoints[]+= {"RHS_HP_MELB", "RHS_HP_MELB_R", "DAR", "DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_AH6", "CUP_NATO_HELO_AH6_RIGHT"};
+						hitpoint="HitPylon4";
 					};
 				};
 			};
