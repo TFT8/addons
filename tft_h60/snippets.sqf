@@ -1,4 +1,5 @@
-tanker = createVehicle ["VTX_KV44", [0,0,500], [], 0, "FLY"];
+//tanker = createVehicle ["VTX_KV44", [0,0,500], [], 0, "FLY"];
+tanker = createVehicle ["CUP_B_C130J_USMC", [0,0,500], [], 0, "FLY"];
 createVehicleCrew tanker;
 tanker forceSpeed 50;
 tanker flyInHeight 500;
@@ -15,6 +16,15 @@ vehicle player addAction ["Attach", {
 vehicle player attachTo [tanker , [-10, -45,-10]];}, nil, 2, false, true, "", "isNull attachedTo vehicle player"];
 
 // CUP C-130
+tanker = createVehicle ["CUP_B_C130J_USMC", [0,0,500], [], 0, "FLY"];
+createVehicleCrew tanker;
+tanker forceSpeed 50;
+tanker flyInHeight 500;
+group tanker addWaypoint [[0, worldSize, 500],0];
+_wp = group tanker addWaypoint [[0, 0, 500],0];
+_wp setWaypointType "CYCLE";
+publicVariable "tanker";
+tanker setVariable ["acex_headless_blacklist", true, true];
 [tanker,[[7.65,-4.9,-2.90],[-7.65,-4.9,-2.90]]] call vtx_uh60_aar_fnc_initTanker;
 ["ramp_bottom","ramp_top"] apply {tanker animateSource [_x, 1]};
 ["Door_1_source"] apply {tanker animateSource [_x, 1]};
@@ -230,45 +240,48 @@ ropeUnwind [_rope, 1.5, -1];
 
 /////////////////////////////////////////////////////////////////////////////////////
 //testing =D
-vtx_uh60_doorguns_fnc_prepareAIGunners = {
-  private _heli = vehicle player;
-  {
-    private _u = _heli turretUnit _x;
-    if (isNull _u) then {
-      _u = group player createUnit ["vtx_uh60_doorgunner", [0,0,0], [], 0, "NONE"];
-      _u moveInTurret [_heli, _x];
+if hasInterface then {
+    vtx_uh60_doorguns_fnc_prepareAIGunners = {
+      private _heli = vehicle player;
+      {
+        private _u = _heli turretUnit _x;
+        if (isNull _u) then {
+          _u = group player createUnit ["vtx_uh60_doorgunner", [0,0,0], [], 0, "NONE"];
+          _u moveInTurret [_heli, _x];
+        };
+        _u setSkill 1;
+        if !("vtx_wpn_m134" in (_heli weaponsTurret _x)) then {
+          _heli addWeaponTurret ["vtx_wpn_m134", _x];
+        };
+      } forEach [[1], [2]];
     };
-    _u setSkill 1;
-    if !("vtx_wpn_m134" in (_heli weaponsTurret _x)) then {
-      _heli addWeaponTurret ["vtx_wpn_m134", _x];
+    [] call vtx_uh60_doorguns_fnc_prepareAIGunners;
+    
+    vtx_uh60_doorguns_fnc_forceAIGunnerFire = {
+      private _heli = vehicle player;
+      private _laserTargets = (entities "laserTarget") select {local _x};
+      if (_laserTargets isEqualTo []) exitWith {};
+      private _targetPos = getPosASL (_laserTargets # 0);
+      {
+        ([_heli, _x] call ace_common_fnc_getTurretDirection) params ["_gunPos", "_gunDir"];
+        private _los = _gunPos vectorFromTo _targetPos;
+        //_gunDir = [_gunDir # 0, _gunDir # 1, 0];
+        //_los = [_los # 0, _los # 1, 0];
+        private _aim = _gunDir vectorDotProduct _los;
+        //systemChat str [_x,_gunDir,_los,_aim];
+        systemChat str [_x,_aim];
+        if (_aim > 0.997) then {
+          (_heli turretUnit _x) forceWeaponFire ["vtx_wpn_m134", "far"];
+        };
+      } forEach [[1], [2]];
     };
-  } forEach [[1], [2]];
-};
 
-vtx_uh60_doorguns_fnc_forceAIGunnerFire = {
-  private _heli = vehicle player;
-  private _laserTargets = (entities "laserTarget") select {local _x};
-  if (_laserTargets isEqualTo []) exitWith {};
-  private _targetPos = getPosASL (_laserTargets # 0);
-  {
-    ([_heli, _x] call ace_common_fnc_getTurretDirection) params ["_gunPos", "_gunDir"];
-    private _los = _gunPos vectorFromTo _targetPos;
-    //_gunDir = [_gunDir # 0, _gunDir # 1, 0];
-    //_los = [_los # 0, _los # 1, 0];
-    private _aim = _gunDir vectorDotProduct _los;
-    //systemChat str [_x,_gunDir,_los,_aim];
-    systemChat str [_x,_aim];
-    if (_aim > 0.997) then {
-      (_heli turretUnit _x) forceWeaponFire ["vtx_wpn_m134", "far"];
-    };
-  } forEach [[1], [2]];
+    [
+      "UH-60M Blackhawk","vtx_uh60_doorguns_forceAIGunnerFire","AI Gunner Fire",
+      {call vtx_uh60_doorguns_fnc_forceAIGunnerFire}, {},
+      [240,[false,true,false]]
+    ] call CBA_fnc_addKeybind;
 };
-
-[
-  "UH-60M Blackhawk","vtx_uh60_doorguns_forceAIGunnerFire","AI Gunner Fire",
-  {call vtx_uh60_doorguns_fnc_forceAIGunnerFire}, {},
-  [240,[false,true,false]]
-] call CBA_fnc_addKeybind;
 /////////////////////////////////////////////////////////////////////////////////////
 
 diag_mergeConfigFile ["E:\Documents\GitHub\hatchet\vtx_MH60M\config\cfgVehicles.hpp"];
