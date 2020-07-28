@@ -1,5 +1,6 @@
 // Add keybinds
 ["TFT8 S6", "tft_misc_toggleHUD", "Toggle HUD", {false}, {
+    if (!isNull curatorCamera) exitWith {};
     if (isNil "tft_showHUD") then {tft_showHUD = true};
     tft_showHUD = !tft_showHUD;
     showHUD [tft_showHUD,tft_showHUD,tft_showHUD,tft_showHUD,tft_showHUD,tft_showHUD,tft_showHUD,tft_showHUD,tft_showHUD];
