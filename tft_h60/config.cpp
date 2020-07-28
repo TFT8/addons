@@ -17,14 +17,6 @@ class SensorTemplateIR;
 class SensorTemplateLaser;
 class SensorTemplateNV;
 
-class Extended_Init_EventHandlers {
-    class vtx_MH60M {
-        class FRIES {
-            init = "if (local (_this select 0)) then {[_this select 0] call ace_fastroping_fnc_equipFRIES}";
-        };
-    };
-};
-
 class CfgVehicles {
     class Helicopter_Base_H;
     class Heli_Transport_01_base_F :Helicopter_Base_H {
