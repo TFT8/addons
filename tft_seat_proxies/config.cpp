@@ -18,9 +18,13 @@ class CfgVehicles {
     class vurtual_seat: Tank_F {
         class CargoTurret;
     };
-    class tft_floorhatch_proxy: vurtual_seat
-    {
+    class tft_proxy_base: vurtual_seat {
+        class CargoTurret: CargoTurret {};
         transportSoldier = 0;
+    };
+    
+    class tft_proxy_floorhatch: tft_proxy_base
+    {
         //cargoAction[] = {"commander_apcwheeled1_out"};
         
         class Turrets
@@ -48,21 +52,27 @@ class CfgVehicles {
                 ejectDeadGunner = 0;
             };
         };
-        class AnimationSources
-        {
-        };
+        class AnimationSources {};
         displayName = "Loadmaster";
-        model = "\tft_seat_proxies\data\floorhatch_proxy.p3d";
-        hideWeaponsCargo = "true";
+        model = "\tft_seat_proxies\data\floorhatch.p3d";
+        hideWeaponsCargo = "false";
         ejectDeadCargo = 0;
-        class EventHandlers
+    };
+    class tft_proxy_stand: tft_proxy_base
+    {
+        class AnimationSources {};
+        displayName = "Stand";
+        model = "\tft_seat_proxies\data\floorhatch.p3d";
+        hideWeaponsDriver = "false";
+        class VehicleTransport
         {
-            init = "_this call vurtual_seat_fnc_stretcher";
-        };
-        class Damage
-        {
-            tex[] = {};
-            mat[] = {"vurtual_seat\Data\stretcher.rvmat", "vurtual_seat\Data\stretcher.rvmat", "vurtual_seat\Data\seat_destruct.rvmat"};
+            class Cargo
+            {
+                parachuteClass = "";	// Type of parachute used when dropped in air. When empty then parachute is not used.
+                parachuteHeightLimit	= 40;				// Minimal height above terrain when parachute is used.
+                canBeTransported = 1;				// 0 (false) / 1 (true)
+                dimensions[] = { "BBox_1_1_pos", "BBox_1_2_pos" }; // Memory-point-based override of automatic bounding box
+            };
         };
     };
 };
