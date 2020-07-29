@@ -3861,7 +3861,6 @@ class CfgVehicles {
 					class pylon1
 					{
 						hardpoints[]+= {"RHS_HP_MELB", "RHS_HP_MELB_L", "DAR","DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_AH6", "CUP_NATO_HELO_AH6_LEFT"};
-						hitpoint="HitPylon1";
 					};
 				};
 			};
