@@ -1,5 +1,4 @@
-#include "BIS_AddonInfo.hpp"
-class CfgPatches {
+﻿class CfgPatches {
     class tft_heli{
         units[] = {};
         weapons[] = {};
@@ -169,23 +168,23 @@ class CfgFunctions {
 class CfgVehicles {
     class Air;
     class Helicopter: Air {
-		class ACE_SelfActions {
-			class TFT_DropSmoke {
-				displayName = "Drop Smoke";
-				condition = "alive _target && _player in _target";
-				statement = "[_target] call tft_fnc_smokeMarker";
-			};
-			class TFT_DeployUAV {
-				displayName = "Deploy UAV";
-				condition = "alive _target && _player in _target";
-				statement = "[_target] call tft_fnc_deployUAV";
-			};
-			class TFT_ArmDoorGun {
-				displayName = "Arm Door Gun";
-				condition = "(alive _target) && (driver _target == _player)";
-				statement = "[_target] call tft_fnc_armDoorGun";
-			};
-		};
+      class ACE_SelfActions {
+        class TFT_DropSmoke {
+          displayName = "Drop Smoke";
+          condition = "alive _target && _player in _target";
+          statement = "[_target] call tft_fnc_smokeMarker";
+        };
+        class TFT_DeployUAV {
+          displayName = "Deploy UAV";
+          condition = "alive _target && _player in _target";
+          statement = "[_target] call tft_fnc_deployUAV";
+        };
+        class TFT_ArmDoorGun {
+          displayName = "Arm Door Gun";
+          condition = "(alive _target) && (driver _target == _player)";
+          statement = "[_target] call tft_fnc_armDoorGun";
+        };
+      };
     };
     
     class Helicopter_Base_F: Helicopter {
@@ -300,9 +299,8 @@ class CfgVehicles {
 */
    
     class RHS_MELB_base : Helicopter_Base_H {
-		class Components;
-		 memoryPointDriverOptics = "commanderview";
-		ENHANCED_PILOTCAMERA 
+		memoryPointDriverOptics = "commanderview";
+		ENHANCED_PILOTCAMERA
     };
     
     class Heli_Transport_02_base_F : Helicopter_Base_H {
@@ -3838,45 +3836,12 @@ class CfgVehicles {
 	class RHS_UH60M2: RHS_UH60M {
 		class Components;
 	};
-
 	class RHS_UH60M_ESSS: RHS_UH60M2 {
 		class Components: Components {	
 			class TransportPylonsComponent {
 				class pylons {
 					class pylon1 {
 						hardpoints[] += {"DAR", "DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_LARGE", "CUP_NATO_HELO_UH60"};
-					};
-				};
-			};
-		};
-	};
-	
-	class RHS_MELB_AH6M: RHS_MELB_base
-	{ 
-		class Components: Components
-		{
-			class TransportPylonsComponent
-			{
-				class pylons
-				{
-					class pylon1
-					{
-						hardpoints[]+= {"RHS_HP_MELB", "RHS_HP_MELB_L", "DAR","DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_AH6", "CUP_NATO_HELO_AH6_LEFT"};
-						hitpoint="HitPylon1";
-					};
-					class pylon2: pylon1
-					{
-						hardpoints[]= {"RHS_HP_MELB_M134"};
-						hitpoint="HitPylon2";
-					};
-					class pylon3: pylon2
-					{
-						hitpoint="HitPylon3";
-					};
-					class pylon4: pylon1
-					{
-						hardpoints[]+= {"RHS_HP_MELB", "RHS_HP_MELB_R", "DAR", "DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_AH6", "CUP_NATO_HELO_AH6_RIGHT"};
-						hitpoint="HitPylon4";
 					};
 				};
 			};
