@@ -1,4 +1,3 @@
-#include "BIS_AddonInfo.hpp"
 class CfgPatches {
     class tft_heli{
         units[] = {};
@@ -3863,20 +3862,6 @@ class CfgVehicles {
 					{
 						hardpoints[]+= {"RHS_HP_MELB", "RHS_HP_MELB_L", "DAR","DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_AH6", "CUP_NATO_HELO_AH6_LEFT"};
 						hitpoint="HitPylon1";
-					};
-					class pylon2: pylon1
-					{
-						hardpoints[]= {"RHS_HP_MELB_M134"};
-						hitpoint="HitPylon2";
-					};
-					class pylon3: pylon2
-					{
-						hitpoint="HitPylon3";
-					};
-					class pylon4: pylon1
-					{
-						hardpoints[]+= {"RHS_HP_MELB", "RHS_HP_MELB_R", "DAR", "DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_AH6", "CUP_NATO_HELO_AH6_RIGHT"};
-						hitpoint="HitPylon4";
 					};
 				};
 			};
