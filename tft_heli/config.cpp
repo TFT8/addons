@@ -3862,6 +3862,10 @@ class CfgVehicles {
 					{
 						hardpoints[]+= {"RHS_HP_MELB", "RHS_HP_MELB_L", "DAR","DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_AH6", "CUP_NATO_HELO_AH6_LEFT"};
 					};
+					class pylon4: pylon1
+					{
+						hardpoints[]+= {"RHS_HP_MELB", "RHS_HP_MELB_R", "DAR","DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_AH6", "CUP_NATO_HELO_AH6_RIGHT"};
+					};
 				};
 			};
 		};
