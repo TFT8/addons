@@ -1,5 +1,4 @@
-#include "BIS_AddonInfo.hpp"
-class CfgPatches {
+﻿class CfgPatches {
     class tft_heli{
         units[] = {};
         weapons[] = {};
@@ -169,23 +168,23 @@ class CfgFunctions {
 class CfgVehicles {
     class Air;
     class Helicopter: Air {
-		class ACE_SelfActions {
-			class TFT_DropSmoke {
-				displayName = "Drop Smoke";
-				condition = "alive _target && _player in _target";
-				statement = "[_target] call tft_fnc_smokeMarker";
-			};
-			class TFT_DeployUAV {
-				displayName = "Deploy UAV";
-				condition = "alive _target && _player in _target";
-				statement = "[_target] call tft_fnc_deployUAV";
-			};
-			class TFT_ArmDoorGun {
-				displayName = "Arm Door Gun";
-				condition = "(alive _target) && (driver _target == _player)";
-				statement = "[_target] call tft_fnc_armDoorGun";
-			};
-		};
+      class ACE_SelfActions {
+        class TFT_DropSmoke {
+          displayName = "Drop Smoke";
+          condition = "alive _target && _player in _target";
+          statement = "[_target] call tft_fnc_smokeMarker";
+        };
+        class TFT_DeployUAV {
+          displayName = "Deploy UAV";
+          condition = "alive _target && _player in _target";
+          statement = "[_target] call tft_fnc_deployUAV";
+        };
+        class TFT_ArmDoorGun {
+          displayName = "Arm Door Gun";
+          condition = "(alive _target) && (driver _target == _player)";
+          statement = "[_target] call tft_fnc_armDoorGun";
+        };
+      };
     };
     
     class Helicopter_Base_F: Helicopter {
