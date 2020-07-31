@@ -3867,6 +3867,18 @@ class CfgVehicles {
 						hardpoints[]+= {"RHS_HP_MELB", "RHS_HP_MELB_R", "DAR","DAGR", "B_SHRIEKER", "CUP_NATO_HELO_SMALL", "CUP_NATO_HELO_AH6", "CUP_NATO_HELO_AH6_RIGHT"};
 					};
 				};
+                class Presets
+                {
+                    class Interdiction {
+                      displayName = "Interdiction";
+                      attachment[] = {"rhsusf_mag_gau19_melb_left", "", "", "rhs_mag_DAGR_8"};
+                    };
+                    class Heavy_H60
+                    {
+                        attachment[] = {"rhsusf_mag_gau19_melb_left", "", "", "VTX_ace_compat_rhs_usf3_pylon_mag_2rnd_hellfire_k"};
+                        displayname = "Heavy (H60)";
+                    };
+                };
 			};
 		};
 	};

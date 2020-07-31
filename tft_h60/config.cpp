@@ -17,6 +17,36 @@ class SensorTemplateIR;
 class SensorTemplateLaser;
 class SensorTemplateNV;
 
+class cfgMagazineWells {
+    class ace_hellfire_K {
+        vtx_ace_compat_rhs_usf3[] = {"VTX_ace_compat_rhs_usf3_pylon_mag_2rnd_hellfire_k"};
+    };
+};
+
+class cfgMagazines {
+  class ace_compat_rhs_usf3_pylon_mag_2rnd_hellfire_k;
+  class VTX_ace_compat_rhs_usf3_pylon_mag_2rnd_hellfire_k: ace_compat_rhs_usf3_pylon_mag_2rnd_hellfire_k { // 2x Launcher Support Rack
+    displayName = "2x AGM-114K [H60]";
+    count = 2;
+    mass = 160;
+    //hardpoints[] = {"UNI_SCALPEL", "CUP_NATO_HELO_SMALL", "RHS_HP_HELLFIRE_RACK", "CUP_NATO_HELO_AH6", "RHS_HP_MELB"};
+    ammo = "VTX_Hellfire_AGM114K";
+    pylonWeapon = "vtx_hellfire_launcher";
+  };
+};
+
+class cfgWeapons {
+    class ace_hellfire_launcher;
+    class vtx_hellfire_launcher: ace_hellfire_launcher {
+        magazines[] += {"VTX_ace_compat_rhs_usf3_pylon_mag_2rnd_hellfire_k"};
+    };
+    
+    class autocannon_30mm_RCWS;
+    class vtx_chaingun: autocannon_30mm_RCWS {
+        reloadTime = 0.1;
+    };
+};
+
 class CfgVehicles {
     class Helicopter_Base_H;
     class Heli_Transport_01_base_F :Helicopter_Base_H {
@@ -231,7 +261,7 @@ class CfgVehicles {
                     };
                     class Interdiction {
                       displayName = "Interdiction";
-                      attachment[] = {"VTX_M230_Chaingun_L", "VTX_4Rnd_ACE_Hellfire_AGM114K"};
+                      attachment[] = {"VTX_M230_Chaingun_L", "rhs_mag_DAGR_16"};
                     };
                 };
             };
