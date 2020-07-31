@@ -5,7 +5,7 @@ class CfgPatches {
         units[] = {"TFT_B_Medical", "TFT_supplyCrate_F", "TFT_supplyCrate_Adv_F", "Box_TFT8_Ammo_F"};
         weapons[] = {};
         requiredVersion = 0.6;
-        requiredAddons[] = {"CUP_Weapons_Backpacks","A3_Weapons_F","A3_Sounds_F","A3_Weapons_F_Exp","A3_Weapons_F_Ammoboxes","ace_cargo"};
+        requiredAddons[] = {"A3_Weapons_F","A3_Sounds_F","A3_Weapons_F_Exp","A3_Weapons_F_Ammoboxes","ace_cargo"};
         version = 2.0;
         versionStr = 2.0;
         versionAr[] = {2, 0};
@@ -22,67 +22,63 @@ class CfgVehicles {
 		displayName = "[TFT8]Medical Bag";
 		picture = "\tft_supplies\data\icon_TFT_B_Medical_ca.paa";
 		hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_fast_cbr_co.paa"};
-		maximumLoad = 240;
-		mass = 40;
+		maximumLoad = 360;
+		mass = 20;
 		scope = 2;
 		scopeCurator = 2;
 		class TransportItems {
             //ACE medical
             class _xx_ACE_fieldDressing {
                 name = "ACE_fieldDressing";
-                count = 30;
+                count = 20;
             };
             class _xx_ACE_elasticBandage {
                 name = "ACE_elasticBandage";
-                count = 30;
+                count = 20;
             };
             class _xx_ACE_quikclot {
                 name = "ACE_quikclot";
-                count = 30;
+                count = 20;
             };
             class _xx_ACE_packingBandage {
                 name = "ACE_packingBandage";
-                count = 30;
+                count = 20;
             };
             class _xx_ACE_morphine {
                 name = "ACE_morphine";
                 count = 20;
             };
-            class _xx_ACE_tourniquet {
-                name = "ACE_tourniquet";
-                count = 20;
-            };
-            class _xx_ACE_salineIV_500 {
-                name = "ACE_salineIV_500";
-                count = 10;
-            };
-            class _xx_ACE_surgicalKit {
-                name = "ACE_surgicalKit";
-                count = 5;
-            };
-            class _xx_ACE_CableTie {
-                name = "ACE_CableTie";
-                count = 5;
-            };
             class _xx_ACE_epinephrine {
                 name = "ACE_epinephrine";
                 count = 5;
-            };
-            class _xx_ACE_bodyBag {
-                name = "ACE_bodyBag";
-                count = 20;
             };
 			class _xx_ACE_splint {
 				name = "ACE_splint";
 				count = 4;
 			};
+            class _xx_ACE_tourniquet {
+                name = "ACE_tourniquet";
+                count = 10;
+            };
             class _xx_ACE_salineIV {
                 name = "ACE_salineIV";
                 count = 2;
             };
+            class _xx_ACE_salineIV_500 {
+                name = "ACE_salineIV_500";
+                count = 5;
+            };
             class _xx_ACE_salineIV_250 {
                 name = "ACE_salineIV_250";
-                count = 4;
+                count = 10;
+            };
+            class _xx_ACE_surgicalKit {
+                name = "ACE_surgicalKit";
+                count = 1;
+            };
+            class _xx_ACE_bodyBag {
+                name = "ACE_bodyBag";
+                count = 5;
             };
         };
 	};
