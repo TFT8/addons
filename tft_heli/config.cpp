@@ -15,15 +15,19 @@ class CfgPatches {
     };
 };
 
+#include "CfgEventHandlers.hpp"
+
 class CfgFunctions {
     class tft_heli {
         tag = "tft";
         class functions {
             file = "\tft_heli\functions";
-            class smokeMarker;
             class armDoorGun;
+            class canMoveToHatch;
             class deployUAV;
-            class slingLoadLocalise;
+            class moveFromHatch;
+            class moveToHatch;
+            class smokeMarker;
         };
     };
 };
@@ -3882,27 +3886,4 @@ class CfgVehicles {
 			};
 		};
 	};
-};
-
-//disable ACEX HC and VCOM for UAVs
-#define DISABLE(UAV_AI)\
-    class UAV_AI {\
-        class TFT_UAV_AI {\
-            init = "(_this # 0) setVariable ['acex_headless_blacklist', true]; group (_this # 0) setVariable ['Vcm_Disable', true];";\
-        };\
-    };
-
-class Extended_Init_EventHandlers {
-	DISABLE(B_UAV_AI)
-	DISABLE(O_UAV_AI)
-	DISABLE(I_UAV_AI)
-	DISABLE(B_UAV_AI_F)
-	DISABLE(O_UAV_AI_F)
-	DISABLE(I_UAV_AI_F)
-};
-
-class Extended_PostInit_EventHandlers {
-    class TFT_Sling_Load_Localise {
-        init = "call TFT_fnc_slingLoadLocalise";
-    };
 };
