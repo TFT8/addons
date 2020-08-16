@@ -18,7 +18,11 @@
     if (isNull curatorCamera) then {["Exit"] call BIS_fnc_camera;};
 }] call CBA_fnc_addKeybind; // no default key
 
-["View Distance", "tft_misc_cqbViewDistance", "Toggle CQB View Distance","", {
+["TFT Misc", "tft_misc_clearBrush", "Clear Brush","",
+    tft_fnc_reduceFoliage
+] call CBA_fnc_addKeybind; // no default key
+
+["TFT Misc", "tft_misc_cqbViewDistance", "Toggle CQB View Distance","", {
     if (isNil "tft_viewDistance") then {
         tft_viewDistance = viewDistance;
         setViewDistance 500;

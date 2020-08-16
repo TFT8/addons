@@ -26,6 +26,7 @@ class CfgFunctions {
             class displayText;
             class prepPhaseInit;
             class prepPhase;
+            class reduceFoliage;
         };
     };
 };
