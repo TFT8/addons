@@ -21,18 +21,21 @@ private _handle = _zeus addEventHandler ["CuratorObjectPlaced", {
 	if !(_entity isKindOf "AllVehicles") exitWith {};
 	if ((count (curatorSelected # 0)) > 1)  exitWith {};
 	
-	private _position0 = positionCameraToWorld [0, 0, 0];
-	private _mousePosASL = AGLToASL screenToWorld getMousePosition;
-	private _intersections = lineIntersectsSurfaces [AGLToASL _position0, _mousePosASL, cameraOn, _entity, true, 1, "GEOM"];
-	
-	if !(_intersections isEqualTo []) then {
-		(_intersections # 0) params ["_intersectPosASL", "_surfaceNormal", "_intersectObject", "_parentObject"];
-		_entity setDir (positionCameraToWorld [0, 0, 0] getDir positionCameraToWorld [0, 0, 1]);
-		if !(_intersectObject isEqualTo objNull) then {
-			_entity setPosASL _intersectPosASL;
-			_entity setVectorUp _surfaceNormal;
-		};
-	};
+    // precise position and direction
+    if (!visibleMap) then {
+        private _position0 = positionCameraToWorld [0, 0, 0];
+        private _mousePosASL = AGLToASL screenToWorld getMousePosition;
+        private _intersections = lineIntersectsSurfaces [AGLToASL _position0, _mousePosASL, cameraOn, _entity, true, 1, "GEOM"];
+        
+        if !(_intersections isEqualTo []) then {
+            (_intersections # 0) params ["_intersectPosASL", "_surfaceNormal", "_intersectObject", "_parentObject"];
+            _entity setDir (positionCameraToWorld [0, 0, 0] getDir positionCameraToWorld [0, 0, 1]);
+            if !(_intersectObject isEqualTo objNull) then {
+                _entity setPosASL _intersectPosASL;
+                _entity setVectorUp _surfaceNormal;
+            };
+        };
+    };
 
 	if (_entity isKindOf "Air" && {!(driver _entity isEqualTo objNull) && {surfaceIsWater position _entity}}) then {
 		private _altitude = 50;
