@@ -83,3 +83,15 @@ switch (TFT_camo_worldType) do {
         ];
     };
 };
+
+/*
+onEachFrame {
+    hintSilent format ["World: %4\nUniform: %1\nSurface: %2\nCamo Coef: %3", 
+        TFT_camo_uniformType,
+        [surfaceType position player,
+        ["vegetated", "exposed"] select TFT_camo_isPlayerOnExposedSurface],
+        player getUnitTrait "camouflageCoef",
+        TFT_camo_worldType
+    ]
+}
+*/
