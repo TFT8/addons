@@ -6,7 +6,7 @@
         worldType_snow
     
     Surface Types
-        typical
+        vegetated
         exposed
     
     Camo Types
@@ -30,14 +30,14 @@ switch (TFT_camo_worldType) do {
         TFT_camo_isSurfaceListExposed = true;
         TFT_camo_surfaceList = ["sand", "GdtBeach", "GdtDead", "GdtDesert", "GdtStratisBeach", "Beton", "runway_beton", "concrete", "concrete_out", "road", "surf_roadconcrete", "SurfRoadConcrete", "GdtConcrete", "GdtStratisConcrete"];
         TFT_camo_uniformTypeCoefList = [
-            // ["camoType_name", typical, exposed]
-            ["camoType_multi", COEF * 1, COEF * 1.5],
-            ["camoType_civilian", COEF * 1, COEF * 1.5],
-            ["camoType_desert", COEF * 1, COEF * 1.5],
-            ["camoType_woodland", COEF * 1, COEF * 1.5],
-            ["camoType_ghillie", COEF * 1, COEF * 1.5],
-            ["camoType_black", COEF * 1, COEF * 1.5],
-            ["camoType_snow", COEF * 1, COEF * 1.5]
+            // ["camoType_name", vegetated, exposed]
+            ["camoType_multi", COEF * 1.2, COEF * 1.6],
+            ["camoType_civilian", COEF * 2.5, COEF * 2.5],
+            ["camoType_desert", COEF * 1.6, COEF * 1.2],
+            ["camoType_woodland", COEF * 1.6, COEF * 1.8],
+            ["camoType_ghillie", COEF * 0.6, COEF * 0.8],
+            ["camoType_black", COEF * 2.0, COEF * 2.5],
+            ["camoType_snow", COEF * 1.9, COEF * 1.5]
         ];
     };
     case "worldType_desert": {
@@ -45,13 +45,13 @@ switch (TFT_camo_worldType) do {
         TFT_camo_surfaceList = ["TKPole", "TKPlevel", "TKTrava", "TKForest", "ZRPole", "ZRPlevel", "ZRTrava", "DBTrava", "D2Grass"];
         TFT_camo_uniformTypeCoefList = [
             // ["camoType_name", 1, 1.5]
-            ["camoType_multi", COEF * 1, COEF * 1.5],
-            ["camoType_civilian", COEF * 1, COEF * 1.5],
-            ["camoType_desert", COEF * 1, COEF * 1.5],
-            ["camoType_woodland", COEF * 1, COEF * 1.5],
-            ["camoType_ghillie", COEF * 1, COEF * 1.5],
-            ["camoType_black", COEF * 1, COEF * 1.5],
-            ["camoType_snow", COEF * 1, COEF * 1.5]
+            ["camoType_multi", COEF * 1.4, COEF * 1.6],
+            ["camoType_civilian", COEF * 2.5, COEF * 2.5],
+            ["camoType_desert", COEF * 1.1, COEF * 1.2],
+            ["camoType_woodland", COEF * 1.2, COEF * 1.8],
+            ["camoType_ghillie", COEF * 0.8, COEF * 1.0],
+            ["camoType_black", COEF * 2.0, COEF * 2.5],
+            ["camoType_snow", COEF * 1.9, COEF * 1.8]
         ];
     };
     case "worldType_woodland": {
@@ -59,13 +59,13 @@ switch (TFT_camo_worldType) do {
         TFT_camo_surfaceList = ["sand", "SandDesert", "SandBeach", "SandGeneral", "SandBuilding", "Beton", "runway_beton", "concrete", "concrete_out", "road", "surf_roadconcrete", "SurfRoadConcrete", "UTConcrete", "CRConcrete", "GdtVolcano", "GdtRedDirt", "GdtKlField", "cainsand_Surface"];
         TFT_camo_uniformTypeCoefList = [
             // ["camoType_name", 1, 1.5]
-            ["camoType_multi", COEF * 1, COEF * 1.5],
-            ["camoType_civilian", COEF * 1, COEF * 1.5],
-            ["camoType_desert", COEF * 1, COEF * 1.5],
-            ["camoType_woodland", COEF * 1, COEF * 1.5],
-            ["camoType_ghillie", COEF * 1, COEF * 1.5],
-            ["camoType_black", COEF * 1, COEF * 1.5],
-            ["camoType_snow", COEF * 1, COEF * 1.5]
+            ["camoType_multi", COEF * 1.4, COEF * 1.5],
+            ["camoType_civilian", COEF * 2.5, COEF * 2.5],
+            ["camoType_desert", COEF * 2.0, COEF * 1.2],
+            ["camoType_woodland", COEF * 0.8, COEF * 1.6],
+            ["camoType_ghillie", COEF * 0.6, COEF * 0.8],
+            ["camoType_black", COEF * 1.6, COEF * 2.0],
+            ["camoType_snow", COEF * 2.3, COEF * 2.5]
         ];
     };
     case "worldType_snow": {
@@ -73,13 +73,13 @@ switch (TFT_camo_worldType) do {
         TFT_camo_surfaceList = [];
         TFT_camo_uniformTypeCoefList = [
             // ["camoType_name", 1, 1.5]
-            ["camoType_multi", COEF * 1, COEF * 1.5],
-            ["camoType_civilian", COEF * 1, COEF * 1.5],
-            ["camoType_desert", COEF * 1, COEF * 1.5],
-            ["camoType_woodland", COEF * 1, COEF * 1.5],
-            ["camoType_ghillie", COEF * 1, COEF * 1.5],
-            ["camoType_black", COEF * 1, COEF * 1.5],
-            ["camoType_snow", COEF * 1, COEF * 1.5]
+            ["camoType_multi", COEF * 1.5, COEF * 2.0],
+            ["camoType_civilian", COEF * 2.5, COEF * 2.5],
+            ["camoType_desert", COEF * 2.0, COEF * 1.5],
+            ["camoType_woodland", COEF * 1.3, COEF * 2.0],
+            ["camoType_ghillie", COEF * 1.0, COEF * 1.5],
+            ["camoType_black", COEF * 2.0, COEF * 2.5],
+            ["camoType_snow", COEF * 0.8, COEF * 0.7]
         ];
     };
 };

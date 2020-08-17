@@ -10,7 +10,7 @@ worldType_snow
 
 Surface Types
 ```
-typical
+vegetated
 exposed
 ```
 

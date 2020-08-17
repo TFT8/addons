@@ -35,13 +35,13 @@ TFT_camo_isPlayerOnExposedSurface = if TFT_camo_isSurfaceListExposed then {
 };
 
 private _coef = {
-    _x params ["_camoType", "_coefTypical", "_coefExposed"];
+    _x params ["_camoType", "_coefvegetated", "_coefExposed"];
 
     if (TFT_camo_uniformType isEqualTo _camoType) exitWith {
         if TFT_camo_isPlayerOnExposedSurface then {
             _coefExposed
         } else {
-            _coefTypical
+            _coefvegetated
         }
     };
     
