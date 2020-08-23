@@ -36,7 +36,7 @@ switch (TFT_camo_worldType) do {
             ["camoType_desert", COEF * 1.6, COEF * 1.2],
             ["camoType_woodland", COEF * 1.6, COEF * 1.8],
             ["camoType_ghillie", COEF * 0.6, COEF * 0.8],
-            ["camoType_black", COEF * 2.0, COEF * 2.5],
+            //["camoType_black", COEF * 2.0, COEF * 2.5],
             ["camoType_snow", COEF * 1.9, COEF * 1.5]
         ];
     };
@@ -50,7 +50,7 @@ switch (TFT_camo_worldType) do {
             ["camoType_desert", COEF * 1.1, COEF * 1.2],
             ["camoType_woodland", COEF * 1.2, COEF * 1.8],
             ["camoType_ghillie", COEF * 0.8, COEF * 1.0],
-            ["camoType_black", COEF * 2.0, COEF * 2.5],
+            //["camoType_black", COEF * 2.0, COEF * 2.5],
             ["camoType_snow", COEF * 1.9, COEF * 1.8]
         ];
     };
@@ -64,7 +64,7 @@ switch (TFT_camo_worldType) do {
             ["camoType_desert", COEF * 2.0, COEF * 1.2],
             ["camoType_woodland", COEF * 0.8, COEF * 1.6],
             ["camoType_ghillie", COEF * 0.6, COEF * 0.8],
-            ["camoType_black", COEF * 1.6, COEF * 2.0],
+            //["camoType_black", COEF * 1.6, COEF * 2.0],
             ["camoType_snow", COEF * 2.3, COEF * 2.5]
         ];
     };
@@ -78,7 +78,7 @@ switch (TFT_camo_worldType) do {
             ["camoType_desert", COEF * 2.0, COEF * 1.5],
             ["camoType_woodland", COEF * 1.3, COEF * 2.0],
             ["camoType_ghillie", COEF * 1.0, COEF * 1.5],
-            ["camoType_black", COEF * 2.0, COEF * 2.5],
+            //["camoType_black", COEF * 2.0, COEF * 2.5],
             ["camoType_snow", COEF * 0.8, COEF * 0.7]
         ];
     };
