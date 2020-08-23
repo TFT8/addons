@@ -142,7 +142,7 @@ if ("pos cargo" in _selections) then {
 // test
 //_selectionPositions apply {_wl = createVehicle ["Sign_Arrow_Direction_Cyan_F", _vehicle modelToWorld _x, [], 0, "CAN_COLLIDE"];};
 
-private _lookPos = positionCameraToWorld [0,0,20] vectorDiff positionCameraToWorld [0,0,0];
+private _lookPos = positionCameraToWorld [0,0,0] vectorDiff positionCameraToWorld [0,0,20];
 private _exitPos = [0,0,0];
 {
     if (_x vectorDistance _lookPos < _exitPos vectorDistance _lookPos) then {

@@ -3,7 +3,7 @@
         units[] = {};
         weapons[] = {};
         requiredVersion = 1.0;
-        requiredAddons[]={"Extended_Eventhandlers"};
+        requiredAddons[]={"cba_common"};
         version = 1.0;
         versionStr = 1.0;
         versionAr[] = {1, 0};
