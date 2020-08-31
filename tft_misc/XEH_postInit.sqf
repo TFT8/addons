@@ -1,4 +1,6 @@
 // Add keybinds
+#include "\a3\ui_f\hpp\definedikcodes.inc"
+
 ["TFT8 S6", "tft_misc_toggleHUD", "Toggle HUD", {false}, {
     if (!isNull curatorCamera) exitWith {};
     if (isNil "tft_showHUD") then {tft_showHUD = true};
@@ -8,7 +10,7 @@
     STGI_Enabled = tft_showHUD;
     diwako_dui_main_toggled_off = !tft_showHUD;
     true
-}, [24, [false, false, false]], false, 0 , true] call CBA_fnc_addKeybind; // O
+}, [24, [false, false, false]], false] call CBA_fnc_addKeybind; // O
 
 ["TFT8 S6", "tft_misc_openGCam", "GCam","", {
     if (isNull curatorCamera) then {[] execVM "tft_misc\gcam\gcam.sqf";};
@@ -17,10 +19,6 @@
 ["TFT8 S6", "tft_misc_openSplendidCam", "Splendid Camera","", {
     if (isNull curatorCamera) then {["Exit"] call BIS_fnc_camera;};
 }] call CBA_fnc_addKeybind; // no default key
-
-["TFT Misc", "tft_misc_clearBrush", "Clear Brush","",
-    tft_fnc_reduceFoliage
-] call CBA_fnc_addKeybind; // no default key
 
 ["TFT Misc", "tft_misc_cqbViewDistance", "Toggle CQB View Distance","", {
     if (isNil "tft_viewDistance") then {
