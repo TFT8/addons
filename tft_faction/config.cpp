@@ -1,3 +1,4 @@
+#include "BIS_AddonInfo.hpp"
 class CfgPatches
 {
     class tft8_faction
@@ -66,105 +67,105 @@ class CfgVehicles
 {	//********************************************************************************************************************************************************************************************
     //*****           RHS Vehicles             ***************************************************************************************************************************************************
     //********************************************************************************************************************************************************************************************
-	class rhsusf_mrzr4_d;
-	class tft8_polaris_razor: rhsusf_mrzr4_d
+	class rhsusf_mrzr4_w;
+	class tft8_polaris_razor: rhsusf_mrzr4_w
 	{
 		side=1;
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="Polaris RZR[75th]";
+		displayName="Polaris RZR [75th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
 		class TransportBackpacks{};	
 	};
-	class rhsusf_M1238A1_socom_d;
-	class tft8_asv: rhsusf_M1238A1_socom_d
+	class rhsusf_M1238A1_socom_w;
+	class tft8_asv: rhsusf_M1238A1_socom_w
 	{
 		side=1;
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="M1238[ASV][75th]";
+		displayName="M1238 [ASV][75th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
 		class TransportBackpacks{};	
 	};
-	class rhsusf_M1238A1_M2_socom_d;
-	class tft8_asv_m2crows: rhsusf_M1238A1_M2_socom_d
+	class rhsusf_M1238A1_M2_socom_w;
+	class tft8_asv_m2crows: rhsusf_M1238A1_M2_socom_w
 	{
 		side=1;
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="M1238(M2|CROWS)[ASV][75th]";
+		displayName="M1238 (M2|CROWS)[ASV][75th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
 		class TransportBackpacks{};	
 	};
-	class rhsusf_M1238A1_Mk19_socom_d;
-	class tft8_asv_mk19crows: rhsusf_M1238A1_Mk19_socom_d
+	class rhsusf_M1238A1_Mk19_socom_w;
+	class tft8_asv_mk19crows: rhsusf_M1238A1_Mk19_socom_w
 	{
 		side=1;
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="M1238(Mk19|CROWS)[ASV][75th]";
+		displayName="M1238 (Mk19|CROWS)[ASV][75th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
 		class TransportBackpacks{};	
 	};
-	class rhsusf_M1239_socom_d;
-	class tft8_auv: rhsusf_M1239_socom_d
+	class rhsusf_M1239_socom_w;
+	class tft8_auv: rhsusf_M1239_socom_w
 	{
 		side=1;
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="M1239[AUV][75th]";
+		displayName="M1239 [AUV][75th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
 		class TransportBackpacks{};	
 	};
-	class rhsusf_M1239_M2_Deploy_socom_d;
-	class tft8_auv_M2_logi: rhsusf_M1239_M2_Deploy_socom_d
+	class rhsusf_M1239_M2_Deploy_socom_w;
+	class tft8_auv_M2_logi: rhsusf_M1239_M2_Deploy_socom_w
 	{
 		side=1;
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="M1239(M2|CROWS)[AUV|LOGI][75th]";
+		displayName="M1239 (M2|CROWS)[AUV|LOGI][75th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
 		class TransportBackpacks{};	
 	};
-	class rhsusf_M1239_Mk19_Deploy_socom_d;
-	class tft8_auv_Mk19_logi: rhsusf_M1239_Mk19_Deploy_socom_d
+	class rhsusf_M1239_Mk19_Deploy_socom_w;
+	class tft8_auv_Mk19_logi: rhsusf_M1239_Mk19_Deploy_socom_w
 	{
 		side=1;
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="M1239(Mk19|CROWS)[AUV|LOGI][75th]";
+		displayName="M1239 (Mk19|CROWS)[AUV|LOGI][75th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
 		class TransportBackpacks{};	
 	};
-	class rhsusf_stryker_m1126_m2_d;
-	class tft8_stryker: rhsusf_stryker_m1126_m2_d
+	class rhsusf_stryker_m1126_m2_w;
+	class tft8_stryker: rhsusf_stryker_m1126_m2_w
 	{
 		side=1;
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="M1126(M2|CROWS)[75th]";
+		displayName="M1126 (M2|CROWS)[75th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
@@ -178,7 +179,7 @@ class CfgVehicles
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="OH-6M[160th]";
+		displayName="OH-6M [160th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
@@ -191,7 +192,7 @@ class CfgVehicles
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="MH-6M[160th]";
+		displayName="MH-6M [160th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
@@ -204,7 +205,7 @@ class CfgVehicles
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="AH-6M[160th]";
+		displayName="AH-6M [160th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
@@ -217,7 +218,7 @@ class CfgVehicles
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="AH-64D(BlockII)[160th]";
+		displayName="AH-64D (BlockII)[160th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
@@ -230,7 +231,7 @@ class CfgVehicles
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="CH-47F[160th]";
+		displayName="CH-47F [160th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
@@ -243,7 +244,7 @@ class CfgVehicles
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="C-130J[37th]";
+		displayName="C-130J [37th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
@@ -257,7 +258,7 @@ class CfgVehicles
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="MkVSOC[75th]";
+		displayName="MkVSOC [75th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
@@ -270,7 +271,7 @@ class CfgVehicles
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="RHIB[75th]";
+		displayName="RHIB [75th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
@@ -283,7 +284,7 @@ class CfgVehicles
 		scope=2;
 		crew="tft8_rifleman";
 		faction="B_TFT8";
-		displayName="Zodiac[75th]";
+		displayName="Zodiac [75th]";
 		class TransportMagazines{};
 		class TransportItems{};
 		class TransportWeapons{};
@@ -483,7 +484,7 @@ class CfgVehicles
 	{
         side=1;
 		scope=2;
-		displayName="[TFT8]ZuluBag[Mk6 Mortar]";
+		displayName="[TFT8] Zulu Bag [Mk6 Mortar]";
 		maximumLoad=0;
 		mass=200;
 		class assembleinfo
@@ -499,7 +500,7 @@ class CfgVehicles
 	{
         side=1;
 		scope=2;
-		displayName="[TFT8]ZuluBag[M2HB(M3)]";
+		displayName="[TFT8] Zulu Bag [M2HB(M3)]";
 		maximumLoad=0;
 		mass=200;
 		class assembleinfo
@@ -515,7 +516,7 @@ class CfgVehicles
 	{
         side=1;
 		scope=2;
-		displayName="[TFT8]ZuluBag[M2HB(M3|AA)]";
+		displayName="[TFT8] Zulu Bag [M2HB(M3|AA)]";
 		maximumLoad=0;
 		mass=200;
 		class assembleinfo
@@ -531,7 +532,7 @@ class CfgVehicles
 	{
         side=1;
 		scope=2;
-		displayName="[TFT8]ZuluBag[Mk19(M3)]";
+		displayName="[TFT8] Zulu Bag [Mk19(M3)]";
 		maximumLoad=0;
 		mass=200;
 		class assembleinfo
@@ -547,7 +548,7 @@ class CfgVehicles
 	{
         side=1;
 		scope=2;
-		displayName="[TFT8]ZuluBag[TOW|Tripod]";
+		displayName="[TFT8] Zulu Bag [TOW|Tripod]";
 		maximumLoad=0;
 		mass=200;
 		class assembleinfo
@@ -611,7 +612,7 @@ class CfgVehicles
 	{
         side=1;
 		scope=2;
-		displayName="[TFT8]M2HB(M3|AA)";
+		displayName="[TFT8] M2HB (M3|AA)";
 		faction="B_TFT8";
 		crew="tft8_rifleman";
 		typicalCargo[]={"tft8_rifleman"};
@@ -657,7 +658,7 @@ class CfgVehicles
 	{
         side=1;
 		scope=2;
-		displayName="[TFT8]M2HB(M3)";
+		displayName="[TFT8] M2HB (M3)";
 		faction="B_TFT8";
 		crew="tft8_rifleman";
 		typicalCargo[]={"tft8_rifleman"};
@@ -705,7 +706,7 @@ class CfgVehicles
 	{
         side=1;
 		scope=2;
-		displayName="[TFT8]Mk19(M3)";
+		displayName="[TFT8] Mk19 (M3)";
 		faction="B_TFT8";
 		crew="tft8_rifleman";
 		typicalCargo[]={"tft8_rifleman"};
@@ -752,7 +753,7 @@ class CfgVehicles
 	{
         side=1;
 		scope=2;
-		displayName="[TFT8]TOW|Tripod";
+		displayName="[TFT8] TOW|Tripod";
 		faction="B_TFT8";
 		crew="tft8_rifleman";
 		typicalCargo[]={"tft8_rifleman"};
@@ -811,7 +812,7 @@ class CfgVehicles
 	{
         side=1;
 		scope=2;
-		displayName="[TFT8]Mk6 Mortar";
+		displayName="[TFT8] Mk6 Mortar";
 		faction="B_TFT8";
 		crew="tft8_rifleman";
 		class assembleInfo
@@ -897,7 +898,7 @@ class CfgWeapons
     {
         scope=2;
         author="TFT8";
-        displayName="[TFT8]M4A1(Carryhandle)[Standard]";
+        displayName="[TFT8] M4A1 (Carryhandle)";
         class LinkedItems: LinkedItems
         {
             class LinkedItemsOptic
