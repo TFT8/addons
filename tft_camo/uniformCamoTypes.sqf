@@ -240,7 +240,7 @@ tft_camo_uniformTypes = [
 		"tft8_g2_ocp_tan_rolled_camo",
 		"tft8_g2_ocp_od_camo",
 		"tft8_g2_ocp_od_rolled_camo",
-		"tft8_g2_ocp_cwg_camo"
+		"tft8_g2_ocp_cwg_camo",
 		"acu_jacket_uniform",
 		"acu_jacket_female_uniform",
 		"acu_jacket_pv2_uniform",
