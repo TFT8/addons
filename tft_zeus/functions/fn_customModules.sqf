@@ -48,6 +48,7 @@ private _customZeusModules = [
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 		[_objectUnderCursor] call tft_zeus_fnc_drawBoundingMarker;
 	}],
+    /*
 	["AI Systems", "ACEX HC Blacklist Group Toggle", {
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 		private _g = group _objectUnderCursor;
@@ -55,7 +56,6 @@ private _customZeusModules = [
         _g setVariable ["acex_headless_blacklist", _bl, true];
 		[objNull, format ["HC %1 for Group: %2", ["Enabled", "Disabed"] select _bl, group _objectUnderCursor]] call bis_fnc_showCuratorFeedbackMessage;
 	}],
-    /*
 	["AI Systems", "Vcom Disable for Group", {
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 		group _objectUnderCursor setVariable ["Vcm_Disable", true, true];
@@ -66,7 +66,6 @@ private _customZeusModules = [
 		group _objectUnderCursor setVariable ["Vcm_Disable", false, true];
 		[objNull, format ["Group Vcom Enabled: %1", group _objectUnderCursor]] call bis_fnc_showCuratorFeedbackMessage;
 	}],
-    */
 	["AI Behaviour", "Look Here", {
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 		if (_objectUnderCursor isEqualTo objNull) exitWith {[objNull, format ["Place module on unit!"]] call bis_fnc_showCuratorFeedbackMessage;};
@@ -82,7 +81,7 @@ private _customZeusModules = [
 				//systemChat str _targetPos;
 			};
 
-			[_unit, ASLToAGL _targetPos] remoteExec ["doWatch", owner _unit]
+			[_unit, ASLToAGL _targetPos] remoteExec ["doWatch", _unit]
 		}] call ace_zeus_fnc_getModuleDestination;
 	}],
 	["AI Behaviour", "Move Here", {
@@ -100,20 +99,33 @@ private _customZeusModules = [
 				//systemChat str _targetPos;
 			};
 
-			[_unit, _targetPos] remoteExec ["doMove", owner _unit]
+			[_unit, ASLToAGL _targetPos] remoteExec ["doMove", _unit]
 		}] call ace_zeus_fnc_getModuleDestination;
 	}],
 	["AI Behaviour", "Disable AI: Path", {
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 		if (_objectUnderCursor isEqualTo objNull) exitWith {[objNull, format ["Place module on unit!"]] call bis_fnc_showCuratorFeedbackMessage;};
-		[_objectUnderCursor, "Path"] remoteExec ["DisableAI", owner _objectUnderCursor];
+		//[_objectUnderCursor, "Path"] remoteExec ["DisableAI", _objectUnderCursor];
+        ["zen_common_disableAI", [_objectUnderCursor, "PATH"], _objectUnderCursor] call CBA_fnc_targetEvent;
 		[objNull, format ["Path AI Disabled: %1", _objectUnderCursor]] call bis_fnc_showCuratorFeedbackMessage;
 	}],
 	["AI Behaviour", "Enable AI: Path", {
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 		if (_objectUnderCursor isEqualTo objNull) exitWith {[objNull, format ["Place module on unit!"]] call bis_fnc_showCuratorFeedbackMessage;};
-		[_objectUnderCursor, "Path"] remoteExec ["EnableAI", owner _objectUnderCursor];
+		//[_objectUnderCursor, "Path"] remoteExec ["EnableAI", _objectUnderCursor];
+        ["zen_common_enableAI", [_objectUnderCursor, "PATH"], _objectUnderCursor] call CBA_fnc_targetEvent;
 		[objNull, format ["Path AI Enabled: %1", _objectUnderCursor]] call bis_fnc_showCuratorFeedbackMessage;
+	}],
+    */
+	["Misc", "Give Magazine", {
+		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
+		if (isNull _objectUnderCursor) exitWith {[objNull, format ["Place module on object!"]] call bis_fnc_showCuratorFeedbackMessage;};
+		if !(_objectUnderCursor isKindOf "CAManBase") exitWith {[objNull, format ["Place module on unit!"]] call bis_fnc_showCuratorFeedbackMessage;};
+        
+        private _weapon = primaryWeapon _objectUnderCursor;
+        private _magazine = (getArray (configFile >> "CfgWeapons" >> "CUP_arifle_AK74" >> "Magazines")) # 0;
+        
+        _objectUnderCursor addMagazine _magazine;
 	}],
   /*
 	["AI Behaviour", "Unpack Static Weapon", {
@@ -182,13 +194,6 @@ private _customZeusModules = [
 			[_unit, _magazine, _muzzle, _firemode, _mousePosASL] call tft_zeus_fnc_zeusProjectile;
 		}] call ace_zeus_fnc_getModuleDestination;
 	}],
-	["Projectiles", "Toggle Throw Trajectory", {
-		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];		
-		if (isNil "zen_projectiles_throwFlatTrajectory") then {zen_projectiles_throwFlatTrajectory = true;};
-		zen_projectiles_throwFlatTrajectory = !zen_projectiles_throwFlatTrajectory;
-		[objNull, format ["Throw Trajectory: %1", ["High", "Flat"] select zen_projectiles_throwFlatTrajectory]] call bis_fnc_showCuratorFeedbackMessage;
-	}]
-	/*
 	["Projectiles", "Throw Frag", {
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
 		if (_objectUnderCursor isEqualTo objNull) exitWith {[objNull, format ["Place module on unit!"]] call bis_fnc_showCuratorFeedbackMessage;};
@@ -221,6 +226,13 @@ private _customZeusModules = [
 			private _firemode = "SmokeShellMuzzle";
 			[_unit, _magazine, _muzzle, _firemode, _mousePosASL] call tft_zeus_fnc_zeusProjectile;
 		}] call ace_zeus_fnc_getModuleDestination;
+	}]
+	/*
+	["Projectiles", "Toggle Throw Trajectory", {
+		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];		
+		if (isNil "zen_projectiles_throwFlatTrajectory") then {zen_projectiles_throwFlatTrajectory = true;};
+		zen_projectiles_throwFlatTrajectory = !zen_projectiles_throwFlatTrajectory;
+		[objNull, format ["Throw Trajectory: %1", ["High", "Flat"] select zen_projectiles_throwFlatTrajectory]] call bis_fnc_showCuratorFeedbackMessage;
 	}],
 	["Projectiles", "GL Frag", {
 		params [["_position", [0,0,0], [[]], 3], ["_objectUnderCursor", objNull, [objNull]]];
