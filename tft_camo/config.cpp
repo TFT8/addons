@@ -1,3 +1,4 @@
+#include "BIS_AddonInfo.hpp"
 class CfgPatches {
     class tft_camo {
         units[] = {};

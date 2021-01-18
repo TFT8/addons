@@ -28,6 +28,11 @@ if(_all || {"Spectator" in _actions}) then {
 if(_all || {"Preparation" in _actions}) then {
     _object addAction ["<t color='#f0a4ff'>End preparation phase</t>", {TFT_prepPhase = false; publicVariable "TFT_prepPhase"; (_this select 0) removeAction (_this select 2)}, nil, -10, false, true, "", "_target distance _this < 8"];
 };
+if (_all || ("Callsigns" in _actions)) then {
+	_object addAction ["Set Callsign", {["Set Callsign",[["EDIT", "Callsign", groupID group player]],
+	{params ["_values"];   _values params ["_groupID"]; group player setGroupIdGlobal [_groupID];
+    }] call zen_dialog_fnc_create;}]
+};
 if(_all || {"Respawns" in _actions}) then {
     _object addAction ["<t color='#f0a4ff'>Move respawn point(s)</t>", {call TFT_fnc_moveRespawn}, nil, -12, false, true, "", "_target distance _this < 8"];
 };

@@ -16,12 +16,79 @@ class CfgPatches {
 class CfgVehicles {
 	// Add medical backpack
 	class B_Kitbag_Base;
-	class TFT_B_Medical: B_Kitbag_Base {
+	class tft_kitbag_med_ocp: B_Kitbag_Base {
 		author = "TFT8";
-		_generalMacro = "TFT_B_Medical";
-		displayName = "[TFT8]Medical Bag";
-		picture = "\tft_supplies\data\icon_TFT_B_Medical_ca.paa";
-		hiddenSelectionsTextures[] = {"\A3\weapons_f\ammoboxes\bags\data\backpack_fast_cbr_co.paa"};
+		_generalMacro = "tft_kitbag_med_ocp";
+		displayName = "[TFT8] Medical Bag (OCP)";
+		picture = "\tft_supplies\data\icon_tft_ocp_medbag";
+		hiddenSelectionsTextures[] = {"\tft_supplies\data\kitbag_ocp_medical_co"};
+		maximumLoad = 360;
+		mass = 20;
+		scope = 2;
+		scopeCurator = 2;
+		class TransportItems {
+            //ACE medical
+            class _xx_ACE_fieldDressing {
+                name = "ACE_fieldDressing";
+                count = 20;
+            };
+            class _xx_ACE_elasticBandage {
+                name = "ACE_elasticBandage";
+                count = 20;
+            };
+            class _xx_ACE_quikclot {
+                name = "ACE_quikclot";
+                count = 20;
+            };
+            class _xx_ACE_packingBandage {
+                name = "ACE_packingBandage";
+                count = 20;
+            };
+            class _xx_ACE_morphine {
+                name = "ACE_morphine";
+                count = 20;
+            };
+            class _xx_ACE_epinephrine {
+                name = "ACE_epinephrine";
+                count = 5;
+            };
+			class _xx_ACE_splint {
+				name = "ACE_splint";
+				count = 4;
+			};
+            class _xx_ACE_tourniquet {
+                name = "ACE_tourniquet";
+                count = 10;
+            };
+            class _xx_ACE_salineIV {
+                name = "ACE_salineIV";
+                count = 2;
+            };
+            class _xx_ACE_salineIV_500 {
+                name = "ACE_salineIV_500";
+                count = 5;
+            };
+            class _xx_ACE_salineIV_250 {
+                name = "ACE_salineIV_250";
+                count = 10;
+            };
+            class _xx_ACE_surgicalKit {
+                name = "ACE_surgicalKit";
+                count = 1;
+            };
+            class _xx_ACE_bodyBag {
+                name = "ACE_bodyBag";
+                count = 5;
+            };
+        };
+	};
+	///// ACP Medbag /////
+	class tft_kitbag_med_uwc: B_Kitbag_Base {
+		author = "TFT8";
+		_generalMacro = "tft_kitbag_med_acp";
+		displayName = "[TFT8] Medical Bag (ACP)";
+		picture = "\tft_supplies\data\icon_tft_acp_medbag";
+		hiddenSelectionsTextures[] = {"\tft_supplies\data\kitbag_acp_medical_co"};
 		maximumLoad = 360;
 		mass = 20;
 		scope = 2;
@@ -339,7 +406,7 @@ class CfgVehicles {
 	class Box_TFT8_Ammo_F: Box_NATO_Ammo_F {
 		author = "TFT8";
 		_generalMacro = "Box_TFT8_Ammo_F";
-		displayName = "Basic Ammo [TFT8]";
+		displayName = "[TFT8] Basic Ammo";
 		
         class TransportMagazines {
             // Weapon mags
@@ -400,5 +467,37 @@ class CfgVehicles {
             };
         };
 
+	};
+	class Box_NATO_WpsLaunch_F;
+	class Box_TFT8_Launcher_F: Box_NATO_WpsLaunch_F {
+		author = "TFT8";
+		_generalMacro = "Box_TFT8_Launcher_F";
+		displayName = "[TFT8] Launchers";
+		
+		class TransportWeapons {
+            class Weapon_launch_MRAWS_olive_F {
+                weapon = "Weapon_launch_MRAWS_olive_F";
+                count = 2;
+            };
+			class rhs_weap_M136 {
+                weapon = "rhs_weap_M136";
+                count = 2;
+            };
+			class rhs_weap_M72a7 {
+                weapon = "rhs_weap_M72a7";
+                count = 4;
+            };
+        };
+
+        class TransportMagazines {
+            class MRAWS_HEAT_F {
+                magazine = "MRAWS_HEAT_F";
+                count = 8;
+            };
+            class MRAWS_HE_F {
+                magazine = "MRAWS_HE_F";
+                count = 5;
+            };
+        };
 	};
 };
