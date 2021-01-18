@@ -30,14 +30,14 @@ private _handle = _zeus addEventHandler ["CuratorObjectPlaced", {
         if !(_intersections isEqualTo []) then {
             (_intersections # 0) params ["_intersectPosASL", "_surfaceNormal", "_intersectObject", "_parentObject"];
             _entity setDir (positionCameraToWorld [0, 0, 0] getDir positionCameraToWorld [0, 0, 1]);
-            if !(_intersectObject isEqualTo objNull) then {
+            if (!isNull _intersectObject) then {
                 _entity setPosASL _intersectPosASL;
                 _entity setVectorUp _surfaceNormal;
             };
         };
     };
 
-	if (_entity isKindOf "Air" && {!(driver _entity isEqualTo objNull) && {surfaceIsWater position _entity}}) then {
+	if (_entity isKindOf "Air" && {(!isNull driver _entity) && {surfaceIsWater position _entity}}) then {
 		private _altitude = 50;
 		_entity setVehiclePosition [(getPos _entity vectorAdd [0,0,_altitude]), [], 0, "FLY"];
 		if (_entity isKindOf "Plane") then {
