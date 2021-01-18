@@ -279,7 +279,7 @@ if hasInterface then {
     [
       "UH-60M Blackhawk","vtx_uh60_doorguns_forceAIGunnerFire","AI Gunner Fire",
       {call vtx_uh60_doorguns_fnc_forceAIGunnerFire}, {},
-      [240,[false,true,false]]
+      [240,[false,true,false]]                                       // Ctrl + Left Mouse
     ] call CBA_fnc_addKeybind;
 };
 /////////////////////////////////////////////////////////////////////////////////////
