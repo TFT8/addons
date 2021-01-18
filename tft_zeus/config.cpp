@@ -18,13 +18,9 @@ class CfgFunctions {
 class Extended_Init_EventHandlers {
     class ModuleCurator_F {
         class tft_zeus_init_eh {
-            clientInit  = "_this call tft_zeus_fnc_ehCuratorObjectPlaced";
+            clientInit = "_this call tft_zeus_fnc_ehCuratorObjectPlaced";
         };
     };
 };
 
-class Extended_PostInit_EventHandlers {
-    class tft_zeus {
-        init = "call tft_zeus_fnc_customModules";
-    };
-};
+#include "CfgEventHandlers.hpp"
