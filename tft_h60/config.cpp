@@ -267,4 +267,10 @@ class CfgVehicles {
             };
         };
     };
+    class vtx_UH60M: vtx_H60_base {
+        faction="B_TFT8";
+    };
+    class svn_uh60m: vtx_UH60M {
+        faction="B_TFT8";
+    };
 };
