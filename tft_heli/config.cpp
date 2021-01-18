@@ -175,12 +175,12 @@ class CfgVehicles {
 		class ACE_SelfActions {
 			class TFT_DropSmoke {
 				displayName = "Drop Smoke";
-				condition = "alive _target && _player in _target";
+				condition = "alive _target && _player in _target && {!((assignedVehicleRole player # 0) isEqualTo 'cargo')}";
 				statement = "[_target] call tft_fnc_smokeMarker";
 			};
 			class TFT_DeployUAV {
 				displayName = "Deploy UAV";
-				condition = "alive _target && _player in _target";
+				condition = "alive _target && _player in _target && {!((assignedVehicleRole player # 0) isEqualTo 'cargo')}";
 				statement = "[_target] call tft_fnc_deployUAV";
 			};
 			class TFT_ArmDoorGun {
