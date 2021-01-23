@@ -259,7 +259,7 @@ force force ace_finger_maxRange = 5.49614;
 // ACE Pylons
 force ace_pylons_enabledForZeus = true;
 force ace_pylons_enabledFromAmmoTrucks = true;
-force force ace_pylons_rearmNewPylons = false;
+force force ace_pylons_rearmNewPylons = true;
 force force ace_pylons_requireEngineer = false;
 force force ace_pylons_requireToolkit = true;
 force force ace_pylons_searchDistance = 15;
