@@ -24,7 +24,7 @@ class RscDisplayMain: RscStandardDisplay
 			picture = "\tft_spotlight\logo_tft8_512.paa"; // Square picture, ideally 512x512
 			//video = "\a3\Ui_f\Video\spotlight_1_Apex.ogv"; // Video played on mouse hover
 			//action = "0 = [_this, '127.0.0.1', '2302', ''] execVM '\x\joinServer.sqf';";
-			action = "0 = [_this, '89.163.140.110', '2322', 'yourpasshere'] execVM '\tft_spotlight\joinServer.sqf';";
+			action = "0 = [_this, 'tft8.com', '2322', 'truly'] execVM '\tft_spotlight\joinServer.sqf';";
 			actionText = "Join the TFT8 Private Server"; // Text displayed in top left corner of on-hover white frame
 			condition = "true"; // Condition for showing the spotlight
 		};
