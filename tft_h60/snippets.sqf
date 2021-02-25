@@ -237,6 +237,31 @@ _hoist_vars params ["_rope", "_dummy", "_hook"];
 
 ropeUnwind [_rope, 1.5, -1];
 
+if (!isNil "amp_drawDoorGunsMEH") then {
+    removeMissionEventHandler ["Draw3D", amp_drawDoorGunsMEH];
+};
+amp_drawDoorGunsMEH = addMissionEventHandler ["Draw3D", {
+    private _heli = vehicle player;
+    {
+        ([_heli, _x] call ace_common_fnc_getTurretDirection) params ["_pos", "_dir"];
+        private _unit = _heli turretUnit _x;
+        private _target = getAttackTarget _unit;
+        if (isNull _target) then {
+            _target = getAttackTarget _heli;
+        };
+        private _distance = 1000;
+        if (!isNull _target) then {
+            private _distance = ASLToAGL _pos distance _targetPos;
+            private _targetPos = getPos _target;
+            _c = [1,0,0,1];
+            drawLine3D [ASLToAGL _pos, _targetPos, _c];
+        };
+        _c = [0,0,1,1];
+        drawLine3D [ASLToAGL _pos, ASLToAGL _pos vectorAdd (_dir vectorMultiply _distance), _c];
+        
+    } forEach [[1], [2]];
+}];
+
 
 /////////////////////////////////////////////////////////////////////////////////////
 //testing =D
@@ -246,7 +271,7 @@ if hasInterface then {
       {
         private _u = _heli turretUnit _x;
         if (isNull _u) then {
-          _u = group player createUnit ["vtx_uh60_doorgunner", [0,0,0], [], 0, "NONE"];
+          _u = group player createUnit ["B_Helicrew_F", [0,0,0], [], 0, "NONE"];
           _u moveInTurret [_heli, _x];
         };
         _u setSkill 1;
@@ -259,23 +284,25 @@ if hasInterface then {
     
     vtx_uh60_doorguns_fnc_forceAIGunnerFire = {
       private _heli = vehicle player;
-      private _laserTargets = (entities "laserTarget") select {local _x};
-      if (_laserTargets isEqualTo []) exitWith {};
-      private _targetPos = getPosASL (_laserTargets # 0);
       {
+        private _unit = _heli turretUnit _x;
+        //private _targetPos = getPos getAttackTarget _unit;
         ([_heli, _x] call ace_common_fnc_getTurretDirection) params ["_gunPos", "_gunDir"];
+        private _cameraDir = positionCameraToWorld [0,0,0] vectorFromTo positionCameraToWorld [0,0,1];
         private _los = _gunPos vectorFromTo _targetPos;
-        //_gunDir = [_gunDir # 0, _gunDir # 1, 0];
-        //_los = [_los # 0, _los # 1, 0];
-        private _aim = _gunDir vectorDotProduct _los;
-        //systemChat str [_x,_gunDir,_los,_aim];
-        systemChat str [_x,_aim];
-        if (_aim > 0.997) then {
-          (_heli turretUnit _x) forceWeaponFire ["vtx_wpn_m134", "far"];
+        //private _aim = _gunDir vectorDotProduct _los;
+        //systemChat str [_x, _aim];
+        //if (_aim > 0.997) then {
+        private _angle = acos ((_gunDir vectorDotProduct _cameraDir) / (vectorMagnitude _gunDir * vectorMagnitude _cameraDir));
+        //private _angle = acos ((_gunDir vectorDotProduct _los) / (vectorMagnitude _gunDir * vectorMagnitude _los));
+        systemChat str [_x, round _angle];
+        if (_angle < 10) then {
+            weaponState [_heli, _x] params ["", "_muzzle", "_firemode"];
+            _unit forceWeaponFire [_muzzle, _firemode];
         };
       } forEach [[1], [2]];
     };
-
+    
     [
       "UH-60M Blackhawk","vtx_uh60_doorguns_forceAIGunnerFire","AI Gunner Fire",
       {call vtx_uh60_doorguns_fnc_forceAIGunnerFire}, {},
@@ -308,44 +335,3 @@ gsl_fnc_canRigCargoManual = {call compile preprocessFileLineNumbers "gsl_fnc_can
 gsl_fnc_getCargoLiftPoints = {call compile preprocessFileLineNumbers "gsl_fnc_getCargoLiftPoints.sqf"};
 gsl_fnc_rigCargo = {call compile preprocessFileLineNumbers "gsl_fnc_rigCargo.sqf"};
 gsl_fnc_rigCargoManual = {call compile preprocessFileLineNumbers "gsl_fnc_rigCargoManual.sqf"};
-
-private _displayName = "Attach Cargo";
-private _icon = "\a3\ui_f\data\igui\cfg\vehicletoggles\slingloadropeiconon2_ca.paa";
-private _statement = gsl_fnc_attachCargo;
-private _condition = gsl_fnc_canAttachCargo;
-private _position = "slingload0";
-_action = ["gsl_attachCargo", _displayName, _icon, _statement, _condition, {}, [], _position, 100] call ace_interact_menu_fnc_createAction;
-["Helicopter", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
-
-// chinnok forward cargo hook
-_statement = {[_target, _player, [0, 2.7, -3.10134]] call gsl_fnc_attachCargo};
-_position = [0, 2.7, -3.10134];
-_action = ["gsl_attachCargoForward", _displayName, _icon, _statement, _condition, {}, [], _position, 100] call ace_interact_menu_fnc_createAction;
-// chinnok aft cargo hook
-_position = [0, -3.7, -3.10134];
-_statement = {[_target, _player, [0, -3.7, -3.10134]] call gsl_fnc_attachCargo};
-private _actionAft = ["gsl_attachCargoAft", _displayName, _icon, _statement, _condition, {}, [], _position, 100] call ace_interact_menu_fnc_createAction;
-if (isClass (configFile >> "CfgVehicles" >> "RHS_CH_47F_base")) then {
-    ["RHS_CH_47F_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
-    ["RHS_CH_47F_base", 0, [], _actionAft, true] call ace_interact_menu_fnc_addActionToClass;
-};
-if (isClass (configFile >> "CfgVehicles" >> "CUP_CH47F_base")) then {
-    ["CUP_CH47F_base", 0, [], _action, true] call ace_interact_menu_fnc_addActionToClass;
-    ["CUP_CH47F_base", 0, [], _actionAft, true] call ace_interact_menu_fnc_addActionToClass;
-};
-
-_displayName = "Rig For Sling Load";
-_condition = gsl_fnc_canRigCargo;
-_statement = gsl_fnc_rigCargo;
-_action = ["gsl_rigCargo", _displayName, _icon, _statement, _condition] call ace_interact_menu_fnc_createAction;
-["All", 0, ["ACE_MainActions"], _action, true] call ace_interact_menu_fnc_addActionToClass;
-
-_displayName = "Manual Rig";
-_icon = "\a3\ui_f\data\igui\rscingameui\rscunitinfoairrtdfull\ico_insp_hand_ca.paa";
-_statement = gsl_fnc_rigCargoManual;
-_condition = gsl_fnc_canRigCargoManual;
-_action = ["gsl_rigCargoManual", _displayName, _icon, _statement, _condition] call ace_interact_menu_fnc_createAction;
-["All", 0, ["ACE_MainActions","gsl_rigCargo"], _action, true] call ace_interact_menu_fnc_addActionToClass;
-
-
-
