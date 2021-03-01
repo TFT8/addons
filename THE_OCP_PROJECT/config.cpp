@@ -76,6 +76,8 @@ class CfgPatches
 			/// Uniforms ///
 			"tft8_combat_fatigue_ocp_uniform",
 			"tft8_combat_fatigue_ocp_rs_uniform",
+			"tft8_combat_fatigue_aviation_uniform",
+			"tft8_combat_fatigue_aviation_rs_uniform",
 			"tft8_combat_fatigue_acp_uniform",
 			"tft8_combat_fatigue_acp_rs_uniform",
 			/*"tft8_nilla_crye_ocp_uniform",
@@ -111,6 +113,7 @@ class CfgPatches
 			"tft8_platecarrier_heavy_ocp",
 			"tft8_helipilot_vest",
 			"tft8_carrier_protected_ocp_vest",
+			"tft8_aircrew_survival_vest_ocp",
 			"tft8_platecarrier_acp",
 			"tft8_platecarrier_heavy_acp",
 			"tft8_carrier_protected_acp_vest",
@@ -134,6 +137,7 @@ class CfgPatches
 			"tft8_opscore_mohawk_ocp_ess",
 			"tft8_patrolcap_ocp",
 			"tft8_boonie_ocp_hs",
+			"tft8_boonie_ocp",
 			"tft8_ech_helmet_acp",
 			"tft8_ach_helmet_acp",
 			"tft8_ach_helmet_headset_acp",
@@ -720,6 +724,23 @@ class CfgVehicles
 			class _xx_tft8_boonie_ocp_hs
 			{
 				name="tft8_boonie_ocp_hs";
+				count=1;
+			};
+		};
+	};
+	class tft8_item_head_boonie: Headgear_Base_F
+	{
+		scope=2;
+		scopeCurator=2;
+		vehicleClass="ItemsHeadgear";
+		author="TFT8";
+		displayName="[TFT8] Boonie (OCP)";
+		model="\A3\Weapons_F\DummyCap.p3d";
+		class TransportItems
+		{
+			class _xx_tft8_boonie_ocp_hs
+			{
+				name="tft8_boonie_ocp";
 				count=1;
 			};
 		};
@@ -1397,6 +1418,40 @@ class CfgVehicles
         linkedItems[] = {"ItemMap","ItemCompass","ItemWatch","ItemRadio"}; 
         respawnLinkedItems[] = {"ItemMap","ItemCompass","ItemWatch","ItemRadio"}; 
     };
+	class tft8_combat_fatigue_aviation: B_soldier_F
+	{
+        author="TFT8"; 
+        scope = 1;  
+        faction="B_TFT8";
+        model = "\A3\characters_f_beta\INDEP\ia_soldier_01.p3d"; //Default NATO 
+        uniformClass = "tft8_combat_fatigue_aviation_uniform"; 
+        hiddenSelections[] = {"Camo","Insignia"}; 
+        hiddenSelectionsTextures[] = {"THE_OCP_PROJECT\Data\combat_fatigue_aviation_co.paa"};
+        hiddenSelectionsMaterials[] = {};  
+        weapons[] = {"Throw","Put"}; 
+        respawnWeapons[] = {"Throw","Put"}; 
+        magazines[] = {}; 
+        respawnMagazines[] = {};
+        linkedItems[] = {"ItemMap","ItemCompass","ItemWatch","ItemRadio"}; 
+        respawnLinkedItems[] = {"ItemMap","ItemCompass","ItemWatch","ItemRadio"}; 
+    };
+    class tft8_combat_fatigue_aviation_rs: B_soldier_F
+	{
+        author="TFT8"; 
+        scope = 1; 
+        faction="B_TFT8";
+        model = "\A3\characters_f_beta\INDEP\ia_soldier_02.p3d"; //NATO Rolled Up Sleeves 
+        uniformClass = "tft8_combat_fatigue_aviation_rs_uniform"; 
+        hiddenSelections[] = {"Camo","Insignia"}; 
+        hiddenSelectionsTextures[] = {"THE_OCP_PROJECT\Data\combat_fatigue_aviation_co.paa"}; 
+        hiddenSelectionsMaterials[] = {}; 
+        weapons[] = {"Throw","Put"}; 
+        respawnWeapons[] = {"Throw","Put"}; 
+        magazines[] = {}; 
+        respawnMagazines[] = {};
+        linkedItems[] = {"ItemMap","ItemCompass","ItemWatch","ItemRadio"}; 
+        respawnLinkedItems[] = {"ItemMap","ItemCompass","ItemWatch","ItemRadio"}; 
+    };
 	///// ACP Uniforms /////
 	class tft8_combat_fatigue_acp: B_soldier_F
 	{
@@ -1899,6 +1954,36 @@ class cfgWeapons
 		{
 			uniformModel="-"; 
             uniformClass="tft8_combat_fatigue_ocp_rs"; 
+            containerClass="Supply60"; 
+            mass=40; 
+        }; 
+    };
+	class tft8_combat_fatigue_aviation_uniform: Uniform_Base 
+    { 
+		author="TFT8";
+        scope=2; 
+        displayName="[TFT8] Combat Fatigue (Aviation)"; 
+        picture="\THE_OCP_PROJECT\UI\tft8_ocp_pic.paa"; 
+       	model="\A3\Characters_F\Common\Suitpacks\suitpack_blufor_diver";
+		class ItemInfo: UniformItem
+		{
+			uniformModel="-"; 
+            uniformClass="tft8_combat_fatigue_aviation"; 
+            containerClass="Supply60"; 
+            mass=40; 
+        }; 
+    }; 
+    class tft8_combat_fatigue_aviation_rs_uniform: Uniform_Base 
+    { 
+		author="TFT8";
+        scope=2; 
+        displayName="[TFT8] Combat Fatigue (Aviation)[RS]"; 
+        picture="\THE_OCP_PROJECT\UI\tft8_ocp_pic.paa"; 
+        model="\A3\Characters_F\Common\Suitpacks\suitpack_blufor_diver";
+		class ItemInfo: UniformItem
+		{
+			uniformModel="-"; 
+            uniformClass="tft8_combat_fatigue_aviation_rs"; 
             containerClass="Supply60"; 
             mass=40; 
         }; 
@@ -3180,6 +3265,52 @@ class cfgWeapons
 				{
 					hitpointName="HitBody";
 					passThrough=0.30000001;
+				};
+			};
+		};
+	};
+	class CUP_Vest_Camo_Base;
+	class tft8_aircrew_survival_vest_ocp: CUP_Vest_Camo_Base
+	{
+		author="$STR_CUP_AUTHOR_STRING";
+		dlc="CUP_Units";
+		scope=2;
+		displayName="[TFT8] Aircrew Survival Vest (OCP)";
+		picture="\THE_OCP_PROJECT\UI\tft8_ocp_pic.paa";
+		model="CUP\Creatures\People\Military\CUP_Creatures_People_Military_USMC\CUP_aircrew_vest.p3d";
+		hiddenSelections[]={"camo","camo1"};
+		hiddenSelectionsTextures[]={"THE_OCP_PROJECT\Data\aircrew_vest_ocp.paa","THE_OCP_PROJECT\Data\lifevest_co.paa"};
+		class ItemInfo: VestItem
+		{
+			uniformModel="CUP\Creatures\People\Military\CUP_Creatures_People_Military_USMC\CUP_aircrew_vest.p3d";
+			hiddenSelections[]={"camo","camo2"};
+			hiddenSelectionsTextures[]={"THE_OCP_PROJECT\Data\aircrew_vest_ocp.paa"};
+			containerClass="Supply200";
+			mass=40;
+			class HitpointsProtectionInfo
+			{
+				class Chest
+				{
+					hitpointName="HitChest";
+					armor=25;
+					passThrough=0.5;
+				};
+				class Diaphragm
+				{
+					hitpointName="HitDiaphragm";
+					armor=25;
+					passThrough=0.5;
+				};
+				class Abdomen
+				{
+					hitpointName="HitAbdomen";
+					armor=25;
+					passThrough=0.5;
+				};
+				class Body
+				{
+					hitpointName="HitBody";
+					passThrough=0.5;
 				};
 			};
 		};
@@ -4506,6 +4637,22 @@ class cfgWeapons
 			uniformModel="A3\Characters_F_EPB\Common\booniehat_hs.p3d";
 		};
 	};
+	class tft8_boonie_ocp: H_Booniehat_khk
+	{
+		author="TFT8";
+		_generalMacro="H_Booniehat_ocp_hs";
+		picture="\THE_OCP_PROJECT\UI\tft8_ocp_pic.paa";
+		displayName="[TFT8] Boonie (OCP)";
+		model="A3\Characters_F_EPB\Common\booniehat.p3d";
+        hiddenSelectionsTextures[]=
+		{
+			"\THE_OCP_PROJECT\Data\booniehat_ocp_co.paa"
+		};
+		class ItemInfo: ItemInfo
+		{
+			uniformModel="A3\Characters_F_EPB\Common\booniehat_hs.p3d";
+		};
+	};
 	
 	///// ACP Caps /////
 	class tft8_boonie_acp_hs: H_Booniehat_khk
@@ -4863,6 +5010,13 @@ class CfgUnitInsignia
 		displayName="[TFT8] VVAR|Airborne|Medic";
 		texture="\THE_OCP_PROJECT\Data\Patches\vvar_airborne_medic.paa";
 	};
+	class tft8_patch_40thid
+	{
+		scope=2;
+		author="TFT8";
+		displayName="[TFT8] 40th Infantry Divsion";
+		texture="\THE_OCP_PROJECT\Data\Patches\40infantry_div_ocp_ca.paa";
+	};
 	class tft8_patch_collins
 	{
 		scope=2;
@@ -4874,7 +5028,7 @@ class CfgUnitInsignia
 	{
 		scope=2;
 		author="TFT8";
-		displayName="[TFT8]MILANES";
+		displayName="[TFT8] Milanes";
 		texture="\THE_OCP_PROJECT\Data\Patches\milanes.paa";
 	};
 	class tft8_patch_pacheco
@@ -4918,5 +5072,12 @@ class CfgUnitInsignia
 		author="TFT8";
 		displayName="[TFT8] Cordoza";
 		texture="\THE_OCP_PROJECT\Data\Patches\cordoza.paa";
+	};
+	class tft8_patch_ozden
+	{
+		scope=2;
+		author="TFT8";
+		displayName="[TFT8] Ozden";
+		texture="\THE_OCP_PROJECT\Data\Patches\ozden.paa";
 	};
 };
