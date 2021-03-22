@@ -11,8 +11,8 @@ class CfgPatches {
     };
 };
 
-class Extended_PreInit_EventHandlers {
+class Extended_PostInit_EventHandlers {
     class tft_server {
-        init = "call compile preprocessFileLineNumbers 'tft_init.sqf'";
+        init = "call compile preprocessFileLineNumbers '\tft_server\tft_opslog.sqf'";
     };
 };
