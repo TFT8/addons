@@ -53,6 +53,8 @@ class CfgPatches
     };
 };
 
+#include "CfgORBAT.hpp"
+
 class CfgFactionClasses {
     class B_TFT8 {
         displayName = "_Task Force Tempor 8";
