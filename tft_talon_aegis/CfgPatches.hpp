@@ -161,7 +161,6 @@ class CfgPatches {
             "A3_Soft_F",
             "A3_Soft_F_Gamma_Hatchback_01",
             "A3_Soft_F_Exp_Offroad_02",
-            "242Nightstalkers_Base",
             "A3_Data_F_ParticleEffects",
             "babe_int_EHs",
             "ace_interaction",
