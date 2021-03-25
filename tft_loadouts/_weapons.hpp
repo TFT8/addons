@@ -393,5 +393,10 @@
     "Xnooz_micro1",
     "Xnooz_micro2",
     "XZ_CamRecorder_1",
-    "XZ_CamRecorder_2"
+    "XZ_CamRecorder_2",
+	"kt_M110A1_blk02",
+	"kt_M110A1_fde02",
+	"kt_M110A1_khk02",
+	"kt_M110A1_ral02",
+	"kt_M110A1_sand02"
 ];
