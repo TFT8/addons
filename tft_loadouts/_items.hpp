@@ -927,6 +927,6 @@
     "optic_Holosight_smg",
     "sma_gemtech_one_blk",
     "sma_gemtech_one_des",
-    "sma_gemtech_one_wdl",
+    "sma_gemtech_one_wdl"
 ];
 
